@@ -11,5 +11,7 @@ namespace DBUtility
     /// </summary>
     class SQLHelper
     {
+        ///
+
     }
 }
