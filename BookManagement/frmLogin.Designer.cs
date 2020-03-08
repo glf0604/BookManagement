@@ -120,7 +120,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackgroundImage = global::BookManagement.Properties.Resources.图书馆01;
+            this.pictureBox1.BackgroundImage = global::BookManagement.Properties.Resources._01;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Location = new System.Drawing.Point(3, 3);
             this.pictureBox1.Name = "pictureBox1";
@@ -146,6 +146,7 @@
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.frmLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
