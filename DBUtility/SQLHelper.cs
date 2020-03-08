@@ -153,5 +153,54 @@ namespace DBUtility
         }
 
         #endregion
+
+        #region Submit to database through transactions
+        public static bool UpdateByTransaction(List<string> sqlList)
+        {
+            //Instantiate database connections
+            SqlConnection conn = new SqlConnection(connString);
+            //Instantiate command class
+            SqlCommand cmd = new SqlCommand();
+            //Specifies the connection object used by the Cmd object
+            cmd.Connection = conn;
+            //execution
+            try
+            {
+                //Open connection
+                conn.Open();
+                //Open a transaction
+                cmd.Transaction = conn.BeginTransaction();
+                //Execute SQL by article
+                foreach (string item in sqlList)
+                {
+                    cmd.CommandText = item;
+                    cmd.ExecuteNonQuery();
+                }
+                //Submit a transaction
+                cmd.Transaction.Commit();
+                //Return
+                return true;
+            }
+            catch (Exception ex)
+            {
+                if (cmd.Transaction != null)
+                {
+                    //Rolling back transactions
+                    cmd.Transaction.Rollback();
+                }
+                throw new Exception("Invoking a transaction method is an error! Specific information:" + ex.Message);
+            }
+            finally
+            {
+                if (cmd.Transaction != null)
+                {
+                    cmd.Transaction = null;
+                }
+                //Close the connection
+                conn.Close();
+            }
+
+        }
+        #endregion
     }
 }
