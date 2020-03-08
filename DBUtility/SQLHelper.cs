@@ -96,5 +96,36 @@ namespace DBUtility
                 conn.Close();
             }
         }
+        //Get a single result (first row first column)
+        public static object GetOneResult(string sql, SqlParameter[] para)
+        {
+
+            //Instantiate a connection
+            SqlConnection conn = new SqlConnection(connString);
+            //Instantiate Commnad
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            //Execute and return results 
+            try
+            {
+                //Open the Database
+                conn.Open();
+                //Determine if the parameter is empty
+                if (para != null)
+                {
+                    cmd.Parameters.AddRange(para);
+                }
+                //Returns the result, the return value is the first column of the first row, the Object type
+                return cmd.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                //Close a database connection 
+                conn.Close();
+            }
+        }
     }
 }
