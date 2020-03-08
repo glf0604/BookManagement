@@ -63,5 +63,38 @@ namespace DBUtility
                 throw ex;
             }
         }
+        #endregion
+
+        #region SQL Statement with parameters 
+        //Implementation of the deletion of the database and other changes
+        public static int Update(string sql, SqlParameter[] para)
+        {
+            //Instantiate a connection
+            SqlConnection conn = new SqlConnection(connString);
+            //Instantiate Commnad
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            //Execute and return results 
+            try
+            {
+                //Open the Database
+                conn.Open();
+                //Determine if the parameter is empty
+                if (para != null)
+                {
+                    cmd.Parameters.AddRange(para);
+                }
+                //Returns the result, the return value is the number of rows affected, the int type
+                return cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                //Close a database connection 
+                conn.Close();
+            }
+        }
     }
 }
