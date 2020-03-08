@@ -202,5 +202,13 @@ namespace DBUtility
 
         }
         #endregion
+
+        //Get system time for the database server
+        public static DateTime GetServerTime()
+        {
+            string sql = "Select GETDATE()";
+
+            return Convert.ToDateTime(GetOneResult(sql));
+        }
     }
 }
