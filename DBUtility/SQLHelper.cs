@@ -44,5 +44,24 @@ namespace DBUtility
                 conn.Close();
             }
         }
+        //Get the result set--SqlDataReader type
+        public static SqlDataReader GetReader(string sql)
+        {
+            //Instantiation sqlConnection 
+            SqlConnection conn = new SqlConnection(connString);
+            //Instantiation SqCommand
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            try
+            {
+                //Open connection 
+                conn.Open();
+                //Returns the result, the return value SqlDataReader type
+                return cmd.ExecuteReader(CommandBehavior.CloseConnection);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
