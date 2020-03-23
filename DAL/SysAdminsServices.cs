@@ -85,5 +85,28 @@ namespace DAL
             }
 
         }
+        //Determine if the login account exists
+        public bool IsExistLoginId(int loginId)
+        {
+            //Preparing SQL statements
+            string sql = "Select LoginPwd from SysAdmins Where LoginId=@Loginid ";
+            //Prepare parameters
+            SqlParameter[] para = new SqlParameter[]
+            {
+                new SqlParameter("@LoginId",loginId),
+            };
+
+            //Execute and return
+            try
+            {
+                if (SQLHelper.GetOneResult(sql, para) == null) return false;
+                else return true;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }
