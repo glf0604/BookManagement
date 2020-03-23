@@ -323,6 +323,29 @@ namespace DAL
             }
         }
 
+        //Generate Administrator number
+        public string BuildLoginId()
+        {
+            //Preparing SQL statements
+            string sql = "Select Top 1 LoginId from SysAdmins Order by LoginId DESC ";
+
+            //Execute and return
+            try
+            {
+                object obj = SQLHelper.GetOneResult(sql);
+                if (obj == null) return "1001";
+                else
+                {
+                    return (Convert.ToInt32(obj) + 1).ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
 
     }
 }
