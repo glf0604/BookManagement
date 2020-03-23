@@ -229,5 +229,31 @@ namespace DAL
             }
 
         }
+
+        //Modify Password
+        public int ChangePassword(int loginId, string newPassword)
+        {
+            //Preparing SQL statements
+            string sql = "Update SysAdmins Set LoginPwd=@LoginPwd Where LoginId=@LoginId";
+            //Prepare parameters
+            SqlParameter[] para = new SqlParameter[]
+            {
+                new SqlParameter("@LoginPwd",newPassword),
+                new SqlParameter("@LoginId",loginId),
+            };
+
+            //Submit
+            try
+            {
+                return SQLHelper.Update(sql, para);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+
     }
 }
