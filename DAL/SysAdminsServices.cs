@@ -131,5 +131,28 @@ namespace DAL
                 throw ex;
             }
         }
+        //Change the last time you logged in
+        public int UpdateLastLoginTime(int loginId)
+        {
+            //Preparing SQL statements
+            string sql = "Update SysAdmins Set LastLoginTime=@LastLoginTime Where LoginId=@LoginId ";
+            //Preparing variables 
+            SqlParameter[] para = new SqlParameter[]
+            {
+                new SqlParameter("@LastLoginTime",SQLHelper.GetServerTime()),
+                new SqlParameter("@LoginId",loginId),
+            };
+            //Start Exectution
+            try
+            {
+                return SQLHelper.Update(sql, para);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
     }
 }
