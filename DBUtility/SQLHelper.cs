@@ -10,9 +10,9 @@ using System.Data;
 namespace DBUtility
 {
     /// <summary>
-    /// Common access classes that operate on SQL server databases
+    /// Generic access classes that manipulate SQL Server databases
     /// </summary>
-    class SQLHelper
+    public static class SQLHelper
     {
         //Connection string 
         private static string connString = ConfigurationManager.ConnectionStrings["connString"].ToString();
@@ -44,6 +44,34 @@ namespace DBUtility
                 conn.Close();
             }
         }
+
+        //Get a single result (first row first column)
+        public static object GetOneResult(string sql)
+        {
+
+            //Instantiate a connection
+            SqlConnection conn = new SqlConnection(connString);
+            //Instantiate Commnad
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            //Execute and return results 
+            try
+            {
+                //Open the Database
+                conn.Open();
+                //Returns the result, the return value is the first column of the first row, the Object type
+                return cmd.ExecuteScalar();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                //Close a database connection 
+                conn.Close();
+            }
+        }
+
         //Get the result set--SqlDataReader type
         public static SqlDataReader GetReader(string sql)
         {
@@ -63,6 +91,7 @@ namespace DBUtility
                 throw ex;
             }
         }
+
         #endregion
 
         #region SQL Statement with parameters 
@@ -96,6 +125,7 @@ namespace DBUtility
                 conn.Close();
             }
         }
+
         //Get a single result (first row first column)
         public static object GetOneResult(string sql, SqlParameter[] para)
         {
@@ -127,6 +157,7 @@ namespace DBUtility
                 conn.Close();
             }
         }
+
         //Get the result set--SqlDataReader type
         public static SqlDataReader GetReader(string sql, SqlParameter[] para)
         {
@@ -202,6 +233,7 @@ namespace DBUtility
 
         }
         #endregion
+
 
         //Get system time for the database server
         public static DateTime GetServerTime()
