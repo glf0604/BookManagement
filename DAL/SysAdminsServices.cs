@@ -108,5 +108,28 @@ namespace DAL
                 throw ex;
             }
         }
+        //Disable a login account 
+        public int DisableLoginId(int loginId)
+        {
+            //Preparing SQL statements
+            string sql = "Update SysAdmins Set IsDisable=1 Where LoginId=@LoginId";
+
+            //Prepare parameters
+            SqlParameter[] para = new SqlParameter[]
+            {
+                new SqlParameter("@LoginId",loginId),
+            };
+
+            //Execute and return 
+            try
+            {
+                return SQLHelper.Update(sql, para);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }
