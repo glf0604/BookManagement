@@ -288,5 +288,41 @@ namespace DAL
                 throw ex;
             }
         }
+
+        //Get all the Administrators
+        public DataTable GetSysAdmins(string loginId, string username)
+        {
+            //Preparing SQL
+            string sql = "Select LoginId,UserName,IsDisable,IsSuperUser,LastLoginTime from SysAdmins ";
+            sql += " Where LoginId Like @LoginId And UserName Like @UserName ";
+
+            //Prepare parameters
+            SqlParameter[] para = new SqlParameter[]
+            {
+                new SqlParameter("@LoginId",'%'+loginId+'%'),
+                new SqlParameter("@UserName",'%'+username+'%'),
+            };
+
+            //Execute and return
+            try
+            {
+                SqlDataReader objReader = SQLHelper.GetReader(sql, para);
+                if (!objReader.HasRows) return null;
+                else
+                {
+                    DataTable dt = new DataTable();
+                    dt.Load(objReader);
+                    objReader.Close();
+                    return dt;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+
     }
 }
