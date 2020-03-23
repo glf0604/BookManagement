@@ -181,5 +181,29 @@ namespace DAL
                 throw ex;
             }
         }
+
+        //Write Exit Time
+        public int WriteExitTime(int logId)
+        {
+            //Preparing SQL statements
+            string sql = "Update LoginLogs Set ExitTime=@ExitTime Where LogId=@LogId";
+            //Prepare parameters
+            SqlParameter[] para = new SqlParameter[]
+            {
+                new SqlParameter("@ExitTime",SQLHelper.GetServerTime()),
+                new SqlParameter("@LogId",logId),
+            };
+
+            //Execute and return
+            try
+            {
+                return SQLHelper.Update(sql, para);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }
