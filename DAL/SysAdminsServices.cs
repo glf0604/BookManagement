@@ -205,5 +205,29 @@ namespace DAL
                 throw ex;
             }
         }
+
+        //Get a name by Id
+        public string GetUserName(int loginId)
+        {
+            //Preparing SQL
+            string sql = "Select UserName from SysAdmins where LoginId=@LoginId";
+
+            //Prepare parameters
+            SqlParameter[] para = new SqlParameter[]
+            {
+                new SqlParameter("@LoginId",loginId),
+            };
+            //Execute and return
+            try
+            {
+                return SQLHelper.GetOneResult(sql, para).ToString();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
     }
 }
