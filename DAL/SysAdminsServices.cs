@@ -254,6 +254,39 @@ namespace DAL
             }
         }
 
+        //Get the log for login
+        public DataTable GetLoginLogs(string loginId, string userName, DateTime start, DateTime end)
+        {
+            //Preparing SQL
+            string sql = "Select LogId,LoginId,UserName,LoginComputer,LoginTime,ExitTime from LoginLogs ";
+            sql += " Where LoginId Like  @LoginId And UserName Like @UserName And LoginTime > @Start And LoginTime< @End ";
+            //Prepare parameters
+            SqlParameter[] para = new SqlParameter[]
+            {
+                new SqlParameter("@LoginId",'%'+loginId+'%'),
+                new SqlParameter("@UserName",'%'+userName+'%'),
+                new SqlParameter("@Start",start),
+                new SqlParameter("@End",end),
+            };
 
+            //Get results
+            try
+            {
+                SqlDataReader objReader = SQLHelper.GetReader(sql, para);
+                if (!objReader.HasRows) return null;
+                else
+                {
+                    DataTable dt = new DataTable();
+                    dt.Load(objReader);
+                    objReader.Close();
+                    return dt;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }
