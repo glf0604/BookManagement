@@ -375,6 +375,32 @@ namespace DAL
             }
         }
 
+        //Modify Admin
+        public int UpdateSysAdmin(SysAdmins objSysAdmins)
+        {
+            //Preparing SQL statements
+            string sql = "Update SysAdmins Set UserName=@UserName,IsDisable=@IsDisable,IsSuperUser=@IsSuperUser Where LoginId=@LoginId";
+            //Preparing parameters in SQL statements
+            SqlParameter[] para = new SqlParameter[]
+            {
+                new SqlParameter("@LoginId",objSysAdmins.LoginId),
+                new SqlParameter("@LoginPwd",objSysAdmins.LoginPwd),
+                new SqlParameter("@UserName",objSysAdmins.UserName),
+                new SqlParameter("@IsDisable",objSysAdmins.IsDisable),
+                new SqlParameter("@IsSuperUser",objSysAdmins.IsSuperUser),
+                new SqlParameter("@LastLoginTime",objSysAdmins.LastLoginTime),
+            };
 
+            //Submit
+            try
+            {
+                return SQLHelper.Update(sql, para);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }
