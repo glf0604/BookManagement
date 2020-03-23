@@ -154,5 +154,32 @@ namespace DAL
             }
 
         }
+
+        //Write a log
+        public int WirteLoginLog(LoginLogs objLoginLogs)
+        {
+            //Preparing SQL statements
+            string sql = "Insert into LoginLogs (LoginId, UserName, LoginComputer, LoginTime) ";
+            sql += "Values (@LoginId, @UserName, @LoginComputer, @LoginTime); Select @@Identity";
+            //Preparing parameters in SQL statements
+            SqlParameter[] para = new SqlParameter[]
+            {
+                new SqlParameter("@LoginId",objLoginLogs.LogInId),
+                new SqlParameter("@UserName",objLoginLogs.UserName),
+                new SqlParameter("@LoginComputer",objLoginLogs.LoginComputer),
+                new SqlParameter("@LoginTime",objLoginLogs.LoginTime),
+            };
+
+            //Execute and return
+            try
+            {
+                return Convert.ToInt32(SQLHelper.GetOneResult(sql, para));
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }
