@@ -73,9 +73,29 @@ namespace BookManagement.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Person01 {
+            get {
+                object obj = ResourceManager.GetObject("Person01", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap 图书馆01 {
             get {
                 object obj = ResourceManager.GetObject("图书馆01", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap 图书馆011 {
+            get {
+                object obj = ResourceManager.GetObject("图书馆011", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
