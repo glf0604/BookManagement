@@ -60,5 +60,30 @@ namespace DAL
             }
 
         }
+        //Determine if the password is correct
+        public bool Login(int loginId, string loginPwd)
+        {
+            //Preparing SQL statements
+            string sql = "Select UserName from SysAdmins where LoginId=@LoginId And LoginPwd=@LoginPwd";
+
+            //Prepare parameters
+            SqlParameter[] para = new SqlParameter[]
+            {
+                new SqlParameter("@LoginId",loginId),
+                new SqlParameter("@LoginPwd",loginPwd),
+            };
+            //Execute and return
+            try
+            {
+                if (SQLHelper.GetOneResult(sql, para) == null) return false;
+                else return true;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
     }
 }
