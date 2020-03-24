@@ -54,5 +54,57 @@ namespace DAL
             }
 
         }
+        //Get more information about a book by book number
+        public Book GetBookById(string bookId)
+        {
+            //Preparing SQL statements
+            string sql = "Select BookId, BookName, BookType, ISBN, BookAuthor, BookPress,BookPrice, BookImage, BookPublishDate, StorageInNum, StorageInDate, InventoryNum, BorrowedNum ";
+            sql += " from Book Where  BookId=@BookId ";
+
+            //Prepare the parameters to which the SQL query is
+            SqlParameter[] para = new SqlParameter[]
+            {
+                new SqlParameter("@BookId",bookId),
+            };
+
+            //Execute and receive return results
+            try
+            {
+                //Receive results using SqlDataReader
+                SqlDataReader objReader = SQLHelper.GetReader(sql, para);
+                //Determine if it is empty
+                if (!objReader.HasRows) return null;
+                //Read 
+                Book objBook = new Book();
+                if (objReader.Read())
+                {
+                    objBook = new Book()
+                    {
+                        BookId = objReader["BookId"].ToString(),
+                        BookName = objReader["BookName"].ToString(),
+                        BookType = Convert.ToInt32(objReader["BookType"]),
+                        ISBN = objReader["ISBN"].ToString(),
+                        BookAuthor = objReader["BookAuthor"].ToString(),
+                        BookPress = Convert.ToInt32(objReader["BookPress"]),
+                        BookPrice = Convert.ToDouble(objReader["BookPrice"]),
+                        BookImage = objReader["BookImage"].ToString(),
+                        BookPublishDate = Convert.ToDateTime(objReader["BookPublishDate"]),
+                        StorageInNum = Convert.ToInt32(objReader["StorageInNum"]),
+                        StorageInDate = Convert.ToDateTime(objReader["StorageInDate"]),
+                        InventoryNum = Convert.ToInt32(objReader["InventoryNum"]),
+                        BorrowedNum = Convert.ToInt32(objReader["BorrowedNum"]),
+                    };
+                }
+                //Close
+                objReader.Close();
+                //Return
+                return objBook;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }
