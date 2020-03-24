@@ -316,5 +316,36 @@ namespace DAL
                 throw ex;
             }
         }
+        //Modify a book
+        public int UpdateBook(Book objBook)
+        {
+            //Preparing SQL
+            string sql = "Update Book Set ISBN=@ISBN,BookName=@BookName,BookAuthor=@BookAuthor,BookPrice=@BookPrice,BookPress=@BookPress,BookPublishDate=@BookPublishDate,BookImage=@BookImage  Where BookId=@BookId";
+
+            //Preparing parameters in SQL
+            SqlParameter[] para = new SqlParameter[]
+            {
+                new SqlParameter("@BookId",objBook.BookId),
+                new SqlParameter("@BookName",objBook.BookName),
+                new SqlParameter("@ISBN",objBook.ISBN),
+                new SqlParameter("@BookAuthor",objBook.BookAuthor),
+                new SqlParameter("@BookPress",objBook.BookPress),
+                new SqlParameter("@BookPrice",objBook.BookPrice),
+                new SqlParameter("@BookImage",objBook.BookImage),
+                new SqlParameter("@BookPublishDate",objBook.BookPublishDate),
+
+            };
+
+            //Execute and return results
+            try
+            {
+                return SQLHelper.Update(sql, para);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }
