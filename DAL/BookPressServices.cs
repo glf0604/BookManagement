@@ -52,13 +52,17 @@ namespace DAL
 
         }
 
+        //Generate a publishing house number and return
         public string BuildNewPressId()
         {
-            string sql = "Select Top 1 PressId From BookPress Order by PressId DESC";
+            //Prepare SQL: Get the largest one PressId 
+            string sql = "Select TOP 1 PressId From BookPress Order by PressId DESC";
 
+            //Execute and return results
             try
             {
                 object obj = SQLHelper.GetOneResult(sql);
+                //Judgment
                 if (obj == null) return "1000";
                 else
                 {
@@ -67,6 +71,7 @@ namespace DAL
             }
             catch (Exception ex)
             {
+
                 throw ex;
             }
         }
@@ -74,65 +79,84 @@ namespace DAL
         //Determine if the Publisher name exists
         public bool IsExistPressName(string pressName)
         {
+            //Preparing SQL statements
             string sql = "Select PressId from BookPress Where PressName=@PressName";
+            //Prepare parameters
             SqlParameter[] para = new SqlParameter[]
             {
                 new SqlParameter("@PressName",pressName),
             };
+            //Execute and return results
             try
             {
                 if (SQLHelper.GetOneResult(sql, para) == null) return false;
                 else return true;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
+
                 throw e;
             }
         }
-        
-        //Get publisher name
+
+        //Get Publisher name
         public string GetPressNameById(int pressId)
         {
-            string sql = "Select PressName from BookPress Where PressId=@PressId";
+            // Preparing SQL statements
+            string sql = "Select PressName from BookPress Where PressId=@PressId ";
 
+            //Preparing parameters in SQL statements
             SqlParameter[] para = new SqlParameter[]
             {
-                new SqlParameter ("@PressId",pressId),
+                new SqlParameter("@PressId",pressId),
             };
+
+            //Execute and return results
             try
             {
                 return SQLHelper.GetOneResult(sql, para).ToString();
             }
             catch (Exception ex)
             {
+
                 throw ex;
             }
         }
 
-        //Get list of publishing houses (Id,Name)
+        //Get List of publishing houses (Id,Name)
         public List<BookPress> GetPressList()
         {
+            //Preparing SQL statements
             string sql = "Select PressId,PressName from BookPress";
+
+            //Execute and return results
             try
             {
+                //Receive SqlDataReader return value
                 SqlDataReader objReader = SQLHelper.GetReader(sql);
+                //If it is empty
                 if (!objReader.HasRows) return null;
+                //读取
                 List<BookPress> objList = new List<BookPress>();
                 while (objReader.Read())
                 {
                     objList.Add(
                         new BookPress()
                         {
+
                             PressId = Convert.ToInt32(objReader["PressId"]),
                             PressName = objReader["PressName"].ToString(),
                         }
                         );
                 }
+                //Close Read
                 objReader.Close();
+                //Return
                 return objList;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
+
                 throw ex;
             }
         }
@@ -140,17 +164,21 @@ namespace DAL
         //Add publisher information
         public int AddBookPress(BookPress objBookPress)
         {
-            string sql = "Insert into BookPress(PressId,PressName,PressTel,PressContact,PressAddress";
-            sql += "values (@pPressId,@PressName,@PressTel,@PressContact,@PressAddress)";
+            //Preparing SQL statements
+            string sql = "Insert into BookPress (PressId, PressName, PressTel, PressContact, PressAddress ) ";
+            sql += " values (@PressId, @PressName,@PressTel, @PressContact, @PressAddress) ";
 
+            //Preparing parameters in SQL statements
             SqlParameter[] para = new SqlParameter[]
             {
-                new SqlParameter("@pPressId",objBookPress.PressId),
+                new SqlParameter("@PressId",objBookPress.PressId),
                 new SqlParameter("@PressName",objBookPress.PressName),
                 new SqlParameter("@PressTel",objBookPress.PressTel),
-                new SqlParameter ("@PressContact",objBookPress.PressContact),
-                new SqlParameter ("@PressAddress",objBookPress.PressAddress)
+                new SqlParameter("@PressContact",objBookPress.PressContact),
+                new SqlParameter("@PressAddress",objBookPress.PressAddress),
             };
+
+            //Execute and return results
             try
             {
                 return SQLHelper.Update(sql, para);
@@ -160,22 +188,57 @@ namespace DAL
 
                 throw ex;
             }
-        
-    }
-        //Delete publisher information
-        public int DeleteBookPress(int pressId)
+        }
+
+        //Add publisher information
+        public int UpdateBookPress(BookPress objBookPress)
         {
-            string sql = "Delete From BookPress Where PressId=@PressId";
+            //Preparing SQL statements
+            string sql = "Update BookPress Set PressName= @PressName,PressTel=@PressTel,PressContact=@PressContact, PressAddress=@PressAddress ";
+            sql += "  Where PressId=@PressId ";
+
+            //Preparing parameters in SQL statements
             SqlParameter[] para = new SqlParameter[]
             {
-                new SqlParameter("@PressId",pressId),
+                new SqlParameter("@PressId",objBookPress.PressId),
+                new SqlParameter("@PressName",objBookPress.PressName),
+                new SqlParameter("@PressTel",objBookPress.PressTel),
+                new SqlParameter("@PressContact",objBookPress.PressContact),
+                new SqlParameter("@PressAddress",objBookPress.PressAddress),
             };
+
+            //Execute and return results
             try
             {
                 return SQLHelper.Update(sql, para);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
+
+                throw ex;
+            }
+        }
+
+        //Delete Publisher information
+        public int DeleteBookPress(int pressId)
+        {
+            //Preparing SQL statements
+            string sql = "Delete From BookPress  Where PressId=@PressId ";
+
+            //Preparing parameters in SQL statements
+            SqlParameter[] para = new SqlParameter[]
+            {
+                new SqlParameter("@PressId",pressId),
+            };
+
+            //Execute and return results
+            try
+            {
+                return SQLHelper.Update(sql, para);
+            }
+            catch (Exception ex)
+            {
+
                 throw ex;
             }
         }
