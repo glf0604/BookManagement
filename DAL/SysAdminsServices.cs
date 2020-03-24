@@ -60,6 +60,7 @@ namespace DAL
             }
 
         }
+
         //Determine if the password is correct
         public bool Login(int loginId, string loginPwd)
         {
@@ -85,6 +86,7 @@ namespace DAL
             }
 
         }
+
         //Determine if the login account exists
         public bool IsExistLoginId(int loginId)
         {
@@ -108,6 +110,7 @@ namespace DAL
                 throw ex;
             }
         }
+
         //Disable a login account 
         public int DisableLoginId(int loginId)
         {
@@ -131,6 +134,7 @@ namespace DAL
                 throw ex;
             }
         }
+
         //Change the last time you logged in
         public int UpdateLastLoginTime(int loginId)
         {
@@ -155,6 +159,11 @@ namespace DAL
 
         }
 
+        //Gets the time of the database server
+        public DateTime GetServerTime()
+        {
+            return SQLHelper.GetServerTime();
+        }
         //Write a log
         public int WirteLoginLog(LoginLogs objLoginLogs)
         {
