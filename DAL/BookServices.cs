@@ -239,5 +239,25 @@ namespace DAL
                 throw ex;
             }
         }
+        //Get the price according to BookId
+        public double GetPriceById(string bookId)
+        {
+            string sql = "select BookPrice from Book Where BookId=@BookId";
+            SqlParameter[] para = new SqlParameter[]
+            {
+                new SqlParameter("@BookId",bookId),
+            };
+            try
+            {
+                object obj = SQLHelper.GetOneResult(sql, para);
+                if (obj == null) return 0.00;
+                else return Convert.ToDouble(obj);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }
