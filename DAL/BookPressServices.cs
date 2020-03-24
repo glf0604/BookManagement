@@ -143,14 +143,14 @@ namespace DAL
             string sql = "Insert into BookPress(PressId,PressName,PressTel,PressContact,PressAddress";
             sql += "values (@pPressId,@PressName,@PressTel,@PressContact,@PressAddress)";
 
-            SqlParameter[] para=new SqlParameter[]
+            SqlParameter[] para = new SqlParameter[]
             {
                 new SqlParameter("@pPressId",objBookPress.PressId),
                 new SqlParameter("@PressName",objBookPress.PressName),
                 new SqlParameter("@PressTel",objBookPress.PressTel),
                 new SqlParameter ("@PressContact",objBookPress.PressContact),
                 new SqlParameter ("@PressAddress",objBookPress.PressAddress)
-            }
+            };
             try
             {
                 return SQLHelper.Update(sql, para);
@@ -162,5 +162,22 @@ namespace DAL
             }
         
     }
+        //Delete publisher information
+        public int DeleteBookPress(int pressId)
+        {
+            string sql = "Delete From BookPress Where PressId=@PressId";
+            SqlParameter[] para = new SqlParameter[]
+            {
+                new SqlParameter("@PressId",pressId),
+            };
+            try
+            {
+                return SQLHelper.Update(sql, para);
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
