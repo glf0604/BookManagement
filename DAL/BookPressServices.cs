@@ -1,0 +1,55 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Data.SqlClient;
+using System.Data;
+using Models;
+using DBUtility;
+
+namespace DAL
+{
+    /// <summary>
+    /// Operation Class of publishing house information
+    /// </summary>
+    public class BookPressServices
+    {
+
+        //Get information about the publisher
+        public DataTable GetBookPress(string pressId = "", string pressName = "")
+        {
+            //Preparing SQL statements
+            string sql = "Select PressId, PressName, PressTel, PressContact, PressAddress from BookPress ";
+            sql += " Where PressId Like @PressId And PressName Like @PressName";
+
+            //Preparing parameters in SQL statements
+            SqlParameter[] para = new SqlParameter[]
+            {
+                new SqlParameter("@PressId",'%'+pressId+'%'),
+                new SqlParameter("@PressName",'%'+pressName+'%'),
+            };
+
+            //Execute and return results
+            try
+            {
+                SqlDataReader objReader = SQLHelper.GetReader(sql, para);
+                if (!objReader.HasRows) return null;
+                //Define a DataTable 
+                DataTable dt = new DataTable();
+                //Load the SqlDataReader data into the DataTable
+                dt.Load(objReader);
+                //Return information
+                return dt;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+
+
+        }
+    }
+}
