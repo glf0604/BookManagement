@@ -158,5 +158,64 @@ namespace DAL
                 throw ex;
             }
         }
+        //Generate a book Number
+        public string BuildNewBookId(int typeId)
+        {
+            if (typeId.ToString().Length == 3)
+            {
+                //Preparing SQL
+                string sql = "Select top 1 BookId from Book where BookType=@TypeId order by BookId DESC ";
+                //Populate parameters in SQL statements
+                SqlParameter[] para = new SqlParameter[]
+                {
+                    new SqlParameter("@TypeId",typeId),
+                };
+                //Execute and return results
+                try
+                {
+                    object obj = SQLHelper.GetOneResult(sql, para);
+                    //If the value is empty
+                    if (obj == null) return (typeId.ToString() + "0000001");
+                    else //If it's not empty
+                    {
+                        return typeId.ToString() + "00" + (Convert.ToInt32(obj.ToString().Substring(5)) + 1).ToString("00000");
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                    throw ex;
+                }
+            }
+            else if (typeId.ToString().Length == 5)
+            {
+                //Preparing SQL
+                string sql = "Select top 1 BookId from Book where BookType=@TypeId order by BookId DESC ";
+                //Populate parameters in SQL statements
+                SqlParameter[] para = new SqlParameter[]
+                {
+                    new SqlParameter("@TypeId",typeId),
+                };
+                //Execute and return results
+                try
+                {
+                    object obj = SQLHelper.GetOneResult(sql, para);
+                    //If the value is empty
+                    if (obj == null) return (typeId.ToString("00000") + "00001");
+                    else //If it's not empty
+                    {
+                        return typeId.ToString("00000") + (Convert.ToInt32(obj.ToString().Substring(5)) + 1).ToString("00000");
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                    throw ex;
+                }
+            }
+            else return "";
+
+
+        }
     }
 }
