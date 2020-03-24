@@ -70,5 +70,26 @@ namespace DAL
                 throw ex;
             }
         }
+
+        //Determine if the Publisher name exists
+        public bool IsExistPressName(string pressName)
+        {
+            string sql = "Select PressId from BookPress Where PressName=@PressName";
+            SqlParameter[] para = new SqlParameter[]
+            {
+                new SqlParameter("@PressName",pressName),
+            };
+            try
+            {
+                if (SQLHelper.GetOneResult(sql, para) == null) return false;
+                else return true;
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
+        }
+        
+
     }
 }
