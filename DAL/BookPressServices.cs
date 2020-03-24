@@ -90,6 +90,23 @@ namespace DAL
             }
         }
         
+        //Get publisher name
+        public string GetPressNameById(int pressId)
+        {
+            string sql = "Select PressName from BookPress Where PressId=@PressId";
 
+            SqlParameter[] para = new SqlParameter[]
+            {
+                new SqlParameter ("@PressId",pressId),
+            };
+            try
+            {
+                return SQLHelper.GetOneResult(sql, para).ToString();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
