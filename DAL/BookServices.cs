@@ -347,5 +347,26 @@ namespace DAL
                 throw ex;
             }
         }
+        //Delete a book
+        public int DeleteBook(string bookId)
+        {
+            //Preparing SQL
+            string sql = "Delete from Book Where BookId=@BookId";
+            //Prepare parameters
+            SqlParameter[] para = new SqlParameter[]
+            {
+                new SqlParameter("@BookId",bookId),
+            };
+            //Execute and return results
+            try
+            {
+                return SQLHelper.Update(sql, para);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }
