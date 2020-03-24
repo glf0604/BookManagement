@@ -108,5 +108,33 @@ namespace DAL
                 throw ex;
             }
         }
+
+        //Get list of publishing houses (Id,Name)
+        public List<BookPress> GetPressList()
+        {
+            string sql = "Select PressId,PressName from BookPress";
+            try
+            {
+                SqlDataReader objReader = SQLHelper.GetReader(sql);
+                if (!objReader.HasRows) return null;
+                List<BookPress> objList = new List<BookPress>();
+                while (objReader.Read())
+                {
+                    objList.Add(
+                        new BookPress()
+                        {
+                            PressId = Convert.ToInt32(objReader["PressId"]),
+                            PressName = objReader["PressName"].ToString(),
+                        }
+                        );
+                }
+                objReader.Close();
+                return objList;
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
