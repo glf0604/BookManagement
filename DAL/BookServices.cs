@@ -217,5 +217,27 @@ namespace DAL
 
 
         }
+        //Determine if an ISBN exists 
+        public bool IsExistISBN(string isbn)
+        {
+            //Preparing SQL
+            string sql = "Select  BookId from Book where ISBN=@ISBN";
+            //Populate parameters in SQL statements
+            SqlParameter[] para = new SqlParameter[]
+            {
+                    new SqlParameter("@ISBN",isbn),
+            };
+            //Execute and return results
+            try
+            {
+                if (SQLHelper.GetOneResult(sql, para) == null) return false;
+                else return true;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }
