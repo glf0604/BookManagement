@@ -11,7 +11,7 @@ using DBUtility;
 namespace DAL
 {
     /// <summary>
-    /// Operation Class of publishing house information
+    /// Operation Class of press information
     /// </summary>
     public class BookPressServices
     {
@@ -52,7 +52,7 @@ namespace DAL
 
         }
 
-        //Generate a publishing house number and return
+        //Generate a press number and return
         public string BuildNewPressId()
         {
             //Prepare SQL: Get the largest one PressId 
@@ -136,7 +136,7 @@ namespace DAL
                 SqlDataReader objReader = SQLHelper.GetReader(sql);
                 //If it is empty
                 if (!objReader.HasRows) return null;
-                //读取
+                //read
                 List<BookPress> objList = new List<BookPress>();
                 while (objReader.Read())
                 {
