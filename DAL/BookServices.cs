@@ -280,5 +280,41 @@ namespace DAL
                 throw ex;
             }
         }
+        //Add book
+        public int AddBook(Book objBook)
+        {
+            //Preparing SQL
+            string sql = "Insert into Book(BookId, BookName, BookType, ISBN, BookAuthor, BookPress, BookPrice, BookImage, BookPublishDate, StorageInNum, StorageInDate, InventoryNum, BorrowedNum) ";
+            sql += " values(@BookId, @BookName, @BookType, @ISBN, @BookAuthor, @BookPress, @BookPrice, @BookImage, @BookPublishDate, @StorageInNum, @StorageInDate, @InventoryNum, @BorrowedNum)";
+
+            //Preparing parameters in SQL
+            SqlParameter[] para = new SqlParameter[]
+            {
+                new SqlParameter("@BookId",objBook.BookId),
+                new SqlParameter("@BookName",objBook.BookName),
+                new SqlParameter("@BookType",objBook.BookType),
+                new SqlParameter("@ISBN",objBook.ISBN),
+                new SqlParameter("@BookAuthor",objBook.BookAuthor),
+                new SqlParameter("@BookPress",objBook.BookPress),
+                new SqlParameter("@BookPrice",objBook.BookPrice),
+                new SqlParameter("@BookImage",objBook.BookImage),
+                new SqlParameter("@BookPublishDate",objBook.BookPublishDate),
+                new SqlParameter("@StorageInNum",objBook.StorageInNum),
+                new SqlParameter("@StorageInDate",objBook.StorageInDate),
+                new SqlParameter("@InventoryNum",objBook.InventoryNum),
+                new SqlParameter("@BorrowedNum",objBook.BorrowedNum),
+            };
+
+            //Execute and return results
+            try
+            {
+                return SQLHelper.Update(sql, para);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }
