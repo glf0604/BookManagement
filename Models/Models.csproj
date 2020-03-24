@@ -48,6 +48,7 @@
     <Compile Include="BorrowBookDetail.cs" />
     <Compile Include="LoginLogs.cs" />
     <Compile Include="Member.cs" />
+    <Compile Include="MemberLevel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SysAdmins.cs" />
   </ItemGroup>
