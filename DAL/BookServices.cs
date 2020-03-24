@@ -11,9 +11,9 @@ using DBUtility;
 namespace DAL
 {
     /// <summary>
-    /// Book operation method class
+    /// Book Operation Method Class
     /// </summary>
-   public class BookServices
+    public class BookServices
     {
         //Get information about a book 
         public DataTable GetBook(string isbn = "", string bookId = "", string bookName = "", string bookAuthor = "")
@@ -54,6 +54,7 @@ namespace DAL
             }
 
         }
+
         //Get more information about a book by book number
         public Book GetBookById(string bookId)
         {
@@ -106,6 +107,7 @@ namespace DAL
                 throw ex;
             }
         }
+
         //Get more information about a book with ISBN
         public Book GetBookByISBN(string isbn)
         {
@@ -158,6 +160,7 @@ namespace DAL
                 throw ex;
             }
         }
+
         //Generate a book Number
         public string BuildNewBookId(int typeId)
         {
@@ -217,6 +220,7 @@ namespace DAL
 
 
         }
+
         //Determine if an ISBN exists 
         public bool IsExistISBN(string isbn)
         {
@@ -239,6 +243,7 @@ namespace DAL
                 throw ex;
             }
         }
+
         //Get the price according to BookId
         public double GetPriceById(string bookId)
         {
@@ -259,6 +264,8 @@ namespace DAL
                 throw ex;
             }
         }
+
+
         //Get a certain ISBN inventory
         public int GetInventoryNumByISBN(string isbn)
         {
@@ -280,6 +287,7 @@ namespace DAL
                 throw ex;
             }
         }
+
         //Add book
         public int AddBook(Book objBook)
         {
@@ -316,6 +324,7 @@ namespace DAL
                 throw ex;
             }
         }
+
         //Modify a book
         public int UpdateBook(Book objBook)
         {
@@ -347,6 +356,7 @@ namespace DAL
                 throw ex;
             }
         }
+
         //Delete a book
         public int DeleteBook(string bookId)
         {
