@@ -259,5 +259,26 @@ namespace DAL
                 throw ex;
             }
         }
+        //Get a certain ISBN inventory
+        public int GetInventoryNumByISBN(string isbn)
+        {
+            //Preparing SQL
+            string sql = "Select  InventoryNum from Book where ISBN=@ISBN";
+            //Populate parameters in SQL statements
+            SqlParameter[] para = new SqlParameter[]
+            {
+                    new SqlParameter("@ISBN",isbn),
+            };
+            //Execute and return results
+            try
+            {
+                return Convert.ToInt32(SQLHelper.GetOneResult(sql, para));
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }
