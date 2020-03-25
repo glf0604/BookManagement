@@ -333,5 +333,27 @@ namespace DAL
                 throw ex;
             }
         }
+        //Delete a book category
+        public int DeleteBookType(int typeId)
+        {
+            //Preparing SQL statements
+            string sql = "Delete From BookType Where TypeId=@TypeId ";
+            //Prepare parameters
+            SqlParameter[] para = new SqlParameter[]
+            {
+                new SqlParameter("@TypeId",typeId),
+            };
+
+            //Submit
+            try
+            {
+                return SQLHelper.Update(sql, para);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }
