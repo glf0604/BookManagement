@@ -97,5 +97,28 @@ namespace DAL
                 throw ex;
             }
         }
+        //Determine if the current Id number has a subclass
+        public bool IsExistSub(int typeId)
+        {
+            //Preparing SQL 
+            string sql = "Select typeId from BookType Where ParentTypeId=@ParentTypeId";
+            //Prepare parameters
+            SqlParameter[] para = new SqlParameter[]
+            {
+                new SqlParameter("@ParentTypeId",typeId),
+            };
+
+            //Perform
+            try
+            {
+                if (SQLHelper.GetOneResult(sql, para) == null) return false;
+                else return true;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }
