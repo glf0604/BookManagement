@@ -18,6 +18,12 @@ namespace Common
             Regex objRegex = new Regex(@"^[0-9]*$");
             return objRegex.IsMatch(txt);
         }
-        
+        //Whether it's a email?
+        public static bool IsEmail(string txt)
+        {
+            Regex objRegex = new Regex(@"^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$");
+            return objRegex.IsMatch(txt);
+        }
+       
     }
 }
