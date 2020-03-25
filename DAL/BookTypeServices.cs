@@ -47,5 +47,34 @@ namespace DAL
                 throw ex;
             }
         }
+        public BookType GetParentType(int typeId)
+        {
+            string sql = "Select T1.TypeDESC,T2.TypeId ,T2.TypeName from BookType AS T1 Inner Join BookType AS T2 On T1.ParentTypeId = T2.TypeId Where T1.TypeId = @TypeId";
+            SqlParameter[] para = new SqlParameter[]
+            {
+                new SqlParameter("@TypeId",typeId),
+            };
+            try
+            {
+                SqlDataReader objReader = SQLHelper.GetReader(sql, para);
+                if (!objReader.HasRows) return null;
+                BookType objBookType = new BookType();
+                if(objReader.Read())
+                {
+                    objBookType = new BookType
+                    {
+                        DESC = objReader["TypeDESC"].ToString(),
+                        TypeId = Convert.ToInt32(objReader["TypeId"]),
+                        TypeName = objReader["TypeName"].ToString(),
+                    };
+                }
+                objReader.Close();
+                return objBookType;
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
