@@ -284,5 +284,30 @@ namespace DAL
                 throw ex;
             }
         }
+        //Add a book Category
+        public int AddBookType(BookType objBookType)
+        {
+            //Preparing SQL statements
+            string sql = "Insert into BookType(TypeId,TypeName,ParentTypeId,TypeDESC) Values(@TypeId,@TypeName,@ParentTypeId,@TypeDESC)";
+            //Prepare parameters
+            SqlParameter[] para = new SqlParameter[]
+            {
+                new SqlParameter("@TypeId",objBookType.TypeId),
+                new SqlParameter("@TypeName",objBookType.TypeName),
+                new SqlParameter("@ParentTypeId",objBookType.ParentTypeId),
+                new SqlParameter("@TypeDESC",objBookType.DESC),
+            };
+
+            //Submit
+            try
+            {
+                return SQLHelper.Update(sql, para);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }
