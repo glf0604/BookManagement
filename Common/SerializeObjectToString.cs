@@ -28,6 +28,18 @@ namespace Common
             }
             return result;
         }
-        
+        //Convert binary sequence strings to object type objects
+        public object DeserializeObject(string str)
+        {
+            IFormatter formatter = new BinaryFormatter();
+            //byte[] byt = Encoding.UTF8.GetBytes(str);
+            byte[] byt = Convert.FromBase64String(str);
+            object obj = null;
+            using (Stream stream = new MemoryStream(byt, 0, byt.Length))
+            {
+                obj = formatter.Deserialize(stream);
+            }
+            return obj;
+        }
     }
 }
