@@ -30,5 +30,22 @@ namespace DAL
                 throw ex;
             }
         }
+        public string GetTypeDESC(int typeId)
+        {
+            string sql = "Select TypeDESC from BookType Where TypeId=@TypeId";
+            SqlParameter[] para = new SqlParameter[]
+            {
+                new SqlParameter("@TypeId",typeId),
+            };
+
+            try
+            {
+                return SQLHelper.GetOneResult(sql, para).ToString();
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
