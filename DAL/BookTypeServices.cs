@@ -11,55 +11,78 @@ using System.Data;
 namespace DAL
 {
     /// <summary>
-    /// Methods of operation for book types
+    /// Methods of operation for book categories
     /// </summary>
     public class BookTypeServices
     {
+        //Get all category information
         public DataTable GetBookType()
         {
-            string sql = "Select TypeId,TypeName,ParentTypeId,TypeDESC from BookType";
+
+            //Preparing SQL statements 
+            string sql = "Select TypeId, TypeName, ParentTypeId, TypeDESC from BookType";
+
+            //Execute and return results
             try
             {
                 SqlDataReader objReader = SQLHelper.GetReader(sql);
+                //Define a DataTable 
                 DataTable dt = new DataTable();
+                //Load the DataReader into the DataTable
                 dt.Load(objReader);
+                //Return
                 return dt;
+
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
+
                 throw ex;
             }
         }
+
+        //Get a breakdown of the appropriate category 
         public string GetTypeDESC(int typeId)
         {
+            //Preparing SQL queries 
             string sql = "Select TypeDESC from BookType Where TypeId=@TypeId";
+            //Preparing parameters in SQL statements
             SqlParameter[] para = new SqlParameter[]
             {
                 new SqlParameter("@TypeId",typeId),
             };
 
+            //Perform 
             try
             {
                 return SQLHelper.GetOneResult(sql, para).ToString();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
+
                 throw ex;
             }
         }
+
+        //Get parent Information
         public BookType GetParentType(int typeId)
         {
+            //Preparing SQL 
             string sql = "Select T1.TypeDESC,T2.TypeId ,T2.TypeName from BookType AS T1 Inner Join BookType AS T2 On T1.ParentTypeId = T2.TypeId Where T1.TypeId = @TypeId";
+            //Preparing parameters in SQL statements
             SqlParameter[] para = new SqlParameter[]
             {
                 new SqlParameter("@TypeId",typeId),
             };
+
+            //Perform 
             try
             {
                 SqlDataReader objReader = SQLHelper.GetReader(sql, para);
                 if (!objReader.HasRows) return null;
+                //Read
                 BookType objBookType = new BookType();
-                if(objReader.Read())
+                if (objReader.Read())
                 {
                     objBookType = new BookType
                     {
@@ -68,21 +91,30 @@ namespace DAL
                         TypeName = objReader["TypeName"].ToString(),
                     };
                 }
+                //Close Read
                 objReader.Close();
+                //Return
                 return objBookType;
+
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
+
                 throw ex;
             }
         }
+
+        //Generate a node number 
         public string BuildNewTypeId(int typeId)
         {
+            //Preparing SQL statements
             string sql = "Select top 1  TypeId, TypeName, ParentTypeId, TypeDESC from BookType Where ParentTypeId = @TypeId order by TypeId DESC";
+            //Prepare parameters for SQL statements
             SqlParameter[] para = new SqlParameter[]
             {
                 new SqlParameter("@TypeId",typeId),
             };
+            //Execute and return
             try
             {
                 object obj = SQLHelper.GetOneResult(sql, para);
@@ -92,11 +124,14 @@ namespace DAL
                     return (Convert.ToInt32(obj) + 1).ToString();
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
+
                 throw ex;
             }
+
         }
+
         //Determine if the current Id number has a subclass
         public bool IsExistSub(int typeId)
         {
@@ -120,6 +155,7 @@ namespace DAL
                 throw ex;
             }
         }
+
         //Determine if the category name exists
         public bool IsExistTypeName(string typeName)
         {
@@ -143,6 +179,7 @@ namespace DAL
                 throw ex;
             }
         }
+
         //Gets the name of the category
         public string[] GetTypeNameById(int typeId)
         {
@@ -181,6 +218,7 @@ namespace DAL
                 throw ex;
             }
         }
+
         //Get List of book categories (TypeId,TypeName)
         public List<BookType> GetBookTypeList()
         {
@@ -218,6 +256,7 @@ namespace DAL
                 throw ex;
             }
         }
+
         //Determine if a category number has a subclass 
         public bool IsExistSubType(int typeId)
         {
@@ -241,6 +280,7 @@ namespace DAL
                 throw ex;
             }
         }
+
         //Gets the List of subclasses
         public List<BookType> GetSubBookTypeList(int typeId)
         {
@@ -284,6 +324,7 @@ namespace DAL
                 throw ex;
             }
         }
+
         //Add a book Category
         public int AddBookType(BookType objBookType)
         {
@@ -309,6 +350,7 @@ namespace DAL
                 throw ex;
             }
         }
+
         //Modify a book category
         public int UpdateBookType(BookType objBookType)
         {
@@ -333,6 +375,7 @@ namespace DAL
                 throw ex;
             }
         }
+
         //Delete a book category
         public int DeleteBookType(int typeId)
         {
