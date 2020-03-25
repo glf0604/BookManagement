@@ -241,5 +241,48 @@ namespace DAL
                 throw ex;
             }
         }
+        //Gets the List of subclasses
+        public List<BookType> GetSubBookTypeList(int typeId)
+        {
+            //Preparing SQL statements
+            string sql = "Select TypeId, TypeName from BookType where ParentTypeId= @TypeId";
+
+            //Prepare parameters
+            SqlParameter[] para = new SqlParameter[]
+            {
+                new SqlParameter("@TypeId",typeId),
+            };
+
+            //Execute and return results
+            try
+            {
+                //Receive SqlDataReader return value
+                SqlDataReader objReader = SQLHelper.GetReader(sql, para);
+                //If it's empty
+                if (!objReader.HasRows) return null;
+                //Read
+                List<BookType> objList = new List<BookType>();
+                while (objReader.Read())
+                {
+                    objList.Add(
+                        new BookType()
+                        {
+
+                            TypeId = Convert.ToInt32(objReader["TypeId"]),
+                            TypeName = objReader["TypeName"].ToString(),
+                        }
+                        );
+                }
+                //Close Read
+                objReader.Close();
+                //Return
+                return objList;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }
