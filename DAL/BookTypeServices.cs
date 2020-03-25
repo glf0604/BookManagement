@@ -76,5 +76,26 @@ namespace DAL
                 throw ex;
             }
         }
+        public string BuildNewTypeId(int typeId)
+        {
+            string sql = "Select top 1  TypeId, TypeName, ParentTypeId, TypeDESC from BookType Where ParentTypeId = @TypeId order by TypeId DESC";
+            SqlParameter[] para = new SqlParameter[]
+            {
+                new SqlParameter("@TypeId",typeId),
+            };
+            try
+            {
+                object obj = SQLHelper.GetOneResult(sql, para);
+                if (obj == null) return typeId.ToString() + "01";
+                else
+                {
+                    return (Convert.ToInt32(obj) + 1).ToString();
+                }
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
