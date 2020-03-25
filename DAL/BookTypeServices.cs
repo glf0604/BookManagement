@@ -309,5 +309,29 @@ namespace DAL
                 throw ex;
             }
         }
+        //Modify a book category
+        public int UpdateBookType(BookType objBookType)
+        {
+            //Preparing SQL statements
+            string sql = "Update BookType Set TypeName= @TypeName , TypeDESC=@TypeDESC Where TypeId=@TypeId ";
+            //Prepare parameters
+            SqlParameter[] para = new SqlParameter[]
+            {
+                new SqlParameter("@TypeId",objBookType.TypeId),
+                new SqlParameter("@TypeName",objBookType.TypeName),
+                new SqlParameter("@TypeDESC",objBookType.DESC),
+            };
+
+            //Summion 
+            try
+            {
+                return SQLHelper.Update(sql, para);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }
