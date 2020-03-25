@@ -143,5 +143,43 @@ namespace DAL
                 throw ex;
             }
         }
+        //Gets the name of the category
+        public string[] GetTypeNameById(int typeId)
+        {
+
+            //Preparing SQL statements
+            string sql = "Select T1.TypeName AS ParentTypeName, T2.TypeName As TypeName from BookType AS T1 Inner Join BookType AS T2 ";
+            sql += "on T1.TypeId = T2.ParentTypeId  where T2.TypeId = @TypeId ";
+
+            //Prepare parameters
+            SqlParameter[] para = new SqlParameter[]
+            {
+                new SqlParameter("@TypeId",typeId),
+            };
+
+            //Submit
+            try
+            {
+                SqlDataReader objReader = SQLHelper.GetReader(sql, para);
+                //Determine if it is empty
+                if (!objReader.HasRows) return null;
+                //Read
+                string[] TypeName = new string[2];
+                if (objReader.Read())
+                {
+                    TypeName[0] = objReader["ParentTypeName"].ToString();
+                    TypeName[1] = objReader["TypeName"].ToString();
+                }
+                //Close
+                objReader.Close();
+                //Return
+                return TypeName;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }
