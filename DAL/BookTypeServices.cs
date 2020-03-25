@@ -120,5 +120,28 @@ namespace DAL
                 throw ex;
             }
         }
+        //Determine if the category name exists
+        public bool IsExistTypeName(string typeName)
+        {
+            //Preparing SQL
+            string sql = "select TypeId from BookType where TypeName=@TypeName";
+            //Prepare parameters
+            SqlParameter[] para = new SqlParameter[]
+            {
+                new SqlParameter("@TypeName",typeName),
+            };
+
+            //Perform
+            try
+            {
+                if (SQLHelper.GetOneResult(sql, para) == null) return false;
+                else return true;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }
