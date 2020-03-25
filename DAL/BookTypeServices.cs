@@ -218,5 +218,28 @@ namespace DAL
                 throw ex;
             }
         }
+        //Determine if a category number has a subclass 
+        public bool IsExistSubType(int typeId)
+        {
+            //Preparing SQL statements
+            string sql = "select TypeName from BookType Where ParentTypeId=@TypeId ";
+            //Prepare parameters
+            SqlParameter[] para = new SqlParameter[]
+            {
+                new SqlParameter("@TypeId",typeId),
+            };
+
+            //Submit
+            try
+            {
+                if (SQLHelper.GetOneResult(sql, para) == null) return false;
+                else return true;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }
