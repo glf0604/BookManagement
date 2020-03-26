@@ -202,5 +202,48 @@ namespace DAL
             }
 
         }
+        //Add a Member
+        public int AddMember(Member objMember)
+        {
+            //Preparing SQL statements
+            string sql = "Insert into Member(MemberId, MemberName, MemberCardId, MemberLevel, IdType, IdNumber, Gender, TelNo, Birthday, HomeAddress, MemberPhoto, CardStatus,";
+            sql += " CardClosingDate, IsReturnDeposit, PayMethod, LoginId, OperatingTime, ReMarks) Values ";
+            sql += "(@MemberId, @MemberName, @MemberCardId, @MemberLevel, @IdType, @IdNumber, @Gender, @TelNo, @Birthday, @HomeAddress, @MemberPhoto, @CardStatus,";
+            sql += " @CardClosingDate, @IsReturnDeposit, @PayMethod, @LoginId, @OperatingTime, @ReMarks) ";
+
+            //Prepare parameters
+            SqlParameter[] para = new SqlParameter[]
+            {
+                new SqlParameter("@MemberId",objMember.MemberId),
+                new SqlParameter("@MemberName",objMember.MemberName),
+                new SqlParameter("@MemberCardId",objMember.MemberCardId),
+                new SqlParameter("@MemberLevel",objMember.MemberLevel),
+                new SqlParameter("@IdType",objMember.IdType),
+                new SqlParameter("@IdNumber",objMember.IdNumber),
+                new SqlParameter("@Gender",objMember.Gender),
+                new SqlParameter("@TelNo",objMember.TelNo),
+                new SqlParameter("@Birthday",objMember.Birthday),
+                new SqlParameter("@HomeAddress",objMember.HomeAddress),
+                new SqlParameter("@MemberPhoto",objMember.MemberPhoto),
+                new SqlParameter("@CardStatus",objMember.CardStatus),
+                new SqlParameter("@CardClosingDate",objMember.CardClosingDate),
+                new SqlParameter("@IsReturnDeposit",objMember.IsReturnDeposit),
+                new SqlParameter("@PayMethod",objMember.PayMethod),
+                new SqlParameter("@LoginId",objMember.LoginId),
+                new SqlParameter("@OperatingTime",objMember.OperatingTime),
+                new SqlParameter("@ReMarks",objMember.ReMarks),
+            };
+
+            //Execute and return results
+            try
+            {
+                return SQLHelper.Update(sql, para);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }
