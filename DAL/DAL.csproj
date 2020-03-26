@@ -46,6 +46,7 @@
     <Compile Include="BookTypeServices.cs" />
     <Compile Include="BorrowBookDetailServices.cs" />
     <Compile Include="BorrowBookServices.cs" />
+    <Compile Include="MemberLevelServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SysAdminsServices.cs" />
   </ItemGroup>
