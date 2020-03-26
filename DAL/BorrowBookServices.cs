@@ -51,5 +51,30 @@ namespace DAL
             return 'B' + borrowId;
 
         }
+        //Add a BorrowBoo to see the record
+        public int AddBorrowBook(BorrowBook objBorrowBook)
+        {
+            //Preparing SQL statements
+            string sql = "Insert into BorrowBook(BorrowId,MemberId,BorrowedNum,OverdueNum) Values(@BorrowId,@MemberId,@BorrowedNum,@OverdueNum)";
+            //Prepare parameters
+            SqlParameter[] para = new SqlParameter[]
+            {
+                new SqlParameter("@BorrowId",objBorrowBook.BorrowId),
+                new SqlParameter("@MemberId",objBorrowBook.MemberId),
+                new SqlParameter("@BorrowedNum",objBorrowBook.BorrowedNum),
+                new SqlParameter("@OverdueNum",objBorrowBook.OverdueNum),
+            };
+
+            //Execute and submit
+            try
+            {
+                return SQLHelper.Update(sql, para);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }
