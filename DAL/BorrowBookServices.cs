@@ -76,5 +76,26 @@ namespace DAL
                 throw ex;
             }
         }
+        //Get borrowNum based on memeberId
+        public int GetBorrowedNumByMemberId(string memberId)
+        {
+            //Preparing SQL statements
+            string sql = "select BorrowedNum from BorrowBook Where MemberId=@MemberId";
+            //Preparing parameters in SQL statements
+            SqlParameter[] para = new SqlParameter[]
+            {
+                new SqlParameter("@MemberId",memberId),
+            };
+            //Execute and return
+            try
+            {
+                return Convert.ToInt32(SQLHelper.GetOneResult(sql, para));
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }
