@@ -124,5 +124,29 @@ namespace DAL
                 throw ex;
             }
         }
+        //Verify that the membership category name exists
+        public bool IsExistLevelName(string levelName)
+        {
+            //Preparing SQL statements
+            string sql = "Select LevelId from MemberLevel where LevelName=@LevelName ";
+
+            //Preparing parameters in SQL statements
+            SqlParameter[] para = new SqlParameter[]
+            {
+                new SqlParameter("@LevelName",levelName),
+            };
+            //Submit
+            try
+            {
+                if (SQLHelper.GetOneResult(sql, para) == null) return false;
+                else return true;
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }
