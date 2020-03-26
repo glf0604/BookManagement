@@ -148,5 +148,28 @@ namespace DAL
                 throw ex;
             }
         }
+        //Obtain membership name based on membership number
+        public string GetNameById(int levelId)
+        {
+            //Preparing SQL statements
+            string sql = "Select LevelName from MemberLevel where LevelId=@LevelId";
+            //Prepare parameters
+            SqlParameter[] para = new SqlParameter[]
+            {
+                new SqlParameter("@LevelId",levelId),
+
+            };
+
+            //execution
+            try
+            {
+                return SQLHelper.GetOneResult(sql, para).ToString();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }
