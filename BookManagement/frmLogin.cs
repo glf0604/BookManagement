@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DAl;
+using DAL;
 using Models;
 using Common;
 using System.Net;
