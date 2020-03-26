@@ -160,5 +160,40 @@ namespace DAL
                 throw ex;
             }
         }
+        //Get a breakdown of a member's library book
+        public DataTable GetBookByBorrowId(string borrowId)
+        {
+            //Preparing query statements
+            string sql = "Select Book.BookId,BookName,BookType,ISBN,BookAuthor,BookPress,BookPrice,BookImage,BookPublishDate,StorageInNum,StorageInDate,InventoryNum,BorrowedNum,BorrowBookDetail.BorrowDate,BorrowBookDetail.LastReturnDate,IsOverdue";
+            sql += " from Book Inner join BorrowBookDetail on Book.BookId=BorrowBookDetail.BookId Where BorrowBookDetail.BorrowId=@BorrowId And IsReturn=0 And IsHandleOverdueorLost= 0 ";
+
+            //Prepare parameters
+            SqlParameter[] para = new SqlParameter[]
+            {
+                new SqlParameter("@BorrowId",borrowId),
+            };
+
+            //Perform
+            try
+            {
+                //Receive return values using DataReader
+                SqlDataReader objReader = SQLHelper.GetReader(sql, para);
+                //Determine if it is empty
+                if (!objReader.HasRows) return null;
+                //Instantiation of a DataTable
+                DataTable dt = new DataTable();
+                //Load SqlDataReader into DataTable
+                dt.Load(objReader);
+                //Close
+                objReader.Close();
+                //Return
+                return dt;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }
