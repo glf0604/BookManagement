@@ -39,5 +39,17 @@ namespace DAL
                 throw ex;
             }
         }
+        //Get a MemberId
+        public string BuildBorrowId()
+        {
+            //Get server time converted to 14-bit characters
+            string borrowId = SQLHelper.GetServerTime().ToString("yyyyMMddHHmmss");
+            //Generate 2-bit random numbers
+            Random objRandom = new Random();
+            borrowId += objRandom.Next(0, 100).ToString("00");
+            //Return memberId 
+            return 'B' + borrowId;
+
+        }
     }
 }
