@@ -56,5 +56,50 @@ namespace DAL
             }
 
         }
+        //Go back to all information about the membership level by name
+        public MemberLevel GetMemberLevelByName(string levelName)
+        {
+
+            //SQL Statement to prepare query
+            string sql = "Select LevelId,LevelName,LevelMonths,MaxBorrowNum,MaxBorrowDays,Deposit from MemberLevel Where LevelName=@LevelName ";
+            //Provide parameters in a statement
+            SqlParameter[] para = new SqlParameter[]
+            {
+                new SqlParameter("@LevelName",levelName),
+            };
+            //Execution and return values
+            try
+            {
+                //Receive SqlDataReader type
+                SqlDataReader objReader = SQLHelper.GetReader(sql, para);
+                //Determine if it is empty
+                if (!objReader.HasRows) return null;
+                //If it is not empty, it is stored <MemberLeveL>in</MemberLeveL> the list
+                MemberLevel objLevel = new MemberLevel();
+                //read
+                while (objReader.Read())
+                {
+                    objLevel = new MemberLevel()
+                    {
+                        LevelId = Convert.ToInt32(objReader["LevelId"]),
+                        LevelName = objReader["LevelName"].ToString(),
+                        LevelMonths = Convert.ToInt32(objReader["LevelMonths"]),
+                        MaxBorrowNum = Convert.ToInt32(objReader["MaxBorrowNum"]),
+                        MaxBorrowDays = Convert.ToInt32(objReader["MaxBorrowDays"]),
+                        Deposit = Convert.ToDouble(objReader["Deposit"]),
+                    };
+                }
+                //Close read
+                objReader.Close();
+                //Return value
+                return objLevel;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
     }
 }
