@@ -314,5 +314,42 @@ namespace DAL
                 throw ex;
             }
         }
+        //The book is checked by people.
+        public DataTable QueryBook(DateTime start, DateTime end, string memberCardId = "", string memberId = "", string memberName = "")
+        {
+            //Preparing SQL 
+            string sql = "Select ISBN,T1.BookId,BookName,BookAuthor,PressName from BorrowBookDetail AS T1 ";
+            sql += "Inner Join Book As T2 On T1.BookId = T2.BookId Inner Join BookPress As T3 On T2.BookPress = T3.PressId ";
+            sql += "Inner Join BorrowBook As T4 on T1.BorrowId=T4.BorrowId  Inner Join Member As T5 on T4.MemberId = T5.MemberId ";
+            sql += " Where T5.MemberCardId Like @MemberCardId And T5.MemberId Like @MemberId And T5.MemberName Like @MemberName ";
+            sql += " And BorrowDate >= @Start And BorrowDate <=@End ";
+            //Preparing parameters in SQL statements
+            SqlParameter[] para = new SqlParameter[]
+            {
+                new SqlParameter("@MemberCardId",'%'+memberCardId+'%'),
+                new SqlParameter("@MemberId",'%'+memberId+'%'),
+                new SqlParameter("@MemberName",'%'+memberName+'%'),
+                new SqlParameter("@Start",start),
+                new SqlParameter("@End",end),
+            };
+
+            //Submit a Query
+            try
+            {
+                SqlDataReader objReader = SQLHelper.GetReader(sql, para);
+                if (!objReader.HasRows) return null;
+                DataTable dt = new DataTable();
+                dt.Load(objReader);
+                objReader.Close();
+                return dt;
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
     }
 }
