@@ -353,5 +353,27 @@ namespace DAL
                 throw ex;
             }
         }
+        //Delete Membership Level
+        public int DeleteMemberLevel(string levelName)
+        {
+            //Preparing SQL statements
+            string sql = "Delete from MemberLevel where LevelName=@LevelName";
+
+            //Preparing parameters in SQL statements
+            SqlParameter[] para = new SqlParameter[]
+            {
+                new SqlParameter("@LevelName",levelName),
+            };
+            //Submit
+            try
+            {
+                return SQLHelper.Update(sql, para);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }
