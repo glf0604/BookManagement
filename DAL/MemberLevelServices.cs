@@ -240,5 +240,42 @@ namespace DAL
                 throw ex;
             }
         }
+        //Get a List of membership levels
+        public List<MemberLevel> GetLevelList()
+        {
+            //Preparing SQL statements
+            string sql = "Select LevelId,LevelName from MemberLevel";
+
+            //execution
+            try
+            {
+                //SqlDataReader Receive data
+                SqlDataReader objReader = SQLHelper.GetReader(sql);
+                //Determine if it is empty
+                if (!objReader.HasRows) return null;
+                //Define List
+                List<MemberLevel> objList = new List<MemberLevel>();
+                //read
+                while (objReader.Read())
+                {
+                    objList.Add(
+                        new MemberLevel()
+                        {
+                            LevelId = Convert.ToInt32(objReader["LevelId"]),
+                            LevelName = objReader["LevelName"].ToString(),
+                        }
+                        );
+                }
+                //Close read
+                objReader.Close();
+                //Return
+                return objList;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }
