@@ -181,5 +181,52 @@ namespace DAL
                 throw ex;
             }
         }
+        //Submit a library information
+        public bool CommitBorrowBook(List<Book> objList, string borrowId, DateTime borrowDate, DateTime lastReturnDate)
+        {
+            //Define a List to store all executed SQL
+            List<string> sqlList = new List<string>();
+
+            //Define string Storage single SQL
+            string sql = string.Empty;
+
+            foreach (Book currentBook in objList)
+            {
+                //Insert book information into the BorrowDetail
+                sql = "Insert into BorrowBookDetail ( BorrowId, BookId, BorrowDate, LastReturnDate, IsReturn, IsOverdue, IsHandleOverdueorLost, ReturnDate ) ";
+                sql += " values ('{0}','{1}','{2}','{3}',{4},{5},{6},'{7}')";
+                sql = string.Format(sql, borrowId, currentBook.BookId, borrowDate, lastReturnDate, 0, 0, 0, null);
+                //add to List
+                sqlList.Add(sql);
+
+                //Change the inventory of the corresponding book
+                sql = string.Empty;
+                sql = "Update Book Set InventoryNum=InventoryNum-1 Where BookId='{0}'";
+                sql = string.Format(sql, currentBook.BookId);
+                //add to List
+                sqlList.Add(sql);
+
+            }
+
+            //Change the number of books borrowed in BorrowBook
+            sql = string.Empty;
+            sql = "Update BorrowBook Set BorrowedNum=BorrowedNum+{0} Where borrowId='{1}'";
+            sql = string.Format(sql, objList.Count, borrowId);
+            //add to List
+            sqlList.Add(sql);
+
+
+            //Submit
+            try
+            {
+                return SQLHelper.UpdateByTransaction(sqlList);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
     }
 }
