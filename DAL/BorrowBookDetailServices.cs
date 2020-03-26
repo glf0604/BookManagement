@@ -351,5 +351,28 @@ namespace DAL
             }
 
         }
+        //Inquire into books that have never been borrowed
+        public DataTable GetBookNotBorrowed()
+        {
+            //Preparing SQL 
+            string sql = " Select ISBN,T1.BookId,BookName,BookAuthor,PressName from Book AS T1 Inner Join BookPress As T2 on T1.BookPress = T2.PressId ";
+            sql += "Where BookId Not IN(Select Distinct BookId from BorrowBookDetail)";
+            //Submit a Query
+            try
+            {
+                SqlDataReader objReader = SQLHelper.GetReader(sql);
+                if (!objReader.HasRows) return null;
+                DataTable dt = new DataTable();
+                dt.Load(objReader);
+                objReader.Close();
+                return dt;
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }
