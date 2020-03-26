@@ -56,6 +56,7 @@ namespace DAL
             }
 
         }
+
         //Go back to all information about the membership level by name
         public MemberLevel GetMemberLevelByName(string levelName)
         {
@@ -101,6 +102,7 @@ namespace DAL
             }
 
         }
+
         //Generate a level number
         public string BuildNewLevelId()
         {
@@ -124,6 +126,7 @@ namespace DAL
                 throw ex;
             }
         }
+
         //Verify that the membership category name exists
         public bool IsExistLevelName(string levelName)
         {
@@ -148,6 +151,7 @@ namespace DAL
                 throw ex;
             }
         }
+
         //Obtain membership name based on membership number
         public string GetNameById(int levelId)
         {
@@ -171,6 +175,7 @@ namespace DAL
                 throw ex;
             }
         }
+
         //Gets the expiration month for the appropriate level
         public int GetMonthsById(int levelId)
         {
@@ -194,6 +199,7 @@ namespace DAL
                 throw ex;
             }
         }
+
         //Obtain a member's loan validity period 
         public int GetMaxBorrowDays(int levelId)
         {
@@ -217,6 +223,7 @@ namespace DAL
                 throw ex;
             }
         }
+
         //Obtain a member deposit based on membership number
         public double GetDepositById(int levelId)
         {
@@ -240,6 +247,7 @@ namespace DAL
                 throw ex;
             }
         }
+
         //Get a List of membership levels
         public List<MemberLevel> GetLevelList()
         {
@@ -277,6 +285,7 @@ namespace DAL
                 throw ex;
             }
         }
+
         //Get the biggest book to borrow books through Levelid
         public int GetMaxBorrowNumById(int levelId)
         {
@@ -300,6 +309,7 @@ namespace DAL
                 throw ex;
             }
         }
+
         //Add a Membership Level
         public int AddMemberLevel(MemberLevel objMemberLevel)
         {
@@ -327,6 +337,7 @@ namespace DAL
                 throw ex;
             }
         }
+
         //Modify Membership Level
         public int UpdateMemberLevel(MemberLevel objMemberLevel)
         {
@@ -353,6 +364,7 @@ namespace DAL
                 throw ex;
             }
         }
+
         //Delete Membership Level
         public int DeleteMemberLevel(string levelName)
         {
@@ -377,3 +389,4 @@ namespace DAL
         }
     }
 }
+
