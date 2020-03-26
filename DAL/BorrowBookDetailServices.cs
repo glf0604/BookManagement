@@ -195,5 +195,28 @@ namespace DAL
                 throw ex;
             }
         }
+        //Get DetailId
+        public int GetDetailId(string borrowId, string bookId)
+        {
+            //Preparing SQL statements
+            string sql = "select DetailId from BorrowBookDetail Where BorrowId=@BorrowId And BookId=@BookId  Order by DetailId DESC";
+            //Prepare parameters
+            SqlParameter[] para = new SqlParameter[]
+            {
+                new SqlParameter("@BookId",bookId),
+                new SqlParameter("@BorrowId",borrowId),
+            };
+
+            //Execute and return results
+            try
+            {
+                return Convert.ToInt32(SQLHelper.GetOneResult(sql, para));
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }
