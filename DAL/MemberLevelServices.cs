@@ -300,5 +300,32 @@ namespace DAL
                 throw ex;
             }
         }
+        //Add a Membership Level
+        public int AddMemberLevel(MemberLevel objMemberLevel)
+        {
+            //Preparing SQL statements
+            string sql = "Insert into MemberLevel(LevelId, LevelName, LevelMonths, MaxBorrowNum, MaxBorrowDays, Deposit) ";
+            sql += " Values(@LevelId, @LevelName, @LevelMonths, @MaxBorrowNum, @MaxBorrowDays, @Deposit)";
+            //Preparing parameters in SQL statements
+            SqlParameter[] para = new SqlParameter[]
+            {
+                new SqlParameter("@LevelId",objMemberLevel.LevelId),
+                new SqlParameter("@LevelName",objMemberLevel.LevelName),
+                new SqlParameter("@LevelMonths",objMemberLevel.LevelMonths),
+                new SqlParameter("@MaxBorrowNum",objMemberLevel.MaxBorrowNum),
+                new SqlParameter("@MaxBorrowDays",objMemberLevel.MaxBorrowDays),
+                new SqlParameter("@Deposit",objMemberLevel.Deposit),
+            };
+            //Submit
+            try
+            {
+                return SQLHelper.Update(sql, para);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }
