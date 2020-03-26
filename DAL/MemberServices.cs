@@ -173,5 +173,34 @@ namespace DAL
                 throw ex;
             }
         }
+        //Generate a membership number
+        public string BuildMemberId(int levelId)
+        {
+            //Preparing SQL queries
+            string sql = "Select  top 1 MemberId from member where MemberLevel = @LevelId  order by MemberId desc ";
+            //Prepare parameters
+            SqlParameter[] para = new SqlParameter[]
+            {
+                new SqlParameter("@LevelId",levelId),
+            };
+            //execution
+            try
+            {
+                //Receive execution results 
+                object obj = SQLHelper.GetOneResult(sql, para);
+                //judgment
+                if (obj == null) return levelId.ToString("00") + "00000001";
+                else
+                {
+                    return (levelId.ToString("00") + (Convert.ToInt32(obj.ToString().Substring(2)) + 1).ToString("00000000"));
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
     }
 }
