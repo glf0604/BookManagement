@@ -277,5 +277,28 @@ namespace DAL
                 throw ex;
             }
         }
+        //Get the biggest book to borrow books through Levelid
+        public int GetMaxBorrowNumById(int levelId)
+        {
+            //Preparing SQL statements
+            string sql = "Select MaxBorrowNum from MemberLevel where LevelId=@LevelId";
+            //Prepare parameters
+            SqlParameter[] para = new SqlParameter[]
+            {
+                new SqlParameter("@LevelId",levelId),
+
+            };
+
+            //execution
+            try
+            {
+                return Convert.ToInt32(SQLHelper.GetOneResult(sql, para));
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }
