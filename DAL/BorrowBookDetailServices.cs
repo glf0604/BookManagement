@@ -374,5 +374,30 @@ namespace DAL
                 throw ex;
             }
         }
+        //Query most welcome book TOP 100
+        public DataTable GetBookWelComeTop100()
+        {
+            //Preparing SQL statements
+            string sql = " Select Top 100 ISBN,T1.BookId,BookName,BookAuthor,PressName from Book As T1 Inner Join ";
+            sql += "(Select bookId, count(*) AS BorrowedNum  from BorrowBookDetail Group by Bookid) As T2 On T1.BookId = T2.BookId ";
+            sql += "Inner Join BookPress As T3 on T1.BookPress = T3.PressId  Order By T2.BorrowedNum DESC";
+
+            //Submit a Query
+            try
+            {
+                SqlDataReader objReader = SQLHelper.GetReader(sql);
+                if (!objReader.HasRows) return null;
+                DataTable dt = new DataTable();
+                dt.Load(objReader);
+                objReader.Close();
+                return dt;
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }
