@@ -171,5 +171,28 @@ namespace DAL
                 throw ex;
             }
         }
+        //Gets the expiration month for the appropriate level
+        public int GetMonthsById(int levelId)
+        {
+            //Preparing SQL statements
+            string sql = "Select LevelMonths from MemberLevel where LevelId=@LevelId";
+            //Prepare parameters
+            SqlParameter[] para = new SqlParameter[]
+            {
+                new SqlParameter("@LevelId",levelId),
+
+            };
+
+            //execution
+            try
+            {
+                return Convert.ToInt32(SQLHelper.GetOneResult(sql, para));
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }
