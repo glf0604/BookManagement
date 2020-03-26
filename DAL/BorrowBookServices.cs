@@ -118,5 +118,28 @@ namespace DAL
                 throw ex;
             }
         }
+        //Update the number of BorrowbookNum and overdue
+        public int UpdateBorrowedNumAndOverdue(string borrowId, int borrowedNum, int overdueNum)
+        {
+            //Preparing SQL statements
+            string sql = "Update BorrowBook Set BorrowedNum=@BorrowedNum ,OverdueNum=@OverdueNum where BorrowId=@BorrowId";
+            //Preparing parameters in SQL statements
+            SqlParameter[] para = new SqlParameter[]
+            {
+                new SqlParameter("@BorrowId",borrowId),
+                new SqlParameter("@BorrowedNum",borrowedNum),
+                new SqlParameter("@OverdueNum",overdueNum),
+            };
+            //Execute and return
+            try
+            {
+                return SQLHelper.Update(sql, para);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }
