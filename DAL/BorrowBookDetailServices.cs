@@ -66,5 +66,33 @@ namespace DAL
                 throw ex;
             }
         }
+        //Update the database-determine if the book has expired
+        public void UpdateOverdue(string borrowId)
+        {
+            //Define List 
+            List<BorrowBookDetail> objList = GetDetailByBorrowId(borrowId);
+            //Gets the current date
+            DateTime today = Convert.ToDateTime(SQLHelper.GetServerTime().ToShortDateString());
+            //Traversing List
+            for (int i = 0; i < objList.Count; i++)
+            {
+                if (Convert.ToDateTime(objList[i].LastReturnDate.ToShortDateString()) < today)
+                {
+                    //Change this record to expire.
+                    try
+                    {
+                        if (OverdueById(objList[i].DetailId) == 1)
+                        {
+                            //Successful！
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+
+                        throw ex;
+                    }
+                }
+            }
+        }
     }
 }
