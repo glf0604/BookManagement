@@ -245,5 +245,47 @@ namespace DAL
                 throw ex;
             }
         }
+        //Modify member
+        public int UpdateMember(Member objMember)
+        {
+            //Preparing SQL statements
+            string sql = "Update Member Set MemberCardId=@MemberCardId,MemberName=@MemberName,IdType=@IdType,IdNumber=@IdNumber,Gender=@Gender,TelNo=@TelNo,";
+            sql += "Birthday=@Birthday,HomeAddress=@HomeAddress,MemberPhoto=@MemberPhoto,CardStatus=@CardStatus,CardClosingDate=@CardClosingDate,";
+            sql += "ReMarks=@ReMarks Where MemberId=@MemberId";
+
+            //Prepare parameters
+            SqlParameter[] para = new SqlParameter[]
+            {
+                new SqlParameter("@MemberId",objMember.MemberId),
+                new SqlParameter("@MemberName",objMember.MemberName),
+                new SqlParameter("@MemberCardId",objMember.MemberCardId),
+                new SqlParameter("@MemberLevel",objMember.MemberLevel),
+                new SqlParameter("@IdType",objMember.IdType),
+                new SqlParameter("@IdNumber",objMember.IdNumber),
+                new SqlParameter("@Gender",objMember.Gender),
+                new SqlParameter("@TelNo",objMember.TelNo),
+                new SqlParameter("@Birthday",objMember.Birthday),
+                new SqlParameter("@HomeAddress",objMember.HomeAddress),
+                new SqlParameter("@MemberPhoto",objMember.MemberPhoto),
+                new SqlParameter("@CardStatus",objMember.CardStatus),
+                new SqlParameter("@CardClosingDate",objMember.CardClosingDate),
+                new SqlParameter("@IsReturnDeposit",objMember.IsReturnDeposit),
+                new SqlParameter("@PayMethod",objMember.PayMethod),
+                new SqlParameter("@LoginId",objMember.LoginId),
+                new SqlParameter("@OperatingTime",objMember.OperatingTime),
+                new SqlParameter("@ReMarks",objMember.ReMarks),
+            };
+
+            //Execute and return results
+            try
+            {
+                return SQLHelper.Update(sql, para);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }
