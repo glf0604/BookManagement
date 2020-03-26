@@ -66,6 +66,7 @@ namespace DAL
                 throw ex;
             }
         }
+
         //Update the database-determine if the book has expired
         public void UpdateOverdue(string borrowId)
         {
@@ -92,9 +93,9 @@ namespace DAL
                         throw ex;
                     }
                 }
-
             }
         }
+
         //Change the corresponding DetailId record to expired
         public int OverdueById(int detailId)
         {
@@ -118,6 +119,7 @@ namespace DAL
 
 
         }
+
         //Count the total number of books borrowed
         public int GetBorrowBookNum(string borrowId)
         {
@@ -139,6 +141,7 @@ namespace DAL
                 throw ex;
             }
         }
+
         //Count the amount of expired books
         public int GetBorrowBookOverdue(string borrowId)
         {
@@ -160,6 +163,7 @@ namespace DAL
                 throw ex;
             }
         }
+
         //Get a breakdown of a member's library book
         public DataTable GetBookByBorrowId(string borrowId)
         {
@@ -195,6 +199,7 @@ namespace DAL
                 throw ex;
             }
         }
+
         //Get DetailId
         public int GetDetailId(string borrowId, string bookId)
         {
@@ -218,6 +223,7 @@ namespace DAL
                 throw ex;
             }
         }
+
         //Submit a return return information
         public bool CommitReturnBook(List<BorrowBookDetail> objListDetail, int loginId, Member objMember)
         {
@@ -314,6 +320,7 @@ namespace DAL
                 throw ex;
             }
         }
+
         //The book is checked by people.
         public DataTable QueryBook(DateTime start, DateTime end, string memberCardId = "", string memberId = "", string memberName = "")
         {
@@ -351,6 +358,7 @@ namespace DAL
             }
 
         }
+
         //Inquire into books that have never been borrowed
         public DataTable GetBookNotBorrowed()
         {
@@ -374,6 +382,7 @@ namespace DAL
                 throw ex;
             }
         }
+
         //Query most welcome book TOP 100
         public DataTable GetBookWelComeTop100()
         {
@@ -399,6 +408,7 @@ namespace DAL
                 throw ex;
             }
         }
+
         //Top 100 lost most times
         public DataTable GetBookLostTop100()
         {
@@ -424,6 +434,7 @@ namespace DAL
                 throw ex;
             }
         }
+
         //Top 100 with the most overdue times
         public DataTable GetBookOverdueTop100()
         {
