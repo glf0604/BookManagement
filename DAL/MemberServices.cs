@@ -287,5 +287,28 @@ namespace DAL
                 throw ex;
             }
         }
+        //Delete member
+        public int DeleteMember(string memberId)
+        {
+            //Preparing SQL statements
+            string sql = "Delete from Member Where MemberId=@MemberId";
+
+            //Prepare parameters
+            SqlParameter[] para = new SqlParameter[]
+            {
+                new SqlParameter("@MemberId",memberId),
+            };
+
+            //execute
+            try
+            {
+                return SQLHelper.Update(sql, para);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }
