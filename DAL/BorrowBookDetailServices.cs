@@ -92,7 +92,31 @@ namespace DAL
                         throw ex;
                     }
                 }
+
             }
+        }
+        //Change the corresponding DetailId record to expired
+        public int OverdueById(int detailId)
+        {
+            //Preparing SQL statements
+            string sql = "Update BorrowBookDetail Set IsOverdue=1 Where DetailId=@DetailId ";
+            //Prepare parameters
+            SqlParameter[] para = new SqlParameter[]
+            {
+            new SqlParameter("@DetailId",detailId),
+            };
+            //Update
+            try
+            {
+                return SQLHelper.Update(sql, para);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+
         }
     }
 }
