@@ -194,5 +194,28 @@ namespace DAL
                 throw ex;
             }
         }
+        //Obtain a member's loan validity period 
+        public int GetMaxBorrowDays(int levelId)
+        {
+            //Preparing SQL statements
+            string sql = "Select MaxBorrowDays from MemberLevel where LevelId=@LevelId";
+            //Prepare parameters
+            SqlParameter[] para = new SqlParameter[]
+            {
+                new SqlParameter("@LevelId",levelId),
+
+            };
+
+            //execution
+            try
+            {
+                return Convert.ToInt32(SQLHelper.GetOneResult(sql, para));
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }
