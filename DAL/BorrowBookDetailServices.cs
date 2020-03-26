@@ -118,5 +118,26 @@ namespace DAL
 
 
         }
+        //Count the total number of books borrowed
+        public int GetBorrowBookNum(string borrowId)
+        {
+            //Preparing SQL statements: Total
+            string sql = "Select count(*) from BorrowBookDetail where BorrowId=@BorrowId And IsReturn=0 And IsHandleOverdueorLost=0";
+            //Prepare parameters
+            SqlParameter[] para = new SqlParameter[]
+            {
+            new SqlParameter("@BorrowId",borrowId),
+            };
+            //Execute and return
+            try
+            {
+                return Convert.ToInt32(SQLHelper.GetOneResult(sql, para));
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }
