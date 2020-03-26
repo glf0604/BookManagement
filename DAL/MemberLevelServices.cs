@@ -217,5 +217,28 @@ namespace DAL
                 throw ex;
             }
         }
+        //Obtain a member deposit based on membership number
+        public double GetDepositById(int levelId)
+        {
+            //Preparing SQL statements
+            string sql = "Select Deposit from MemberLevel where LevelId=@LevelId";
+            //Prepare parameters
+            SqlParameter[] para = new SqlParameter[]
+            {
+                new SqlParameter("@LevelId",levelId),
+
+            };
+
+            //execution
+            try
+            {
+                return Convert.ToDouble(SQLHelper.GetOneResult(sql, para));
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }
