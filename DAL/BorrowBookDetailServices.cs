@@ -218,5 +218,101 @@ namespace DAL
                 throw ex;
             }
         }
+        //Submit a return return information
+        public bool CommitReturnBook(List<BorrowBookDetail> objListDetail, int loginId, Member objMember)
+        {
+            //Prepare a storage SQLList
+            List<string> sqlList = new List<string>();
+
+
+
+            //Traversing BorrowDetail 
+            for (int i = 0; i < objListDetail.Count; i++)
+            {
+                string sql = string.Empty;
+                //Sort by situation
+                //Scenario 1: No overdue and no loss
+                if (objListDetail[i].IsLost == false && objListDetail[i].IsOverdue == false)
+                {
+                    //Change BorrowBookDetial
+                    sql = "Update BorrowBookDetail Set IsReturn=1,ReturnDate='{0}' Where DetailId={1}";
+                    sql = string.Format(sql, DateTime.Now, objListDetail[i].DetailId);
+                    sqlList.Add(sql);
+                    //Change the BorrowBook and put the BorrowNum-1
+                    sql = string.Empty;
+                    sql = "Update BorrowBook Set BorrowedNum=BorrowedNum-1 where BorrowId='{0}'";
+                    sql = string.Format(sql, objListDetail[i].BorrowId);
+                    sqlList.Add(sql);
+                    //Change Book Inventory
+                    sql = string.Empty;
+                    sql = "Update Book Set InventoryNum=InventoryNum+1 where BookId='{0}'";
+                    sql = string.Format(sql, objListDetail[i].BookId);
+                    sqlList.Add(sql);
+                }
+                else if (objListDetail[i].IsOverdue == true && objListDetail[i].IsLost == false)  //逾期
+                {
+                    //Change BorrowBookDetial
+                    sql = "Update BorrowBookDetail Set IsReturn=1,ReturnDate='{0}' Where DetailId={1}";
+                    sql = string.Format(sql, DateTime.Now, objListDetail[i].DetailId);
+                    sqlList.Add(sql);
+                    //Change BorrowBook，把BorrowNum-1
+                    sql = string.Empty;
+                    sql = "Update BorrowBook Set BorrowedNum=BorrowedNum-1 where BorrowId='{0}'";
+                    sql = string.Format(sql, objListDetail[i].BorrowId);
+                    sqlList.Add(sql);
+                    //Change Book Inventory
+                    sql = string.Empty;
+                    sql = "Update Book Set InventoryNum=InventoryNum+1 where BookId='{0}'";
+                    sql = string.Format(sql, objListDetail[i].BookId);
+                    sqlList.Add(sql);
+                    //Write ReturnBookRevenue
+                    sql = string.Empty;
+                    TimeSpan ts = DateTime.Now.Subtract(objListDetail[i].LastReturnDate);
+                    sql = "Insert into [ReturnBookRevenue] ( DetailId, OverdueDays, OverdueAmount, BookCompensation, Poundage, TotalMoney, LoginId, OperatingTime) values(";
+                    sql += "{0}, {1},{2},{3},{4},{5},{6},'{7}')";
+                    sql = string.Format(sql, objListDetail[i].DetailId, ts.Days, ts.Days * 0.2, 0, 5.00, ts.Days * 0.2 + 5.00, loginId, DateTime.Now);
+                    sqlList.Add(sql);
+                }
+                else   //Lost, or lost + overdue
+                {
+
+                    //Change BorrowBookDetial
+                    sql = "Update BorrowBookDetail Set IsLost=1,IsHandleOverdueorLost=1,ReturnDate='{0}' Where DetailId={1}";
+                    sql = string.Format(sql, DateTime.Now, objListDetail[i].DetailId);
+                    sqlList.Add(sql);
+                    //Change the BorrowBook and put the BorrowNum-1
+                    sql = string.Empty;
+                    sql = "Update BorrowBook Set BorrowedNum=BorrowedNum-1 where BorrowId='{0}'";
+                    sql = string.Format(sql, objListDetail[i].BorrowId);
+                    sqlList.Add(sql);
+                    //Change Book Inventory
+                    sql = string.Empty;
+                    sql = "Update Book Set StorageInNum=StorageInNum-1 where BookId='{0}'";
+                    sql = string.Format(sql, objListDetail[i].BookId);
+                    sqlList.Add(sql);
+                    //Write ReturnBookRevenue
+                    sql = string.Empty;
+                    BookServices objBookServices = new BookServices();
+                    double price = objBookServices.GetPriceById(objListDetail[i].BookId);
+                    TimeSpan ts = DateTime.Now.Subtract(objListDetail[i].LastReturnDate);
+                    sql = "Insert into [ReturnBookRevenue] ( DetailId, OverdueDays, OverdueAmount, BookCompensation, Poundage, TotalMoney, LoginId, OperatingTime) values(";
+                    sql += "{0}, {1},{2},{3},{4},{5},{6},'{7}')";
+                    sql = string.Format(sql, objListDetail[i].DetailId, ts.Days, ts.Days * 0.2, price, 5.00, ts.Days * 0.2 + 5.00 + price, loginId, DateTime.Now);
+                    sqlList.Add(sql);
+                }
+
+            }
+
+            //Submit
+            try
+            {
+                return SQLHelper.UpdateByTransaction(sqlList);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }
