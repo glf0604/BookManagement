@@ -8,6 +8,7 @@ using System.Data.SqlClient;
 using Models;
 using DBUtility;
 
+
 namespace DAL
 {
     /// <summary>
@@ -53,6 +54,7 @@ namespace DAL
                 throw ex;
             }
         }
+
         //Get the details of a member through a member Id
         public Member GetMemberById(string memberId)
         {
@@ -113,6 +115,7 @@ namespace DAL
                 throw ex;
             }
         }
+
         //Get the details of a member with a membership card
         public Member GetMemberByCardId(string memberCardId)
         {
@@ -173,6 +176,7 @@ namespace DAL
                 throw ex;
             }
         }
+
         //Generate a membership number
         public string BuildMemberId(int levelId)
         {
@@ -202,6 +206,7 @@ namespace DAL
             }
 
         }
+
         //Add a Member
         public int AddMember(Member objMember)
         {
@@ -245,6 +250,7 @@ namespace DAL
                 throw ex;
             }
         }
+
         //Modify member
         public int UpdateMember(Member objMember)
         {
@@ -287,6 +293,7 @@ namespace DAL
                 throw ex;
             }
         }
+
         //Delete member
         public int DeleteMember(string memberId)
         {
@@ -312,3 +319,4 @@ namespace DAL
         }
     }
 }
+
