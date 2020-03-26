@@ -141,5 +141,45 @@ namespace DAL
                 throw ex;
             }
         }
+        //Get borrowBook based on borrowId 
+        public BorrowBook GetBorrowBookByBorrowId(string borrowId)
+        {
+            //Preparing SQL statements
+            string sql = "Select BorrowId,MemberId,BorrowedNum,OverdueNum from BorrowBook Where BorrowId=@BorrowId";
+            //Prepare parameters
+            SqlParameter[] para = new SqlParameter[]
+            {
+                new SqlParameter("@BorrowId",borrowId),
+
+            };
+
+            //Read
+            try
+            {
+                SqlDataReader objReader = SQLHelper.GetReader(sql, para);
+                if (!objReader.HasRows) return null;
+                BorrowBook objBorrowBook = new BorrowBook();
+                if (objReader.Read())
+                {
+                    objBorrowBook = new BorrowBook()
+                    {
+                        BorrowId = objReader["BorrowId"].ToString(),
+                        MemberId = objReader["MemberId"].ToString(),
+                        BorrowedNum = Convert.ToInt32(objReader["BorrowedNum"]),
+                        OverdueNum = Convert.ToInt32(objReader["OverdueNum"]),
+                    };
+                }
+                //Close Read
+                objReader.Close();
+                //return
+                return objBorrowBook;
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }
