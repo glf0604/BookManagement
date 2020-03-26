@@ -101,5 +101,28 @@ namespace DAL
             }
 
         }
+        //Generate a level number
+        public string BuildNewLevelId()
+        {
+
+            //SQL Statement to prepare query
+            string sql = "Select Top 1 LevelId from MemberLevel Order By LevelId DESC ";
+
+            //Execution and return values
+            try
+            {
+                object obj = SQLHelper.GetOneResult(sql);
+                if (obj == null) return "1";
+                else
+                {
+                    return (Convert.ToInt32(obj) + 1).ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }
