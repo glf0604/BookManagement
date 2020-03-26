@@ -39,6 +39,7 @@ namespace DAL
                 throw ex;
             }
         }
+
         //Get a MemberId
         public string BuildBorrowId()
         {
@@ -51,6 +52,7 @@ namespace DAL
             return 'B' + borrowId;
 
         }
+
         //Add a BorrowBoo to see the record
         public int AddBorrowBook(BorrowBook objBorrowBook)
         {
@@ -76,6 +78,7 @@ namespace DAL
                 throw ex;
             }
         }
+
         //Get borrowNum based on memeberId
         public int GetBorrowedNumByMemberId(string memberId)
         {
@@ -97,6 +100,7 @@ namespace DAL
                 throw ex;
             }
         }
+
         //Get borrowId based on memberId 
         public string GetBorrowIdByMemberId(string memberId)
         {
@@ -118,6 +122,7 @@ namespace DAL
                 throw ex;
             }
         }
+
         //Update the number of BorrowbookNum and overdue
         public int UpdateBorrowedNumAndOverdue(string borrowId, int borrowedNum, int overdueNum)
         {
@@ -141,6 +146,7 @@ namespace DAL
                 throw ex;
             }
         }
+
         //Get borrowBook based on borrowId 
         public BorrowBook GetBorrowBookByBorrowId(string borrowId)
         {
@@ -181,6 +187,8 @@ namespace DAL
                 throw ex;
             }
         }
+
+
         //Submit a library information
         public bool CommitBorrowBook(List<Book> objList, string borrowId, DateTime borrowDate, DateTime lastReturnDate)
         {
