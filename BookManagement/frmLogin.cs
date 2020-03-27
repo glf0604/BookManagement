@@ -99,7 +99,32 @@ namespace BookManagement
 
                     MessageBox.Show(ex.Message);
                 }
+                //Login Log
+                //1.Write a record 
+                //2.Assign a value to program.currentLogid
 
+
+                //Preparing log Classes 
+                LoginLogs objLoginLogs = new LoginLogs()
+                {
+                    LogInId = currentAdmins.LoginId,
+                    UserName = currentAdmins.UserName,
+                    LoginComputer = Dns.GetHostName(),
+                    LoginTime = objSysAdminsServices.GetServerTime(),
+                };
+                //Write to log
+                try
+                {
+                    Program.currentLogId = objSysAdminsServices.WirteLoginLog(objLoginLogs);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error writing log! Specific errors:" + ex.Message, "Landing message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                //Return DialogOk 
+                this.DialogResult = DialogResult.OK;
             }
+
+        }
     }
 }
