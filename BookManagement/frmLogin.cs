@@ -130,5 +130,9 @@ namespace BookManagement
         {
             Close();
         }
+        private void txtLoginId_TextChanged(object sender, EventArgs e)
+        {
+            lblLoginInfo.Text = string.Empty;
+        }
     }
 }
