@@ -88,5 +88,31 @@ namespace BookManagement
             }
 
         }
+
+        //Modify Book
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            //【1】Get current Click Book information 
+            Book objBook = null;
+            try
+            {
+                objBook = objBookServices.GetBookById(dgvBook.CurrentRow.Cells[0].Value.ToString());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Abnormal access to book details! Specific reasons:" + ex.Message, "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            //【2】 Assign a value to flag
+            actionFlag = 3;
+
+            //【3】Loading a form
+            frmBookDetail objFrmBookDetail = new frmBookDetail(actionFlag, objBook);
+            DialogResult result = objFrmBookDetail.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                LoadBookInfo();
+            }
+        }
     }
 }
