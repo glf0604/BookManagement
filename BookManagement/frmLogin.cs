@@ -26,8 +26,7 @@ namespace BookManagement
             InitializeComponent();
         }
 
-        //=================================Control event Methods============================
-        private void btnLogin_Click(object sender, EventArgs e)
+        private void frmLogin_Load(object sender, EventArgs e)
         {
             //Verify the data
 
@@ -49,7 +48,6 @@ namespace BookManagement
             {
                 MessageBox.Show("Error when user completes identity! Specific error:" + ex.Message, "System message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
             //More returned results to determine login
             if (currentAdmins == null)
             {
@@ -101,7 +99,6 @@ namespace BookManagement
 
                     MessageBox.Show(ex.Message);
                 }
-
                 //Login Log
                 //1.Write a record 
                 //2.Assign a value to program.currentLogid
@@ -129,22 +126,18 @@ namespace BookManagement
             }
 
         }
-
         private void btnCancel_Click(object sender, EventArgs e)
         {
             Close();
         }
-
         private void txtLoginId_TextChanged(object sender, EventArgs e)
         {
             lblLoginInfo.Text = string.Empty;
         }
-
         private void txtLoginPwd_TextChanged(object sender, EventArgs e)
         {
             lblLoginInfo.Text = string.Empty;
         }
-
         private void txtLoginId_Leave(object sender, EventArgs e)
         {
             try
@@ -165,7 +158,6 @@ namespace BookManagement
                 MessageBox.Show("Error in judging login account! Specific errors:" + ex.Message, "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
         private void txtLoginPwd_Leave(object sender, EventArgs e)
         {
             if (txtLoginPwd.Text.Length < 6)
@@ -181,7 +173,6 @@ namespace BookManagement
             }
 
         }
-
         //=============================User-defined methods===============================
 
         /// <summary>
@@ -217,7 +208,5 @@ namespace BookManagement
 
             return true;
         }
-
-
     }
 }
