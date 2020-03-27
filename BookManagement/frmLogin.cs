@@ -173,5 +173,40 @@ namespace BookManagement
             }
 
         }
+        //=============================User-defined methods===============================
+
+        /// <summary>
+        /// Determine the user's input
+        /// </summary>
+        /// <returns></returns>
+        private bool CheckUserInput()
+        {
+            //Whether the login account is empty, 4 digits 
+            if (string.IsNullOrWhiteSpace(txtLoginId.Text))
+            {
+                lblLoginInfo.Text = "The login account cannot be empty！";
+                txtLoginId.Focus();
+                return false;
+            }
+
+            //Number Four
+            if (!ValidateInput.IsInteger(txtLoginId.Text.Trim()) || txtLoginId.Text.Trim().Length != 4)
+            {
+                lblLoginInfo.Text = "Login account must be 4 digits！";
+                txtLoginId.Focus();
+                return false;
+            }
+
+
+            //Not allowed to be empty, must be 6-bit
+            if (txtLoginPwd.Text.Length < 6)
+            {
+                lblLoginInfo.Text = "Password must be greater than or equal to 6 bits！";
+                txtLoginPwd.Focus();
+                return false;
+            }
+
+            return true;
+        }
     }
 }
