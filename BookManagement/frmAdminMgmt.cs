@@ -67,5 +67,45 @@ namespace BookManagement
             }
 
         }
+
+        //Double-click to view data
+        private void dgvSysAdmins_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //【1】Determine if there is data
+            if (dgvSysAdmins.Rows.Count < 0)
+            {
+                MessageBox.Show("There is no data in the table！", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            if (dgvSysAdmins.CurrentRow.Cells[0].Value == null)
+            {
+                return;
+            }
+            //【2】Packaging
+            SysAdmins objSysAdmin = new SysAdmins()
+            {
+                LoginId = Convert.ToInt32(dgvSysAdmins.CurrentRow.Cells[0].Value),
+                UserName = dgvSysAdmins.CurrentRow.Cells[1].Value.ToString(),
+            };
+            if (dgvSysAdmins.CurrentRow.Cells[2].Value.ToString().Contains("Enable")) objSysAdmin.IsDisable = false;
+            else objSysAdmin.IsDisable = true;
+            if (dgvSysAdmins.CurrentRow.Cells[3].Value.ToString().Contains("Super")) objSysAdmin.IsSuperUser = true;
+            else objSysAdmin.IsSuperUser = false;
+
+            //【3】Initialization of Actionflag
+            actionFlag = 1;
+            //【4】Loading a form
+            if (objFrmAdminDetail == null)
+            {
+                objFrmAdminDetail = new frmAdminDetail(actionFlag, objSysAdmin);
+                objFrmAdminDetail.Show();
+            }
+            else
+            {
+                objFrmAdminDetail.Activate();
+                objFrmAdminDetail.WindowState = FormWindowState.Normal;
+            }
+
+        }
     }
 }
