@@ -150,5 +150,33 @@ namespace BookManagement
 
 
         }
+
+        //ISBN Code Quick Query
+        private void txtQueryISBN_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                LoadBookInfo();
+            }
+        }
+
+        //=======================================Custom events=======================================================
+        //How to load book information
+        private void LoadBookInfo()
+        {
+            //Initialization of DataTable 
+            try
+            {
+                dt = objBookServices.GetBook(txtQueryISBN.Text.Trim(), txtQueryBookId.Text.Trim(), txtQueryBookName.Text.Trim(), txtQueryAuthor.Text.Trim());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Abnormal access to book information! Specific reasons:" + ex.Message, "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            //Load to DataGridView 
+            dgvBook.DataSource = null;
+            dgvBook.DataSource = dt;
+        }
     }
 }
