@@ -107,5 +107,25 @@ namespace BookManagement
             }
 
         }
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            //Assign Value actionFlag 
+            actionFlag = 2;
+            //Loading a form
+            if (objFrmAdminDetail == null)
+            {
+                objFrmAdminDetail = new frmAdminDetail(actionFlag, null);
+                DialogResult result = objFrmAdminDetail.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    LoadSysAdmins();
+                }
+            }
+            else
+            {
+                objFrmAdminDetail.Activate();
+                objFrmAdminDetail.WindowState = FormWindowState.Normal;
+            }
+        }
     }
 }
