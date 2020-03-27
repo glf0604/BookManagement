@@ -170,5 +170,42 @@ namespace BookManagement
             }
 
         }
+
+        private void btnChangePassword_Click(object sender, EventArgs e)
+        {
+            //【1】Determine if there is data
+            if (dgvSysAdmins.Rows.Count < 0)
+            {
+                MessageBox.Show("There is no data in the table！", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            if (dgvSysAdmins.CurrentRow.Cells[0].Value == null)
+            {
+                return;
+            }
+            //【2】encapsulation
+            SysAdmins objSysAdmin = new SysAdmins()
+            {
+                LoginId = Convert.ToInt32(dgvSysAdmins.CurrentRow.Cells[0].Value),
+                UserName = dgvSysAdmins.CurrentRow.Cells[1].Value.ToString(),
+            };
+            if (dgvSysAdmins.CurrentRow.Cells[2].Value.ToString().Contains("Enable")) objSysAdmin.IsDisable = false;
+            else objSysAdmin.IsDisable = true;
+            if (dgvSysAdmins.CurrentRow.Cells[3].Value.ToString().Contains("Super")) objSysAdmin.IsSuperUser = true;
+            else objSysAdmin.IsSuperUser = false;
+
+
+            //[3]Loading a form
+            if (objFrmChangePassword == null)
+            {
+                objFrmChangePassword = new frmChangePassword(objSysAdmin);
+                objFrmChangePassword.Show();
+            }
+            else
+            {
+                objFrmChangePassword.Activate();
+                objFrmChangePassword.WindowState = FormWindowState.Normal;
+            }
+        }
     }
 }
