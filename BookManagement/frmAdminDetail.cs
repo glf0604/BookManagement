@@ -82,5 +82,46 @@ namespace BookManagement
                 LoginPwd = txtPasswordOneTime.Text,
                 LastLoginTime = DateTime.Now,
             };
+            //Submit
+            switch (actionFlag)
+            {
+                case 2: //Add
+                    try
+                    {
+                        if (objSysAdminsServices.AddSysAdmin(objSysAdmin) == 1)
+                        {
+                            //Add successful
+                            MessageBox.Show("Administrator Added Successfully!", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            //Close
+                            Close();
+                            //Return Value
+                            this.DialogResult = DialogResult.OK;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Administrator additions have been abnormal! __________ Specific reasons:" + ex.Message, "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    break;
+                case 3: //Modify
+                    try
+                    {
+                        if (objSysAdminsServices.UpdateSysAdmin(objSysAdmin) == 1)
+                        {
+                            //Add Successful
+                            MessageBox.Show("Modification Administrator Successful！", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            //Close
+                            Close();
+                            //Return Value
+                            this.DialogResult = DialogResult.OK;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Administrator additions have been abnormal! __________ Specific reasons:" + ex.Message, "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    break;
+            }
         }
+    }
 }
