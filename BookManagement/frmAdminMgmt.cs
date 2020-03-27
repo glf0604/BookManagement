@@ -240,5 +240,38 @@ namespace BookManagement
                 MessageBox.Show("There is an exception to enabling accounts! Specific reasons:" + ex.Message, "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
+        private void btnDisable_Click(object sender, EventArgs e)
+        {
+            //Determine if there is data
+            if (dgvSysAdmins.Rows.Count < 0)
+            {
+                MessageBox.Show("There is no data in the table!", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            if (dgvSysAdmins.CurrentRow.Cells[2].Value == null)
+            {
+                return;
+            }
+            if (dgvSysAdmins.CurrentRow.Cells[2].Value.ToString().Contains("Prohibit"))
+            {
+                MessageBox.Show("This account has been disabled!", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            try
+            {
+                if (objSysAdminsServices.DisableLoginId(Convert.ToInt32(dgvSysAdmins.CurrentRow.Cells[0].Value)) == 1)
+                {
+                    //Prompt for Success
+                    MessageBox.Show("Disable account successfully!", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //Refresh
+                    LoadSysAdmins();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Disabled account abnormal! Specific reasons:" + ex.Message, "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
     }
 }
