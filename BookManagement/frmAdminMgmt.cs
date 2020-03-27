@@ -285,5 +285,10 @@ namespace BookManagement
             txtQueryUserName.Text = string.Empty;
             LoadSysAdmins();
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
