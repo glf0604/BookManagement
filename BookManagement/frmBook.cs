@@ -114,5 +114,41 @@ namespace BookManagement
                 LoadBookInfo();
             }
         }
+
+        //Delete Book
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            string bookId = dgvBook.CurrentRow.Cells[0].Value.ToString();
+            string bookName = dgvBook.CurrentRow.Cells[2].Value.ToString();
+
+            //Determine if there is data
+            if (dgvBook.Rows.Count == 0) return;
+
+            //Perform deletion
+            string info = "You are sure to delete the book information [Book number:" + bookId + " Book Name:" + bookName + "]Information?";
+            DialogResult result = MessageBox.Show(info, "System Information", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                try
+                {
+                    if (objBookServices.DeleteBook(bookId) == 1)
+                    {
+                        //Display Successful！
+                        MessageBox.Show("Successful deletion of book information！", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //Refresh
+                        LoadBookInfo();
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Abnormal deletion of book information! Specific reasons:" + ex.Message, "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+            }
+            else return;
+
+
+        }
     }
 }
