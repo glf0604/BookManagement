@@ -30,5 +30,24 @@ namespace BookManagement
             //Loading book information
             LoadBookInfo();
         }
+
+        //=======================================Control events=======================================================
+
+        private void btnQuery_Click(object sender, EventArgs e)
+        {
+            LoadBookInfo();
+        }
+
+        private void btnAll_Click(object sender, EventArgs e)
+        {
+            //Set the text box value to null
+            txtQueryISBN.Text = string.Empty;
+            txtQueryBookId.Text = string.Empty;
+            txtQueryBookName.Text = string.Empty;
+            txtQueryAuthor.Text = string.Empty;
+            //Loading data
+            LoadBookInfo();
+
+        }
     }
 }
