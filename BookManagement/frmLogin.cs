@@ -158,5 +158,20 @@ namespace BookManagement
                 MessageBox.Show("Error in judging login account! Specific errors:" + ex.Message, "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+        private void txtLoginPwd_Leave(object sender, EventArgs e)
+        {
+            if (txtLoginPwd.Text.Length < 6)
+            {
+
+                lblLoginInfo.Text = "Password must not be less than 6 bits";
+                txtLoginPwd.BackColor = Color.OrangeRed;
+
+            }
+            else
+            {
+                txtLoginPwd.BackColor = Color.LightGreen;
+            }
+
+        }
     }
 }
