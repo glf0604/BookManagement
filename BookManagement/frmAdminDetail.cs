@@ -65,5 +65,22 @@ namespace BookManagement
         {
             if (actionFlag == 2) lblLoginId.Text = objSysAdminsServices.BuildLoginId();
         }
-    }
+
+        private void btnCommit_Click(object sender, EventArgs e)
+        {
+            //Verify
+
+            if (!CheckAdminInput()) return;
+
+            //encapsulation
+            SysAdmins objSysAdmin = new SysAdmins()
+            {
+                LoginId = Convert.ToInt32(lblLoginId.Text),
+                UserName = txtUserName.Text.Trim(),
+                IsDisable = rbDisable.Checked == true ? true : false,
+                IsSuperUser = rbSuperUser.Checked == true ? true : false,
+                LoginPwd = txtPasswordOneTime.Text,
+                LastLoginTime = DateTime.Now,
+            };
+        }
 }
