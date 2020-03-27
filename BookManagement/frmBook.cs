@@ -49,5 +49,27 @@ namespace BookManagement
             LoadBookInfo();
 
         }
+
+        //View book details: View only
+        private void dgvBook_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //【1】Get current Click Book information 
+            Book objBook = null;
+            try
+            {
+                objBook = objBookServices.GetBookById(dgvBook.CurrentRow.Cells[0].Value.ToString());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Abnormal access to book details! Specific reasons:" + ex.Message, "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            //【2】 Assign a value to flag
+            actionFlag = 1;
+
+            //【3】Loading a form
+            frmBookDetail objFrmBookDetail = new frmBookDetail(actionFlag, objBook);
+            objFrmBookDetail.Show();
+        }
     }
 }
