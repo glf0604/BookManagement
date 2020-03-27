@@ -45,5 +45,25 @@ namespace BookManagement
             }
 
         }
+
+        //====================================Control events==================================
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void frmAdminDetail_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            frmAdminMgmt.objFrmAdminDetail = null;
+        }
+        private void rbUser_CheckedChanged(object sender, EventArgs e)
+        {
+            if (actionFlag == 2) lblLoginId.Text = objSysAdminsServices.BuildLoginId();
+        }
+
+        private void rbSuperUser_CheckedChanged(object sender, EventArgs e)
+        {
+            if (actionFlag == 2) lblLoginId.Text = objSysAdminsServices.BuildLoginId();
+        }
     }
 }
