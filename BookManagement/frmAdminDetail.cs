@@ -167,6 +167,24 @@ namespace BookManagement
 
         }
 
+        //Modify
+        private void LoadUpdateForm(SysAdmins objSysAdmins)
+        {
+            //Modify Title name Display
+            lblTitle.Text = "Modify Administrator";
+            //Assign a value
+            if (objSysAdmins.IsSuperUser) rbSuperUser.Checked = true;
+            else rbUser.Checked = true;
+            lblLoginId.Text = objSysAdmins.LoginId.ToString();
+            txtUserName.Text = objSysAdmins.UserName;
+            if (objSysAdmins.IsDisable) rbDisable.Checked = true;
+            else rbEnable.Checked = true;
+            txtPasswordOneTime.Text = "1234.com";
+            txtPasswordTwoTime.Text = "1234.com";
 
+            //Disable password
+            txtPasswordOneTime.Enabled = false;
+            txtPasswordOneTime.Enabled = false;
+        }
     }
 }
