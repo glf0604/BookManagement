@@ -48,7 +48,34 @@ namespace BookManagement
             {
                 MessageBox.Show("Error when user completes identity! Specific error:" + ex.Message, "System message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+            //More returned results to determine login
+            if (currentAdmins == null)
+            {
+                //Count plus 1
+                errorTimes++;
+                //Determine if it reaches three times 
+                if (errorTimes == 3)
+                {
+                    try
+                    {
+                        if (objSysAdminsServices.DisableLoginId(Convert.ToInt32(txtLoginId.Text.Trim())) == 1)
+                        {
+                            lblLoginInfo.Text = "The password has been mistyped three times and the account has been disabled!";
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
 
+                    }
+                }
+                else
+                {
+                    lblLoginInfo.Text = "Error in password input!";
+                    return;
+                }
+
+            }
 
         }
     }
