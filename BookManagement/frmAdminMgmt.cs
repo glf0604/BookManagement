@@ -273,5 +273,17 @@ namespace BookManagement
                 MessageBox.Show("Disabled account abnormal! Specific reasons:" + ex.Message, "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
+        private void btnQuery_Click(object sender, EventArgs e)
+        {
+            LoadSysAdmins();
+        }
+
+        private void btnAll_Click(object sender, EventArgs e)
+        {
+            txtQueryLoginId.Text = string.Empty;
+            txtQueryUserName.Text = string.Empty;
+            LoadSysAdmins();
+        }
     }
 }
