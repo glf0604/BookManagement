@@ -149,5 +149,24 @@ namespace BookManagement
             btnCommit.Visible = false;
 
         }
+
+        //Add
+        private void LoadAddForm()
+        {
+            //Modify Title name Display
+            lblTitle.Text = "Add Administrator";
+
+            //Clear
+            txtUserName.Text = string.Empty;
+            txtPasswordOneTime.Text = string.Empty;
+            txtPasswordTwoTime.Text = string.Empty;
+
+
+            //Admin Radio Box gets focus
+            rbUser.Checked = true;
+
+        }
+
+
     }
 }
