@@ -76,7 +76,30 @@ namespace BookManagement
                 }
 
             }
+            else if (currentAdmins.IsDisable)
+            {
+                lblLoginInfo.Text = "Account has been disabled! Please contact the administrator";
+                return;
+            }
+            else
+            {
+                //Pay the value to the global variable 
+                Program.currentUser = currentAdmins;
 
-        }
+                //Change the current login time 
+                try
+                {
+                    if (objSysAdminsServices.UpdateLastLoginTime(Convert.ToInt32(txtLoginId.Text.Trim())) == 1)
+                    {
+
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show(ex.Message);
+                }
+
+            }
     }
 }
