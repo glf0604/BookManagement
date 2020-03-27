@@ -28,6 +28,27 @@ namespace BookManagement
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
+            //Verify the data
+
+
+            //Encapsulating users
+            SysAdmins currentAdmins = new SysAdmins()
+            {
+                LoginId = Convert.ToInt32(txtLoginId.Text.Trim()),
+                LoginPwd = txtLoginPwd.Text,
+            };
+
+            //Complete authentication
+            try
+            {
+                currentAdmins = objSysAdminsServices.Login(currentAdmins);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error when user completes identity! Specific error:" + ex.Message, "System message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
 
         }
     }
