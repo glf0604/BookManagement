@@ -207,5 +207,38 @@ namespace BookManagement
                 objFrmChangePassword.WindowState = FormWindowState.Normal;
             }
         }
+
+        private void btnEnable_Click(object sender, EventArgs e)
+        {
+            //Determine if there is data
+            if (dgvSysAdmins.Rows.Count < 0)
+            {
+                MessageBox.Show("There is no data in the table！", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            if (dgvSysAdmins.CurrentRow.Cells[2].Value == null)
+            {
+                return;
+            }
+            if (dgvSysAdmins.CurrentRow.Cells[2].Value.ToString().Contains("Enable"))
+            {
+                MessageBox.Show("The account has been activated！", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            try
+            {
+                if (objSysAdminsServices.EnableAdmin(Convert.ToInt32(dgvSysAdmins.CurrentRow.Cells[0].Value)) == 1)
+                {
+                    //Prompt for Success
+                    MessageBox.Show("Successful account activation!", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //Refresh
+                    LoadSysAdmins();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("There is an exception to enabling accounts! Specific reasons:" + ex.Message, "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
     }
 }
