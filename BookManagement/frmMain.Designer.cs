@@ -476,7 +476,7 @@
             this.btnFormClose.BackColor = System.Drawing.Color.White;
             this.btnFormClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFormClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnFormClose.Location = new System.Drawing.Point(1328, 7);
+            this.btnFormClose.Location = new System.Drawing.Point(1328, 1);
             this.btnFormClose.Name = "btnFormClose";
             this.btnFormClose.Size = new System.Drawing.Size(34, 31);
             this.btnFormClose.TabIndex = 11;
@@ -499,7 +499,7 @@
             // 
             this.btnFormMin.BackColor = System.Drawing.Color.White;
             this.btnFormMin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFormMin.Location = new System.Drawing.Point(1289, 7);
+            this.btnFormMin.Location = new System.Drawing.Point(1293, 1);
             this.btnFormMin.Name = "btnFormMin";
             this.btnFormMin.Size = new System.Drawing.Size(34, 31);
             this.btnFormMin.TabIndex = 10;
@@ -520,7 +520,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Navy;
-            this.pictureBox1.Location = new System.Drawing.Point(-4, -2);
+            this.pictureBox1.Location = new System.Drawing.Point(1, -2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(1366, 100);
             this.pictureBox1.TabIndex = 9;
@@ -531,14 +531,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1366, 768);
+            this.Controls.Add(this.btnFormClose);
+            this.Controls.Add(this.btnFormMin);
             this.Controls.Add(this.lblLastLoginTime);
             this.Controls.Add(this.lblLoginUseName);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.splitContainer1);
-            this.Controls.Add(this.btnFormClose);
-            this.Controls.Add(this.btnFormMin);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmMain";
             this.Text = "frmMain";
