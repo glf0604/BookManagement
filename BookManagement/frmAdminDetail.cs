@@ -186,5 +186,27 @@ namespace BookManagement
             txtPasswordOneTime.Enabled = false;
             txtPasswordOneTime.Enabled = false;
         }
+
+        //Verify input
+        private bool CheckAdminInput()
+        {
+            if (string.IsNullOrWhiteSpace(txtUserName.Text))
+            {
+                MessageBox.Show("User name cannot be empty！", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
+            if (txtPasswordOneTime.Text.Length < 6)
+            {
+                MessageBox.Show("Password must not be less than 6 bits！", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
+            if (txtPasswordOneTime.Text != txtPasswordTwoTime.Text)
+            {
+                MessageBox.Show("Two password inconsistencies！", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
+
+            return true;
+        }
     }
 }
