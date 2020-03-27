@@ -138,5 +138,25 @@ namespace BookManagement
         {
             lblLoginInfo.Text = string.Empty;
         }
+        private void txtLoginId_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                bool b = objSysAdminsServices.IsExistLoginId(Convert.ToInt32(txtLoginId.Text.Trim()));
+                if (!b)
+                {
+                    lblLoginInfo.Text = "Logon name does not exist";
+                    txtLoginId.BackColor = Color.OrangeRed;
+                }
+                else
+                {
+                    txtLoginId.BackColor = Color.LightGreen;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error in judging login account! Specific errors:" + ex.Message, "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
     }
 }
