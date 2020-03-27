@@ -71,5 +71,22 @@ namespace BookManagement
             frmBookDetail objFrmBookDetail = new frmBookDetail(actionFlag, objBook);
             objFrmBookDetail.Show();
         }
+
+        //Add a book：
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+
+            //【2】 Assign a value to flag
+            actionFlag = 2;
+            //【3】Loading a form
+            frmBookDetail objFrmBookDetail = new frmBookDetail(actionFlag, null);
+            DialogResult result = objFrmBookDetail.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                //Update list information
+                LoadBookInfo();
+            }
+
+        }
     }
 }
