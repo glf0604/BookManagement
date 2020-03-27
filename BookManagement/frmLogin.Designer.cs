@@ -61,6 +61,7 @@
             this.btnCancel.TabIndex = 3;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnLogin
             // 
@@ -74,6 +75,7 @@
             this.btnLogin.TabIndex = 2;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = false;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // txtLoginPwd
             // 
@@ -85,6 +87,8 @@
             this.txtLoginPwd.TabIndex = 1;
             this.txtLoginPwd.Text = "123.com";
             this.txtLoginPwd.UseSystemPasswordChar = true;
+            this.txtLoginPwd.TextChanged += new System.EventHandler(this.txtLoginPwd_TextChanged);
+            this.txtLoginPwd.Leave += new System.EventHandler(this.txtLoginPwd_Leave);
             // 
             // label2
             // 
@@ -106,6 +110,8 @@
             this.txtLoginId.Size = new System.Drawing.Size(145, 29);
             this.txtLoginId.TabIndex = 0;
             this.txtLoginId.Text = "1001";
+            this.txtLoginId.TextChanged += new System.EventHandler(this.txtLoginId_TextChanged);
+            this.txtLoginId.Leave += new System.EventHandler(this.txtLoginId_Leave);
             // 
             // label1
             // 
@@ -146,7 +152,6 @@
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.frmLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
