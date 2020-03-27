@@ -123,5 +123,31 @@ namespace BookManagement
                     break;
             }
         }
+        //====================================User-defined methods==================================
+
+        //View
+        private void LoadViewForm(SysAdmins objSysAdmins)
+        {
+            //Modify Title name Display
+            lblTitle.Text = "View Administrator";
+            //Assign a value
+            if (objSysAdmins.IsSuperUser) rbSuperUser.Checked = true;
+            else rbUser.Checked = true;
+            lblLoginId.Text = objSysAdmins.LoginId.ToString();
+            txtUserName.Text = objSysAdmins.UserName;
+            if (objSysAdmins.IsDisable) rbDisable.Checked = true;
+            else rbEnable.Checked = true;
+            //Disable controls
+            rbUser.Enabled = false;
+            rbSuperUser.Enabled = false;
+            rbEnable.Enabled = false;
+            rbDisable.Enabled = false;
+            txtUserName.Enabled = false;
+            txtPasswordOneTime.Enabled = false;
+            txtPasswordTwoTime.Enabled = false;
+            //Submit Control Hide
+            btnCommit.Visible = false;
+
+        }
     }
 }
