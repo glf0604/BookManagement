@@ -126,6 +126,7 @@
             this.rbSuperUser.TabIndex = 1;
             this.rbSuperUser.Text = "Super Administrators";
             this.rbSuperUser.UseVisualStyleBackColor = true;
+            this.rbSuperUser.CheckedChanged += new System.EventHandler(this.rbSuperUser_CheckedChanged);
             // 
             // rbUser
             // 
@@ -138,6 +139,7 @@
             this.rbUser.TabIndex = 0;
             this.rbUser.Text = "Administrators";
             this.rbUser.UseVisualStyleBackColor = true;
+            this.rbUser.CheckedChanged += new System.EventHandler(this.rbUser_CheckedChanged);
             // 
             // label6
             // 
@@ -232,6 +234,7 @@
             this.btnClose.TabIndex = 46;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnCommit
             // 
@@ -249,6 +252,7 @@
             this.btnCommit.TabIndex = 45;
             this.btnCommit.Text = "Submit";
             this.btnCommit.UseVisualStyleBackColor = false;
+            this.btnCommit.Click += new System.EventHandler(this.btnCommit_Click);
             // 
             // label8
             // 
