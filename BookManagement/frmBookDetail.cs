@@ -114,5 +114,74 @@ namespace BookManagement
             }
 
         }
+
+        private void btnCommit_Click(object sender, EventArgs e)
+        {
+
+            //【1】 Input for validation 
+
+            //【2】 encapsulation 
+            Book objBook = new Book()
+            {
+                BookId = lblBookId.Text,
+                BookName = txtBookName.Text.Trim(),
+                BookType = cboBookTypeTwo.Enabled == true ? Convert.ToInt32(cboBookTypeTwo.SelectedValue.ToString()) : Convert.ToInt32(cboBookTypeOne.SelectedValue),
+                ISBN = txtBookISBN.Text,
+                BookAuthor = txtBookAuthor.Text.Trim(),
+                BookPrice = Convert.ToDouble(txtBookPrice.Text.Trim()),
+                BookPress = Convert.ToInt32(cboBookPress.SelectedValue),
+                BookPublishDate = Convert.ToDateTime(dtpPublishDate.Text),
+                StorageInNum = Convert.ToInt32(txtStorageInNum.Text.Trim()),
+                InventoryNum = Convert.ToInt32(lblInventoryNum.Text.Trim()),
+                BorrowedNum = Convert.ToInt32(lblBorrowedNum.Text.Trim()),
+                StorageInDate = Convert.ToDateTime(lblStorageInDate.Text),
+            };
+            ///Picture--> text
+            if (pbCurrentImage.BackgroundImage == null) objBook.BookImage = null;
+            else objBook.BookImage = new Common.SerializeObjectToString().SerializeObject(pbCurrentImage.BackgroundImage);
+
+
+
+            //Perform 
+            switch (actionFlag)
+            {
+                case 2:
+                    try
+                    {
+                        if (objBookServices.AddBook(objBook) == 1)
+                        {
+                            //Prompt for Success！
+                            MessageBox.Show("Successful addition of book information!", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            //Close a form
+                            Close();
+                            //Return ok 
+                            this.DialogResult = DialogResult.OK;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error adding book information! Specific errors:" + ex.Message, "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    break;
+                case 3:
+                    try
+                    {
+                        if (objBookServices.UpdateBook(objBook) == 1)
+                        {
+                            //Notice Successful！
+                            MessageBox.Show("Successful revision of book information!", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            //Close From
+                            Close();
+                            //Return OK 
+                            this.DialogResult = DialogResult.OK;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error in revising book information! Specific errors:" + ex.Message, "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    break;
+            }
+        }
     }
 }
