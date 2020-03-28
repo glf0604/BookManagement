@@ -394,5 +394,30 @@ namespace BookManagement
             cboBookTypeTwo.Enabled = false;
 
         }
+
+        private void LoadSubTypeInfo(int typeId)
+        {
+
+            //Get the following box information (press)
+            try
+            {
+                objListTypeTwo = objBookTypeServices.GetSubBookTypeList(typeId);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to get drop-down data! Specific reasons:" + ex.Message, "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            //Bind to drop-down box
+            cboBookTypeTwo.DataSource = objListTypeTwo;
+            cboBookTypeTwo.DisplayMember = "TypeName";
+            cboBookTypeTwo.ValueMember = "TypeId";
+
+            cboBookTypeTwo.SelectedIndex = -1;
+            cboBookTypeTwo.Text = "Please select the book category.";
+
+            cboBookTypeTwo.AutoCompleteSource = AutoCompleteSource.ListItems;
+            cboBookTypeTwo.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+        }
     }
 }
