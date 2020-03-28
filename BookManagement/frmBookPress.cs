@@ -105,5 +105,39 @@ namespace BookManagement
                 objFrmBookPressDetail.WindowState = FormWindowState.Normal;
             }
         }
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            //Modify Publishing house information
+
+
+            //Get click on this line of data
+            BookPress objBookPress = new BookPress()
+            {
+                PressId = Convert.ToInt32(dgvPress.CurrentRow.Cells[0].Value),
+                PressName = dgvPress.CurrentRow.Cells[1].Value.ToString(),
+                PressTel = dgvPress.CurrentRow.Cells[2].Value.ToString(),
+                PressContact = dgvPress.CurrentRow.Cells[3].Value.ToString(),
+                PressAddress = dgvPress.CurrentRow.Cells[4].Value.ToString(),
+            };
+
+            //Modify Actionflag---Modifications
+            actionFlag = 3;
+            //Open the Detail form 
+            if (objFrmBookPressDetail == null)
+            {
+                objFrmBookPressDetail = new frmBookPressDetail(actionFlag, objBookPress);
+                DialogResult result = objFrmBookPressDetail.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    //Refresh Data in DataGridView
+                    LoadPressInfo();
+                }
+            }
+            else
+            {
+                objFrmBookPressDetail.Activate();
+                objFrmBookPressDetail.WindowState = FormWindowState.Normal;
+            }
+        }
     }
 }
