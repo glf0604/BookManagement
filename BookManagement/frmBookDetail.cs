@@ -66,6 +66,40 @@ namespace BookManagement
                     break;
             }
         }
+        //=================================Control events=====================================
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
 
+        //Trigger event when selecting a drop-down box
+        private void cboBookTypeOne_SelectedValueChanged(object sender, EventArgs e)
+        {
+            //Determine if the options in the correct selection
+            if (cboBookTypeOne.SelectedValue == null) return;
+            else if (!ValidateInput.IsInteger(cboBookTypeOne.SelectedValue.ToString())) return;
+            else
+            {
+                //Determine if there are no level two options, if any, enable, load data in the database, no, remain disabled
+                if (objBookTypeServices.IsExistSubType(Convert.ToInt32(cboBookTypeOne.SelectedValue.ToString())))
+                {
+                    //Enable subclass drop-down box
+                    cboBookTypeTwo.Enabled = true;
+                    //Load
+                    LoadSubTypeInfo(Convert.ToInt32(cboBookTypeOne.SelectedValue.ToString()));
+                }
+                else
+                {
+                    //Disable Subclass drop-down box
+                    cboBookTypeTwo.Enabled = false;
+                    cboBookTypeTwo.Text = "No secondary class";
+                }
+                //Generate numbers
+                lblBookId.Text = objBookServices.BuildNewBookId(Convert.ToInt32(cboBookTypeOne.SelectedValue.ToString()));
+            }
+
+
+
+        }
     }
 }
