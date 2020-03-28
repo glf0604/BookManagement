@@ -194,5 +194,18 @@ namespace BookManagement
             frmBorrowBook.objFrmBookDetail = null;
             frmReturnBook.objFrmBookDetail = null;
         }
+        #region Processing of book pictures (select pictures, take photos via camera)
+        private void btnSelectPhoto_Click(object sender, EventArgs e)
+        {
+            //Instantiate Open File dialog box
+            OpenFileDialog objOpenFile = new OpenFileDialog();
+            //Setting File types
+            objOpenFile.Filter = "Picture files|*.jpg;*.png;*.bmp";
+            //If you select a good file, show
+            if (objOpenFile.ShowDialog() == DialogResult.OK)
+            {
+                pbCurrentImage.BackgroundImage = Image.FromFile(objOpenFile.FileName);
+            }
+        }
     }
 }
