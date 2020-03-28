@@ -51,5 +51,36 @@ namespace BookManagement
             //Invoking the Load data method
             LoadPressInfo();
         }
+        private void dgvPress_DoubleClick(object sender, EventArgs e)
+        {
+
+            //===============View publisher Information====
+
+            //Get click on this line of data
+            BookPress objBookPress = new BookPress()
+            {
+                PressId = Convert.ToInt32(dgvPress.CurrentRow.Cells[0].Value),
+                PressName = dgvPress.CurrentRow.Cells[1].Value.ToString(),
+                PressTel = dgvPress.CurrentRow.Cells[2].Value.ToString(),
+                PressContact = dgvPress.CurrentRow.Cells[3].Value.ToString(),
+                PressAddress = dgvPress.CurrentRow.Cells[4].Value.ToString(),
+            };
+
+            //Modify Actionflag---See
+            actionFlag = 1;
+
+
+            //Open the Detail form 
+            if (objFrmBookPressDetail == null)
+            {
+                objFrmBookPressDetail = new frmBookPressDetail(actionFlag, objBookPress);
+                objFrmBookPressDetail.Show();
+            }
+            else
+            {
+                objFrmBookPressDetail.Activate();
+                objFrmBookPressDetail.WindowState = FormWindowState.Normal;
+            }
+        }
     }
 }
