@@ -44,11 +44,13 @@ namespace BookManagement
             //Set BookID to Empty
             lblBookId.Text = string.Empty;
         }
+
         //Constructing method with Parameters
         public frmBookDetail(int flag, Book objBook) : this()
         {
             //Initialization of local actionFlag 
             actionFlag = flag;
+
             //More flag uses an impassable initialization
             switch (flag)
             {
@@ -189,12 +191,15 @@ namespace BookManagement
             lblBorrowedNum.Text = "0";
             lblStorageInDate.Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
         }
+
         private void frmBookDetail_FormClosing(object sender, FormClosingEventArgs e)
         {
             frmBorrowBook.objFrmBookDetail = null;
             frmReturnBook.objFrmBookDetail = null;
         }
+
         #region Processing of book pictures (select pictures, take photos via camera)
+
         private void btnSelectPhoto_Click(object sender, EventArgs e)
         {
             //Instantiate Open File dialog box
@@ -207,6 +212,7 @@ namespace BookManagement
                 pbCurrentImage.BackgroundImage = Image.FromFile(objOpenFile.FileName);
             }
         }
+
         private void btnClearPhoto_Click(object sender, EventArgs e)
         {
             pbCurrentImage.BackgroundImage = null;
@@ -226,6 +232,7 @@ namespace BookManagement
             }
 
         }
+
         private void btnCloseCamera_Click(object sender, EventArgs e)
         {
             objVideo.CloseVideo();
@@ -244,7 +251,7 @@ namespace BookManagement
             //Modify Form Title Name
             lblTitle.Text = "【View Book Information】";
 
-            //隐藏控件 
+            //Hidden controls 
             pbImage.Visible = false;
             btnSelectPhoto.Visible = false;
             btnClearPhoto.Visible = false;
@@ -253,6 +260,7 @@ namespace BookManagement
             btnStartPhoto.Visible = false;
             btnCommit.Visible = false;
             //Assign a value
+
             //=======Book Type
             string[] typeName = objBookTypeServices.GetTypeNameById(objBook.BookType);
             if (typeName[0].Contains("All"))
@@ -295,8 +303,6 @@ namespace BookManagement
 
             //Modify the text of a button
             btnClose.Text = "Close";
-
-
 
         }
         private void LoadAddForm()
