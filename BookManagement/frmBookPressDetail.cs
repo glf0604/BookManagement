@@ -1,0 +1,28 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using Models;
+using DAL;
+
+namespace BookManagement
+{
+    public partial class frmBookPressDetail : Form
+    {
+        //The Operation method Class of instantiated publishing house 
+        private BookPressServices objBookPressServices = new BookPressServices();
+
+        //Defines a actionFlag that is used to distinguish whether to add or modify at the time of submission
+        private int actionFlag = 0;  //2--Add    3---Modify
+
+        public frmBookPressDetail()
+        {
+            InitializeComponent();
+        }
+    }
+}

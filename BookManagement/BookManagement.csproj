@@ -101,6 +101,12 @@
     <Compile Include="frmBookPress.Designer.cs">
       <DependentUpon>frmBookPress.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmBookPressDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBookPressDetail.Designer.cs">
+      <DependentUpon>frmBookPressDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,6 +135,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmBookPress.resx">
       <DependentUpon>frmBookPress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBookPressDetail.resx">
+      <DependentUpon>frmBookPressDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
