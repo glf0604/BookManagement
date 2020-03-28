@@ -60,5 +60,62 @@ namespace BookManagement
         {
             frmBookPress.objFrmBookPressDetail = null;
         }
+        private void btnCommit_Click(object sender, EventArgs e)
+        {
+
+            //Determine if the input complies with the specification 
+            if (!CheckPressInput()) return;
+
+            //Encapsulation objects
+            BookPress objBookPress = new BookPress()
+            {
+                PressId = Convert.ToInt32(lblPressId.Text),
+                PressName = txtPressName.Text.Trim(),
+                PressTel = txtPressTel.Text.Trim(),
+                PressContact = txtPressContact.Text.Trim(),
+                PressAddress = txtPressAddress.Text.Trim(),
+            };
+
+            //Submit
+            switch (actionFlag)
+            {
+                case 2://Added execution
+                    try
+                    {
+                        if (objBookPressServices.AddBookPress(objBookPress) == 1)
+                        {
+                            //Notice Successful！
+                            MessageBox.Show("Success in Adding Publishing House Information!", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            //Close current from
+                            Close();
+                            //Return OK 
+                            this.DialogResult = DialogResult.OK;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error adding publisher information! Specific errors:" + ex.Message, "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    break;
+                case 3: //The execution of the modification
+                    try
+                    {
+                        if (objBookPressServices.UpdateBookPress(objBookPress) == 1)
+                        {
+                            //Notice Successful！
+                            MessageBox.Show("Success in Adding Publishing House Information!", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            //Close current form
+                            Close();
+                            //Return OK 
+                            this.DialogResult = DialogResult.OK;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error adding publisher information! Specific errors:" + ex.Message, "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    break;
+            }
+        }
     }
 }
