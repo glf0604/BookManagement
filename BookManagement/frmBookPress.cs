@@ -139,5 +139,36 @@ namespace BookManagement
                 objFrmBookPressDetail.WindowState = FormWindowState.Normal;
             }
         }
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            string pressId = dgvPress.CurrentRow.Cells[0].Value.ToString();
+            string pressName = dgvPress.CurrentRow.Cells[1].Value.ToString();
+            //Judment
+            if (dgvPress.Rows.Count == 0) return;
+            else
+            {
+                string info = "You are sure to delete the publishing house information [No." + pressId + " Name：" + pressName + "]？";
+                DialogResult result = MessageBox.Show(info, "System Information", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    try
+                    {
+                        if (objBookPressServices.DeleteBookPress(Convert.ToInt32(pressId)) == 1)
+                        {
+                            //Successful notice
+                            MessageBox.Show("Successful Deletion of Publishing House Information!", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            //refresh data
+                            LoadPressInfo();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error deleting press information! Specific reasons:" + ex.Message, "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                else return;
+            }
+
+        }
     }
 }
