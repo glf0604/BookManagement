@@ -30,6 +30,18 @@ namespace BookManagement
         public frmBookPress()
         {
             InitializeComponent();
+
+            //Initialize the DataGridView control 
+            dgvPress.AutoGenerateColumns = false;
+            //Loading data
+            LoadPressInfo();
+        }
+
+        //=============================Loading data====================================
+        private void btnQuery_Click(object sender, EventArgs e)
+        {
+            //Invoking the Load data method
+            LoadPressInfo();
         }
     }
 }
