@@ -45,6 +45,7 @@ namespace BookManagement
             txtQueryBookId.Text = string.Empty;
             txtQueryBookName.Text = string.Empty;
             txtQueryAuthor.Text = string.Empty;
+
             //Loading data
             LoadBookInfo();
 
@@ -78,6 +79,7 @@ namespace BookManagement
 
             //【2】 Assign a value to flag
             actionFlag = 2;
+
             //【3】Loading a form
             frmBookDetail objFrmBookDetail = new frmBookDetail(actionFlag, null);
             DialogResult result = objFrmBookDetail.ShowDialog();
