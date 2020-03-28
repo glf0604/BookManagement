@@ -65,6 +65,7 @@
             this.btnAdd.TabIndex = 21;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // Column4
             // 
@@ -135,6 +136,7 @@
             this.dgvPress.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPress.Size = new System.Drawing.Size(1126, 539);
             this.dgvPress.TabIndex = 26;
+            this.dgvPress.DoubleClick += new System.EventHandler(this.dgvPress_DoubleClick);
             // 
             // Column5
             // 
@@ -158,6 +160,7 @@
             this.btnDelete.TabIndex = 22;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnUpdate
             // 
@@ -173,6 +176,7 @@
             this.btnUpdate.TabIndex = 23;
             this.btnUpdate.Text = "Modify";
             this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnAllPress
             // 
@@ -188,6 +192,7 @@
             this.btnAllPress.TabIndex = 24;
             this.btnAllPress.Text = "All";
             this.btnAllPress.UseVisualStyleBackColor = false;
+            this.btnAllPress.Click += new System.EventHandler(this.btnAllPress_Click);
             // 
             // btnQuery
             // 
@@ -203,6 +208,7 @@
             this.btnQuery.TabIndex = 25;
             this.btnQuery.Text = "Query";
             this.btnQuery.UseVisualStyleBackColor = false;
+            this.btnQuery.Click += new System.EventHandler(this.btnQuery_Click);
             // 
             // txtQueryPressName
             // 
@@ -275,6 +281,7 @@
             this.btnClose.TabIndex = 16;
             this.btnClose.Text = "CLose";
             this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // frmBookPress
             // 
