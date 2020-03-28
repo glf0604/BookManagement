@@ -117,5 +117,32 @@ namespace BookManagement
                     break;
             }
         }
+
+        //-=================================Custom Methods================================
+
+        //Form initialization when used for viewing
+        private void LoadViewForm(BookPress objBookPress)
+        {
+            //【1】 Change the Title name to "view publisher"
+            lblTitle.Text = "【View Press】";
+
+            //【2】 Disable controls 
+            txtPressName.Enabled = false;
+            txtPressTel.Enabled = false;
+            txtPressContact.Enabled = false;
+            txtPressAddress.Enabled = false;
+
+            //【3】 Initialize content
+            lblPressId.Text = objBookPress.PressId.ToString();
+            txtPressName.Text = objBookPress.PressName;
+            txtPressTel.Text = objBookPress.PressTel;
+            txtPressContact.Text = objBookPress.PressContact;
+            txtPressAddress.Text = objBookPress.PressAddress;
+
+            //【4】Hide Submit button 
+            btnCommit.Visible = false;
+
+
+        }
     }
 }
