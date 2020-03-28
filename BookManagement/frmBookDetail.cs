@@ -224,6 +224,16 @@ namespace BookManagement
             {
                 MessageBox.Show("Failed to call camera! Specific reasons:" + ex.Message, "System Tips", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+            private void btnCloseCamera_Click(object sender, EventArgs e)
+            {
+                objVideo.CloseVideo();
+            }
+
+            private void btnStartPhoto_Click(object sender, EventArgs e)
+            {
+                pbCurrentImage.BackgroundImage = objVideo.CatchVideo();
+            }
+            #endregion
         }
     }
 }
