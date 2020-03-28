@@ -81,6 +81,7 @@ namespace BookManagement
             {
                 return;
             }
+
             //【2】Packaging
             SysAdmins objSysAdmin = new SysAdmins()
             {
@@ -94,6 +95,7 @@ namespace BookManagement
 
             //【3】Initialization of Actionflag
             actionFlag = 1;
+
             //【4】Loading a form
             if (objFrmAdminDetail == null)
             {
@@ -111,6 +113,7 @@ namespace BookManagement
         {
             //Assign Value actionFlag 
             actionFlag = 2;
+
             //Loading a form
             if (objFrmAdminDetail == null)
             {
@@ -140,6 +143,7 @@ namespace BookManagement
             {
                 return;
             }
+
             //【2】encapsulation
             SysAdmins objSysAdmin = new SysAdmins()
             {
@@ -153,6 +157,7 @@ namespace BookManagement
 
             //【3】Initialization of Actionflag
             actionFlag = 3;
+
             //【4】Loading a form
             if (objFrmAdminDetail == null)
             {
@@ -183,6 +188,7 @@ namespace BookManagement
             {
                 return;
             }
+
             //【2】encapsulation
             SysAdmins objSysAdmin = new SysAdmins()
             {
@@ -193,8 +199,7 @@ namespace BookManagement
             else objSysAdmin.IsDisable = true;
             if (dgvSysAdmins.CurrentRow.Cells[3].Value.ToString().Contains("Super")) objSysAdmin.IsSuperUser = true;
             else objSysAdmin.IsSuperUser = false;
-
-
+            
             //[3]Loading a form
             if (objFrmChangePassword == null)
             {
