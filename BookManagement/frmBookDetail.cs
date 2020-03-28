@@ -299,5 +299,14 @@ namespace BookManagement
 
 
         }
+        private void LoadAddForm()
+        {
+            //Modify Form Title Name
+            lblTitle.Text = "【Adding Book Information】";
+
+            //Modify button Name
+            btnClose.Text = "Cancel and close";
+
+        }
     }
 }
