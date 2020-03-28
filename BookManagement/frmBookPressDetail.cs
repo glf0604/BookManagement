@@ -48,5 +48,17 @@ namespace BookManagement
             }
 
         }
+
+        //-=================================Control methods================================
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void frmBookPressDetail_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            frmBookPress.objFrmBookPressDetail = null;
+        }
     }
 }
