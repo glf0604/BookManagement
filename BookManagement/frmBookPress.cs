@@ -43,6 +43,7 @@ namespace BookManagement
             //Invoking the Load data method
             LoadPressInfo();
         }
+
         private void btnAllPress_Click(object sender, EventArgs e)
         {
             txtQueryPressId.Text = string.Empty;
@@ -51,6 +52,7 @@ namespace BookManagement
             //Invoking the Load data method
             LoadPressInfo();
         }
+
         private void dgvPress_DoubleClick(object sender, EventArgs e)
         {
 
@@ -82,6 +84,7 @@ namespace BookManagement
                 objFrmBookPressDetail.WindowState = FormWindowState.Normal;
             }
         }
+
         private void btnAdd_Click(object sender, EventArgs e)
         {
             //Add publisher
@@ -105,6 +108,7 @@ namespace BookManagement
                 objFrmBookPressDetail.WindowState = FormWindowState.Normal;
             }
         }
+
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             //Modify Publishing house information
@@ -139,6 +143,7 @@ namespace BookManagement
                 objFrmBookPressDetail.WindowState = FormWindowState.Normal;
             }
         }
+
         private void btnDelete_Click(object sender, EventArgs e)
         {
             string pressId = dgvPress.CurrentRow.Cells[0].Value.ToString();
@@ -170,6 +175,7 @@ namespace BookManagement
             }
 
         }
+
         //==============================Custom Methods====================================
         //Get the latest data from the database loaded into the table
         private void LoadPressInfo()
@@ -188,6 +194,7 @@ namespace BookManagement
             dgvPress.DataSource = null;
             dgvPress.DataSource = dt;
         }
+
         private void btnClose_Click(object sender, EventArgs e)
         {
             Close();
