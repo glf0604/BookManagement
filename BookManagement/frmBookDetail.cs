@@ -343,7 +343,13 @@ namespace BookManagement
             if (string.IsNullOrWhiteSpace(objBook.BookImage)) pbCurrentImage.BackgroundImage = null;
             else pbCurrentImage.BackgroundImage = (Image)new Common.SerializeObjectToString().DeserializeObject(objBook.BookImage);
 
-          
+            //Disable Book Type
+            cboBookTypeOne.Enabled = false;
+            cboBookTypeTwo.Enabled = false;
+            txtStorageInNum.Enabled = false;
+
+            //Modify button Name
+            btnClose.Text = "Cancel and close";
 
 
         }
