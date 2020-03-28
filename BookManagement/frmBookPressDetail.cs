@@ -60,6 +60,7 @@ namespace BookManagement
         {
             frmBookPress.objFrmBookPressDetail = null;
         }
+
         private void btnCommit_Click(object sender, EventArgs e)
         {
 
@@ -164,6 +165,7 @@ namespace BookManagement
                 MessageBox.Show("Error generating publishing house number! Specific reasons:" + ex.Message, "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
         //Form initialization when used for modification
         private void LoadUpdateForm(BookPress objBookPress)
         {
@@ -180,6 +182,7 @@ namespace BookManagement
             //【3】 Modify the Close button name
             btnClose.Text = "Cancel and Close";
         }
+
         //Verify the input of publishing house information
         private bool CheckPressInput()
         {
