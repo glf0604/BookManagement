@@ -353,5 +353,46 @@ namespace BookManagement
 
 
         }
+        private void LoadDropListInfo()
+        {
+            //Get the following box information (Press)
+            try
+            {
+                objListPress = objBookPressServices.GetPressList();
+                objListTypeOne = objBookTypeServices.GetBookTypeList();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to get drop-down data! Specific reasons:" + ex.Message, "System message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            //Binding Publishing House
+
+            cboBookPress.DataSource = objListPress;
+            cboBookPress.DisplayMember = "PressName";
+            cboBookPress.ValueMember = "PressId";
+
+            cboBookPress.SelectedIndex = -1;
+            cboBookPress.Text = "Please choose the publishing house.";
+
+            cboBookPress.AutoCompleteSource = AutoCompleteSource.ListItems;
+            cboBookPress.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+
+            //First level classification of bound books
+            cboBookTypeOne.DataSource = objListTypeOne;
+            cboBookTypeOne.DisplayMember = "TypeName";
+            cboBookTypeOne.ValueMember = "TypeId";
+
+            cboBookTypeOne.SelectedIndex = -1;
+            cboBookTypeOne.Text = "Please select the book category.";
+
+            cboBookTypeOne.AutoCompleteSource = AutoCompleteSource.ListItems;
+            cboBookTypeOne.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+
+            //Initialize level two Class
+            cboBookTypeTwo.Text = "Selection of secondary classes";
+            cboBookTypeTwo.Enabled = false;
+
+        }
     }
 }
