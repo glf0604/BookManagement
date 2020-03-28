@@ -85,6 +85,7 @@
             this.btnClose.TabIndex = 23;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnCommit
             // 
@@ -102,6 +103,7 @@
             this.btnCommit.TabIndex = 21;
             this.btnCommit.Text = "Submit";
             this.btnCommit.UseVisualStyleBackColor = false;
+            this.btnCommit.Click += new System.EventHandler(this.btnCommit_Click);
             // 
             // label8
             // 
