@@ -82,5 +82,28 @@ namespace BookManagement
                 objFrmBookPressDetail.WindowState = FormWindowState.Normal;
             }
         }
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            //Add publisher
+
+
+            //Modify Actionflag---Add
+            actionFlag = 2;
+            //Open the Detail form 
+            if (objFrmBookPressDetail == null)
+            {
+                objFrmBookPressDetail = new frmBookPressDetail(actionFlag, null);
+                DialogResult result = objFrmBookPressDetail.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    LoadPressInfo();
+                }
+            }
+            else
+            {
+                objFrmBookPressDetail.Activate();
+                objFrmBookPressDetail.WindowState = FormWindowState.Normal;
+            }
+        }
     }
 }
