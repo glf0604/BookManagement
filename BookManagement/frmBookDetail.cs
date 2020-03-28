@@ -207,5 +207,23 @@ namespace BookManagement
                 pbCurrentImage.BackgroundImage = Image.FromFile(objOpenFile.FileName);
             }
         }
+        private void btnClearPhoto_Click(object sender, EventArgs e)
+        {
+            pbCurrentImage.BackgroundImage = null;
+        }
+
+        private void btnStartCamera_Click(object sender, EventArgs e)
+        {
+            //Start camera: Instantiate a camera Operation class
+            try
+            {
+                objVideo = new Video(pbImage.Handle, pbImage.Left, pbImage.Top, pbImage.Width, (short)pbImage.Height);
+                objVideo.OpenVideo();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to call camera! Specific reasons:" + ex.Message, "System Tips", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
     }
 }
