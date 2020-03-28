@@ -101,5 +101,18 @@ namespace BookManagement
 
 
         }
+
+        private void cboBookTypeTwo_SelectedValueChanged(object sender, EventArgs e)
+        {
+            //Determine if the options in the correct selection
+            if (cboBookTypeTwo.SelectedValue == null) return;
+            else if (!ValidateInput.IsInteger(cboBookTypeTwo.SelectedValue.ToString())) return;
+            else
+            {
+                //Generate numbers！
+                lblBookId.Text = objBookServices.BuildNewBookId(Convert.ToInt32(cboBookTypeTwo.SelectedValue.ToString()));
+            }
+
+        }
     }
 }
