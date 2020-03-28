@@ -183,5 +183,11 @@ namespace BookManagement
                     break;
             }
         }
+        private void txtStorageInNum_TextChanged(object sender, EventArgs e)
+        {
+            lblInventoryNum.Text = txtStorageInNum.Text;
+            lblBorrowedNum.Text = "0";
+            lblStorageInDate.Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+        }
     }
 }
