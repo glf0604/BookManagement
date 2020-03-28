@@ -189,5 +189,10 @@ namespace BookManagement
             lblBorrowedNum.Text = "0";
             lblStorageInDate.Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
         }
+        private void frmBookDetail_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            frmBorrowBook.objFrmBookDetail = null;
+            frmReturnBook.objFrmBookDetail = null;
+        }
     }
 }
