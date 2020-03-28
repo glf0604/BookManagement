@@ -145,6 +145,7 @@
             this.btnClose.TabIndex = 152;
             this.btnClose.Text = "CLose";
             this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnCommit
             // 
@@ -162,6 +163,7 @@
             this.btnCommit.TabIndex = 151;
             this.btnCommit.Text = "Submit";
             this.btnCommit.UseVisualStyleBackColor = false;
+            this.btnCommit.Click += new System.EventHandler(this.btnCommit_Click);
             // 
             // label3
             // 
@@ -320,6 +322,7 @@
             this.txtStorageInNum.Name = "txtStorageInNum";
             this.txtStorageInNum.Size = new System.Drawing.Size(90, 26);
             this.txtStorageInNum.TabIndex = 135;
+            this.txtStorageInNum.TextChanged += new System.EventHandler(this.txtStorageInNum_TextChanged);
             // 
             // label11
             // 
@@ -432,6 +435,7 @@
             this.cboBookTypeTwo.Size = new System.Drawing.Size(224, 27);
             this.cboBookTypeTwo.TabIndex = 121;
             this.cboBookTypeTwo.Text = "Please select subcategories";
+            this.cboBookTypeTwo.SelectedValueChanged += new System.EventHandler(this.cboBookTypeTwo_SelectedValueChanged);
             // 
             // cboBookTypeOne
             // 
@@ -442,6 +446,7 @@
             this.cboBookTypeOne.Size = new System.Drawing.Size(162, 27);
             this.cboBookTypeOne.TabIndex = 120;
             this.cboBookTypeOne.Text = "Please select the book category.";
+            this.cboBookTypeOne.SelectedValueChanged += new System.EventHandler(this.cboBookTypeOne_SelectedValueChanged);
             // 
             // label1
             // 
@@ -469,6 +474,7 @@
             this.btnClearPhoto.TabIndex = 111;
             this.btnClearPhoto.Text = "Clear Choice";
             this.btnClearPhoto.UseVisualStyleBackColor = false;
+            this.btnClearPhoto.Click += new System.EventHandler(this.btnClearPhoto_Click);
             // 
             // btnSelectPhoto
             // 
@@ -486,6 +492,7 @@
             this.btnSelectPhoto.TabIndex = 110;
             this.btnSelectPhoto.Text = "Choice Picture";
             this.btnSelectPhoto.UseVisualStyleBackColor = false;
+            this.btnSelectPhoto.Click += new System.EventHandler(this.btnSelectPhoto_Click);
             // 
             // btnStartPhoto
             // 
@@ -503,6 +510,7 @@
             this.btnStartPhoto.TabIndex = 114;
             this.btnStartPhoto.Text = "Photograph";
             this.btnStartPhoto.UseVisualStyleBackColor = false;
+            this.btnStartPhoto.Click += new System.EventHandler(this.btnStartPhoto_Click);
             // 
             // btnCloseCamera
             // 
@@ -520,6 +528,7 @@
             this.btnCloseCamera.TabIndex = 113;
             this.btnCloseCamera.Text = "Close the camera";
             this.btnCloseCamera.UseVisualStyleBackColor = false;
+            this.btnCloseCamera.Click += new System.EventHandler(this.btnCloseCamera_Click);
             // 
             // pbCurrentImage
             // 
@@ -548,6 +557,7 @@
             this.btnStartCamera.TabIndex = 112;
             this.btnStartCamera.Text = "Start the camera";
             this.btnStartCamera.UseVisualStyleBackColor = false;
+            this.btnStartCamera.Click += new System.EventHandler(this.btnStartCamera_Click);
             // 
             // pbImage
             // 
