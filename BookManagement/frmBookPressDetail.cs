@@ -164,5 +164,21 @@ namespace BookManagement
                 MessageBox.Show("Error generating publishing house number! Specific reasons:" + ex.Message, "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+        //Form initialization when used for modification
+        private void LoadUpdateForm(BookPress objBookPress)
+        {
+            //【1】 Title changed to "Modify Publishing house"
+            lblTitle.Text = "【Modify Press】";
+
+            //【2】 Initialize content
+            lblPressId.Text = objBookPress.PressId.ToString();
+            txtPressName.Text = objBookPress.PressName;
+            txtPressTel.Text = objBookPress.PressTel;
+            txtPressContact.Text = objBookPress.PressContact;
+            txtPressAddress.Text = objBookPress.PressAddress;
+
+            //【3】 Modify the Close button name
+            btnClose.Text = "Cancel and Close";
+        }
     }
 }
