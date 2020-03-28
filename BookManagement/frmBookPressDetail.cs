@@ -144,5 +144,25 @@ namespace BookManagement
 
 
         }
+
+        //Form initialization when used for addition
+        private void LoadAddForm()
+        {
+            //【1】 Change the Title name to "add publisher"
+            lblTitle.Text = "【Add Press】";
+
+            //【2】 Modify the Close button name
+            btnClose.Text = "Cancel and Close";
+
+            //【3】 Automatically generate a publishing house number
+            try
+            {
+                lblPressId.Text = objBookPressServices.BuildNewPressId();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error generating publishing house number! Specific reasons:" + ex.Message, "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
     }
 }
