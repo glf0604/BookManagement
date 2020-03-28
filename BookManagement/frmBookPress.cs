@@ -43,5 +43,13 @@ namespace BookManagement
             //Invoking the Load data method
             LoadPressInfo();
         }
+        private void btnAllPress_Click(object sender, EventArgs e)
+        {
+            txtQueryPressId.Text = string.Empty;
+            txtQueryPressName.Text = string.Empty;
+
+            //Invoking the Load data method
+            LoadPressInfo();
+        }
     }
 }
