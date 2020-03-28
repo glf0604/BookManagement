@@ -170,5 +170,23 @@ namespace BookManagement
             }
 
         }
+        //==============================Custom Methods====================================
+        //Get the latest data from the database loaded into the table
+        private void LoadPressInfo()
+        {
+            //Get publisher information from the database
+            try
+            {
+                dt = objBookPressServices.GetBookPress(txtQueryPressId.Text, txtQueryPressName.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading press information! Specific reasons" + ex.Message, "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            //Load to DataGridView 
+            dgvPress.DataSource = null;
+            dgvPress.DataSource = dt;
+        }
     }
 }
