@@ -180,5 +180,25 @@ namespace BookManagement
             //【3】 Modify the Close button name
             btnClose.Text = "Cancel and Close";
         }
+        //Verify the input of publishing house information
+        private bool CheckPressInput()
+        {
+            //Whether the publishing house information is empty！
+            if (string.IsNullOrWhiteSpace(txtPressName.Text))
+            {
+                MessageBox.Show("Publishing House Name Can't Be Empty!", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtPressName.Focus();
+                return false;
+            }
+            //Whether the publishing house information exists (only in Add mode)！
+            if (objBookPressServices.IsExistPressName(txtPressName.Text.Trim()) && actionFlag == 2)
+            {
+                MessageBox.Show("The name of the publishing house already exists!", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtPressName.Focus();
+                return false;
+            }
+
+            return true;
+        }
     }
 }
