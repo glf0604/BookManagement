@@ -281,7 +281,21 @@ namespace BookManagement
             if (string.IsNullOrWhiteSpace(objBook.BookImage)) pbCurrentImage.BackgroundImage = null;
             else pbCurrentImage.BackgroundImage = (Image)new Common.SerializeObjectToString().DeserializeObject(objBook.BookImage);
 
-           
+            //Disable input
+            cboBookTypeOne.Enabled = false;
+            cboBookTypeTwo.Enabled = false;
+            txtBookISBN.Enabled = false;
+            txtBookName.Enabled = false;
+            txtBookAuthor.Enabled = false;
+            txtBookPrice.Enabled = false;
+            cboBookPress.Enabled = false;
+            dtpPublishDate.Enabled = false;
+            txtStorageInNum.Enabled = false;
+
+
+            //Modify the text of a button
+            btnClose.Text = "Close";
+
 
 
         }
