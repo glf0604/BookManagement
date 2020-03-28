@@ -44,5 +44,28 @@ namespace BookManagement
             //Set BookID to Empty
             lblBookId.Text = string.Empty;
         }
+        //Constructing method with Parameters
+        public frmBookDetail(int flag, Book objBook) : this()
+        {
+            //Initialization of local actionFlag 
+            actionFlag = flag;
+            //More flag uses an impassable initialization
+            switch (flag)
+            {
+                case 1:
+                    //View book information only
+                    LoadViewForm(objBook);
+                    break;
+                case 2:
+                    //Add book
+                    LoadAddForm();
+                    break;
+                case 3:
+                    //Modify book information
+                    LoadUpdateForm(objBook);
+                    break;
+            }
+        }
+
     }
 }
