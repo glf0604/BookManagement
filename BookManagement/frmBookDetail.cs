@@ -224,16 +224,66 @@ namespace BookManagement
             {
                 MessageBox.Show("Failed to call camera! Specific reasons:" + ex.Message, "System Tips", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            private void btnCloseCamera_Click(object sender, EventArgs e)
+
+        }
+        private void btnCloseCamera_Click(object sender, EventArgs e)
+        {
+            objVideo.CloseVideo();
+        }
+
+        private void btnStartPhoto_Click(object sender, EventArgs e)
+        {
+            pbCurrentImage.BackgroundImage = objVideo.CatchVideo();
+        }
+        #endregion
+
+        //=================================Custom Methods=====================================
+
+        private void LoadViewForm(Book objBook)
+        {
+            //Modify Form Title Name
+            lblTitle.Text = "【View Book Information】";
+
+            //隐藏控件 
+            pbImage.Visible = false;
+            btnSelectPhoto.Visible = false;
+            btnClearPhoto.Visible = false;
+            btnStartCamera.Visible = false;
+            btnCloseCamera.Visible = false;
+            btnStartPhoto.Visible = false;
+            btnCommit.Visible = false;
+            //Assign a value
+            //=======Book Type
+            string[] typeName = objBookTypeServices.GetTypeNameById(objBook.BookType);
+            if (typeName[0].Contains("All"))
             {
-                objVideo.CloseVideo();
+                cboBookTypeOne.Text = typeName[1];
+                cboBookTypeTwo.Text = string.Empty;
+            }
+            else
+            {
+                cboBookTypeOne.Text = typeName[0];
+                cboBookTypeTwo.Text = typeName[1];
             }
 
-            private void btnStartPhoto_Click(object sender, EventArgs e)
-            {
-                pbCurrentImage.BackgroundImage = objVideo.CatchVideo();
-            }
-            #endregion
+            lblBookId.Text = objBook.BookId.ToString();
+            txtBookName.Text = objBook.BookName;
+            txtBookISBN.Text = objBook.ISBN;
+            txtBookAuthor.Text = objBook.BookAuthor;
+            txtBookPrice.Text = objBook.BookPrice.ToString();
+            cboBookPress.Text = objBookPressServices.GetPressNameById(objBook.BookPress);
+            dtpPublishDate.Text = objBook.BookPublishDate.ToString();
+            txtStorageInNum.Text = objBook.StorageInNum.ToString();
+            lblInventoryNum.Text = objBook.InventoryNum.ToString();
+            lblBorrowedNum.Text = objBook.BorrowedNum.ToString();
+            lblStorageInDate.Text = objBook.StorageInDate.ToString();
+            //Turn the text into a diagram
+            if (string.IsNullOrWhiteSpace(objBook.BookImage)) pbCurrentImage.BackgroundImage = null;
+            else pbCurrentImage.BackgroundImage = (Image)new Common.SerializeObjectToString().DeserializeObject(objBook.BookImage);
+
+           
+
+
         }
     }
 }
