@@ -51,5 +51,23 @@ namespace BookManagement
         {
             Close();
         }
+
+        //View all information about a member
+        private void btnViewAllInfo_Click(object sender, EventArgs e)
+        {
+            if (objFrmMemberDetail == null)
+            {
+                //Form for meeting Membership details
+                objFrmMemberDetail = new frmMemberDetail(1, objMember);
+                //Display
+                objFrmMemberDetail.Show();
+            }
+            else
+            {
+                objFrmMemberDetail.Activate();
+                objFrmMemberDetail.WindowState = FormWindowState.Normal;
+            }
+
+        }
     }
 }
