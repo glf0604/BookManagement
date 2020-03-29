@@ -161,5 +161,22 @@ namespace BookManagement
             dgvBook.DataSource = null;
             dgvBook.DataSource = dt;
         }
+        private void LoadBookInfo(DateTime[] dtArray)
+        {
+            //get check result
+            try
+            {
+                dt = objBorrowBookDetailServices.QueryBook(dtArray[0], dtArray[1], txtQueryCardId.Text.Trim(), txtQueryMemberId.Text.Trim(), txtQueryMemberName.Text.Trim());
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Loading the information of borrowed books and reporting errors! Specific reasons:" + ex.Message, "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            //bind to DataGridview 
+            dgvBook.DataSource = null;
+            dgvBook.DataSource = dt;
+        }
     }
 }
