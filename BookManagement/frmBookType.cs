@@ -115,5 +115,32 @@ namespace BookManagement
             //Change ActionFlag to 1
             actionFlag = 1;
         }
+        //Adding child nodes
+        private void btnAddSubNode_Click(object sender, EventArgs e)
+        {
+            //Only two levels can be added
+            if (tvBookType.SelectedNode.Tag.ToString().Length == 5)
+            {
+                MessageBox.Show("Adding categories can only add two levels!", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            //Enable Detail Forms
+            gboxNodeDetial.Enabled = true;
+            //Disable three PCs 
+            txtParentTypeId.Enabled = false;
+            txtParentTypeName.Enabled = false;
+            txtTypeId.Enabled = false;
+            //Populate data
+
+            txtParentTypeId.Text = tvBookType.SelectedNode.Tag.ToString();
+            txtParentTypeName.Text = tvBookType.SelectedNode.Text;
+            txtTypeId.Text = objBookTypeServices.BuildNewTypeId(Convert.ToInt32(txtParentTypeId.Text));
+            //Set the name and detail input box to empty
+            txtTypeName.Text = string.Empty;
+            rtbDESC.Text = string.Empty;
+
+            //Change ActionFlag to 1
+            actionFlag = 1;
+        }
     }
 }
