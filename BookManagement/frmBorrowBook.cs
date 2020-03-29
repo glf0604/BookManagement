@@ -192,5 +192,42 @@ namespace BookManagement
 
             }
         }
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            //Determine if there is data
+            if (dgvCurrentBorrowList.Rows.Count == 0)
+            {
+                MessageBox.Show("There are no books borrowed in the current form!", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+
+            }
+            //Delete selected rows----Traverse list
+            for (int i = 0; i < objListCurrentBorrow.Count; i++)
+            {
+                if (objListCurrentBorrow[i].ISBN == dgvCurrentBorrowList.CurrentRow.Cells[0].Value.ToString())
+                {
+                    objListCurrentBorrow.RemoveAt(i);
+                    break;
+                }
+            }
+            //Re-bind
+            //Bind to DataGridView 
+            dgvCurrentBorrowList.DataSource = null;
+            dgvCurrentBorrowList.DataSource = objListCurrentBorrow;
+
+            //Add time to borrow and return time at the latest 
+            int levelMaxDays = objMemberLevelServices.GetMaxBorrowDays(objMember.MemberLevel);
+            for (int i = 0; i < dgvCurrentBorrowList.Rows.Count; i++)
+            {
+                dgvCurrentBorrowList.Rows[i].Cells[3].Value = DateTime.Now.ToString("yyyy/MM/dd");
+                dgvCurrentBorrowList.Rows[i].Cells[4].Value = DateTime.Now.AddDays(levelMaxDays).ToString("yyyy/MM/dd");
+            }
+            //Update the amount of borrowed books
+            lblCurrentBorrowNum.Text = (Convert.ToInt32(lblCurrentBorrowNum.Text) - 1).ToString();
+            lblBorrowedNum.Text = (Convert.ToInt32(lblBorrowedNum.Text) - 1).ToString();
+            lblCanBorrowNum.Text = (Convert.ToInt32(lblBorrowTotal.Text) - Convert.ToInt32(lblBorrowedNum.Text)).ToString();
+
+
+        }
     }
 }
