@@ -119,6 +119,12 @@
     <Compile Include="frmBorrowBook.Designer.cs">
       <DependentUpon>frmBorrowBook.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmBorrowReturnQuery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBorrowReturnQuery.Designer.cs">
+      <DependentUpon>frmBorrowReturnQuery.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,6 +162,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmBorrowBook.resx">
       <DependentUpon>frmBorrowBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBorrowReturnQuery.resx">
+      <DependentUpon>frmBorrowReturnQuery.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
