@@ -178,5 +178,45 @@ namespace BookManagement
             dgvBook.DataSource = null;
             dgvBook.DataSource = dt;
         }
+        //Get start and end times
+        private DateTime[] GetStartOrEndDate()
+        {
+            //Define a time 
+            DateTime[] dtArray = new DateTime[2];
+
+            if (rbQueryAll.Checked == true)
+            {
+                dtArray[0] = Convert.ToDateTime("1900-01-01 00:00:00");
+                dtArray[1] = DateTime.Now;
+            }
+            if (rbQueryToday.Checked == true)
+            {
+                dtArray[0] = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd 00:00:00"));
+                dtArray[1] = DateTime.Now;
+            }
+            if (rbQueryWeek.Checked == true)  //First day of Monday
+            {
+                int num01 = Convert.ToInt16(DateTime.Now.DayOfWeek);
+                dtArray[0] = Convert.ToDateTime(DateTime.Now.AddDays(0 - num01 + 1).ToString("yyyy-MM-dd 00:00:00"));
+                dtArray[1] = DateTime.Now;
+            }
+            if (rbQueryMonth.Checked)
+            {
+                dtArray[0] = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-01 00:00:00"));
+                dtArray[1] = DateTime.Now;
+            }
+            if (rbQueryYear.Checked)
+            {
+                dtArray[0] = Convert.ToDateTime(DateTime.Now.ToString("yyyy-01-01 00:00:00"));
+                dtArray[1] = DateTime.Now;
+            }
+            if (rbQueryStartEnd.Checked)
+            {
+                dtArray[0] = Convert.ToDateTime(dtpQueryStart.Text);
+                dtArray[1] = Convert.ToDateTime(dtpQueryEnd.Text);
+            }
+
+            return dtArray;
+        }
     }
 }
