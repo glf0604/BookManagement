@@ -66,5 +66,33 @@ namespace BookManagement
         {
             Close();
         }
+
+        //Select an event triggered by a node in TreeView
+        private void tvBookType_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            //Gets the information for the selection node
+            TreeNode objTreeNode = tvBookType.SelectedNode;
+
+            //Assign a value 
+            txtTypeId.Text = objTreeNode.Tag.ToString();
+            txtTypeName.Text = objTreeNode.Text;
+
+            //Classification for judgment
+            if (txtTypeId.Text == "1")  //Node
+            {
+                txtParentTypeId.Text = "NULL";
+                txtParentTypeName.Text = "NULL";
+                rtbDESC.Text = objBookTypeServices.GetTypeDESC(Convert.ToInt32(txtTypeId.Text));
+            }
+            else
+            {
+                //Get parent Information
+                BookType objBookType = objBookTypeServices.GetParentType(Convert.ToInt32(txtTypeId.Text));
+                //Assign a value
+                rtbDESC.Text = objBookType.DESC;
+                txtParentTypeId.Text = objBookType.TypeId.ToString();
+                txtParentTypeName.Text = objBookType.TypeName;
+            }
+        }
     }
 }
