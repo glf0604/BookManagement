@@ -123,5 +123,25 @@ namespace BookManagement
             dgvBook.DataSource = null;
             dgvBook.DataSource = dt;
         }
+        //Overdue Top100
+        private void rbQueryOverdueTop100_CheckedChanged(object sender, EventArgs e)
+        {
+            //clear Dt
+            dt.Clear();
+            //get check result
+            try
+            {
+                dt = objBorrowBookDetailServices.GetBookOverdueTop100();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Loading the information of borrowed books and reporting errors! Specific reasons:" + ex.Message, "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            //bind  to DataGridview 
+            dgvBook.DataSource = null;
+            dgvBook.DataSource = dt;
+        }
     }
 }
