@@ -219,5 +219,13 @@ namespace BookManagement
                     break;
             }
         }
+        private void txtTypeName_Leave(object sender, EventArgs e)
+        {
+            if (objBookTypeServices.IsExistTypeName(txtTypeName.Text.Trim()) && actionFlag == 1)
+            {
+                MessageBox.Show("Category name already exists", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+        }
     }
 }
