@@ -94,5 +94,26 @@ namespace BookManagement
                 txtParentTypeName.Text = objBookType.TypeName;
             }
         }
+        //Add root node
+        private void btnAddRootNode_Click(object sender, EventArgs e)
+        {
+
+            //Enable Detail Forms
+            gboxNodeDetial.Enabled = true;
+            //Disable three PCs 
+            txtParentTypeId.Enabled = false;
+            txtParentTypeName.Enabled = false;
+            txtTypeId.Enabled = false;
+            //Populate data
+            txtParentTypeId.Text = "0";
+            txtParentTypeName.Text = "NULL";
+            txtParentTypeId.Text = "1";
+            //Set the name and detail input box to empty
+            txtTypeName.Text = string.Empty;
+            rtbDESC.Text = string.Empty;
+
+            //Change ActionFlag to 1
+            actionFlag = 1;
+        }
     }
 }
