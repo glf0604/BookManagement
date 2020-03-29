@@ -15,6 +15,30 @@ namespace BookManagement
 {
     public partial class frmBorrowBook : Form
     {
+        //Instantiate a member Action class
+        private MemberServices objMemberServices = new MemberServices();
+        //Define a global Member
+        private Member objMember = null;
+        //Define a member detail form 
+        public static frmMemberDetail objFrmMemberDetail = null;
+        //Classes that instantiate library operations
+        private BorrowBookServices objBorrowBookServices = new BorrowBookServices();
+        //Instantiate the action class for the membership level
+        private MemberLevelServices objMemberLevelServices = new MemberLevelServices();
+        //Instantiate Detail Operation class
+        private BorrowBookDetailServices objBorrowBookDetailServices = new BorrowBookDetailServices();
+        // Define the BorrowId of the current user 
+        private string borrowId = string.Empty;
+        //Define a List that has borrowed books
+        private DataTable dtBorrowed = null;
+        //Instantiate List <Book>Stores books borrowed this time</Book>
+        private List<Book> objListCurrentBorrow = new List<Book>();
+
+        //Define a form for a book detail
+        public static frmBookDetail objFrmBookDetail = null;
+        //Instantiation of a book operation class
+        private BookServices objBookServices = new BookServices();
+
         public frmBorrowBook()
         {
             InitializeComponent();
