@@ -218,5 +218,10 @@ namespace BookManagement
 
             return dtArray;
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
