@@ -46,5 +46,10 @@ namespace BookManagement
             dgvBorrowedList.AutoGenerateColumns = false;
             dgvCurrentBorrowList.AutoGenerateColumns = false;
         }
+        //=========================================Control events==============================================
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
