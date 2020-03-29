@@ -128,5 +128,22 @@ namespace BookManagement
                 txtBookISBN.Focus();
             }
         }
+        private void dgvBorrowedList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //Get a breakdown of the current book
+            Book objBook = objBookServices.GetBookById(dgvBorrowedList.CurrentRow.Cells[1].Value.ToString());
+            //Open Form 
+            if (objFrmBookDetail == null)
+            {
+                objFrmBookDetail = new frmBookDetail(1, objBook);
+                objFrmBookDetail.Show();
+            }
+            else
+            {
+                objFrmBookDetail.Activate();
+                objFrmBookDetail.WindowState = FormWindowState.Normal;
+            }
+
+        }
     }
 }
