@@ -42,6 +42,9 @@ namespace BookManagement
         public frmBorrowBook()
         {
             InitializeComponent();
+            //Initialization of DataGridView 
+            dgvBorrowedList.AutoGenerateColumns = false;
+            dgvCurrentBorrowList.AutoGenerateColumns = false;
         }
     }
 }
