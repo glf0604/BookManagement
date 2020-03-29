@@ -103,5 +103,25 @@ namespace BookManagement
             dgvBook.DataSource = null;
             dgvBook.DataSource = dt;
         }
+        //Lost number Top 100
+        private void rbQueryLostTop100_CheckedChanged(object sender, EventArgs e)
+        {
+            //Clear Dt
+            dt.Clear();
+            //Get query Results
+            try
+            {
+                dt = objBorrowBookDetailServices.GetBookLostTop100();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Loading the information of borrowed books and reporting errors! Specific reasons:" + ex.Message, "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            //Bind to DataGridview 
+            dgvBook.DataSource = null;
+            dgvBook.DataSource = dt;
+        }
     }
 }
