@@ -59,5 +59,12 @@ namespace BookManagement
                 LoadBookType();
             }
         }
+
+        //==================================The event of the control======================================
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
