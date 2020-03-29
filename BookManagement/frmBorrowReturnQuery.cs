@@ -14,9 +14,18 @@ namespace BookManagement
 {
     public partial class frmBorrowReturnQuery : Form
     {
+        //Define a DataTable 
+        private DataTable dt = null;
+        //Instantiate an action class
+        private BorrowBookDetailServices objBorrowBookDetailServices = new BorrowBookDetailServices();
+
         public frmBorrowReturnQuery()
         {
             InitializeComponent();
+            //Initialization of DataGridView
+            dgvBook.AutoGenerateColumns = false;
+            //Loading data
+            LoadBookInfo();
         }
     }
 }
