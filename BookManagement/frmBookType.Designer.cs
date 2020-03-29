@@ -75,6 +75,7 @@
             this.btnCancel.TabIndex = 6;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnCommit
             // 
@@ -88,6 +89,7 @@
             this.btnCommit.TabIndex = 5;
             this.btnCommit.Text = "Submit";
             this.btnCommit.UseVisualStyleBackColor = false;
+            this.btnCommit.Click += new System.EventHandler(this.btnCommit_Click);
             // 
             // label7
             // 
@@ -104,6 +106,7 @@
             this.txtTypeName.Name = "txtTypeName";
             this.txtTypeName.Size = new System.Drawing.Size(167, 26);
             this.txtTypeName.TabIndex = 3;
+            this.txtTypeName.Leave += new System.EventHandler(this.txtTypeName_Leave);
             // 
             // label6
             // 
@@ -174,6 +177,7 @@
             this.btnDeleteNode.TabIndex = 13;
             this.btnDeleteNode.Text = "Delete Node";
             this.btnDeleteNode.UseVisualStyleBackColor = false;
+            this.btnDeleteNode.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnUpdateNode
             // 
@@ -187,6 +191,7 @@
             this.btnUpdateNode.TabIndex = 12;
             this.btnUpdateNode.Text = "Modify Node";
             this.btnUpdateNode.UseVisualStyleBackColor = false;
+            this.btnUpdateNode.Click += new System.EventHandler(this.btnUpdateNode_Click);
             // 
             // btnAddSubNode
             // 
@@ -200,6 +205,7 @@
             this.btnAddSubNode.TabIndex = 11;
             this.btnAddSubNode.Text = "Add sub node";
             this.btnAddSubNode.UseVisualStyleBackColor = false;
+            this.btnAddSubNode.Click += new System.EventHandler(this.btnAddSubNode_Click);
             // 
             // btnAddRootNode
             // 
@@ -213,6 +219,7 @@
             this.btnAddRootNode.TabIndex = 9;
             this.btnAddRootNode.Text = "Add root node";
             this.btnAddRootNode.UseVisualStyleBackColor = false;
+            this.btnAddRootNode.Click += new System.EventHandler(this.btnAddRootNode_Click);
             // 
             // imageList1
             // 
@@ -265,6 +272,7 @@
             this.btnClose.TabIndex = 15;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // label2
             // 
