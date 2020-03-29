@@ -317,5 +317,33 @@ namespace BookManagement
             }
             return true;
         }
+        //For members who have not borrowed, create a BorrowId
+        private string CreateAndGetBorrowId()
+        {
+            //Instantiation of a BorrowBook 
+            BorrowBook objBorrowBook = new BorrowBook()
+            {
+                BorrowId = objBorrowBookServices.BuildBorrowId(),
+                MemberId = objMember.MemberId,
+                BorrowedNum = 0,
+                OverdueNum = 0,
+            };
+
+            //Execution
+            try
+            {
+                if (objBorrowBookServices.AddBorrowBook(objBorrowBook) == 1)
+                {
+                    //objMember = objMemberServices.GetMemberByCardId(txtMemberCardId.Text.Trim());
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error adding BorrowId! Specific reasons:" + ex.Message, "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            //Return 
+            return objBorrowBook.BorrowId;
+        }
     }
 }
