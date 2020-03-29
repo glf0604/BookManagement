@@ -374,5 +374,27 @@ namespace BookManagement
                 MessageBox.Show("02 Update database abnormal! Specific reasons:" + ex.Message, "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+        private bool CheckMember()
+        {
+            //Check if there is a overdue or
+            if (lblOverdueNum.Text != "0")
+            {
+                MessageBox.Show("【Member:" + objMember.MemberName + "】have" + lblOverdueNum.Text + "book is not returned! I can't borrow any more!", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
+            //Verify that the member status is normal！
+            if (!objMember.CardStatus.Contains("normal"))
+            {
+                MessageBox.Show("【Member:" + objMember.MemberName + "】status is：" + objMember.CardStatus + "！Can't borrow any more！", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
+            //Determine if the remaining total is 0
+            if (lblCanBorrowNum.Text == "0")
+            {
+                MessageBox.Show("【Member:" + objMember.MemberName + "】The amount of books available for borrowing is: 0! I can't borrow any more!", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
+            return true;
+        }
     }
 }
