@@ -277,5 +277,49 @@ namespace BookManagement
                 }
             }
         }
+        private void btnDeleteNode_Click(object sender, EventArgs e)
+        {
+
+            string nodeId = tvBookType.SelectedNode.Tag.ToString();
+            string nodeName = tvBookType.SelectedNode.Text;
+
+            if (dt.Rows.Count == 0)
+            {
+                MessageBox.Show("No category information category succeeded!", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else if (objBookTypeServices.IsExistSub(Convert.ToInt32(nodeId)))
+            {
+                MessageBox.Show("All subclasses must be deleted before the current class can be deleted!", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else
+            {
+                string info = "You are sure to delete the category information [category number:" + nodeId + " Name：" + nodeName + "]？";
+                DialogResult result = MessageBox.Show(info, "System Information", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    try
+                    {
+                        if (objBookTypeServices.DeleteBookType(Convert.ToInt32(nodeId)) == 1)
+                        {
+                            //Refersh Treeview 
+                            LoadBookType();
+                            //Display
+                            tvBookType.ExpandAll();
+                            //Delete successful!
+                            MessageBox.Show("Successful deletion of categories!", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+
+                        throw ex;
+                    }
+                }
+
+            }
+
+        }
     }
 }
