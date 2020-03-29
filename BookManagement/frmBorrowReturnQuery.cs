@@ -61,5 +61,26 @@ namespace BookManagement
             //Executing queries
             LoadBookInfo();
         }
+        //A book I've never borrowed before.
+        private void rbQueryNoBorrowed_CheckedChanged(object sender, EventArgs e)
+        {
+            //Clear
+            dt.Clear();
+            //Re-assign a value
+            //Get query Results
+            try
+            {
+                dt = objBorrowBookDetailServices.GetBookNotBorrowed();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Loading the information of borrowed books and reporting errors! Specific reasons:" + ex.Message, "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            //Bind to DataGridview 
+            dgvBook.DataSource = null;
+            dgvBook.DataSource = dt;
+        }
     }
 }
