@@ -345,5 +345,34 @@ namespace BookManagement
             //Return 
             return objBorrowBook.BorrowId;
         }
+        //Updating the database: Has the previously borrowed book expired
+        private void UpdateBorrowInfo()
+        {
+
+            try
+            {
+                objBorrowBookDetailServices.UpdateOverdue(borrowId);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("01 Update database abnormal! Specific reasons:" + ex.Message, "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            //Count the amount of books borrowed and the amount of expired books
+            int borrowedNum = objBorrowBookDetailServices.GetBorrowBookNum(borrowId);
+            int overdueNum = objBorrowBookDetailServices.GetBorrowBookOverdue(borrowId);
+            try
+            {
+                if (objBorrowBookServices.UpdateBorrowedNumAndOverdue(borrowId, borrowedNum, overdueNum) == 1)
+                {
+                    MessageBox.Show("Update database successfully!", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("02 Update database abnormal! Specific reasons:" + ex.Message, "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
     }
 }
