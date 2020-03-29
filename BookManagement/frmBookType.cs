@@ -142,5 +142,21 @@ namespace BookManagement
             //Change ActionFlag to 1
             actionFlag = 1;
         }
+        //Modify selected nodes
+        private void btnUpdateNode_Click(object sender, EventArgs e)
+        {
+            //Enable Detail Forms
+            gboxNodeDetial.Enabled = true;
+            //Disable three PCs 
+            txtParentTypeId.Enabled = false;
+            txtParentTypeName.Enabled = false;
+            txtTypeId.Enabled = false;
+
+            //Let TypeName get the focus 
+            txtTypeName.Focus();
+
+            //Change ActionFlag to 1
+            actionFlag = 2;
+        }
     }
 }
