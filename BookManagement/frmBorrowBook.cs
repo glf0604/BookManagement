@@ -69,5 +69,64 @@ namespace BookManagement
             }
 
         }
+
+        private void txtMemberCardId_KeyDown(object sender, KeyEventArgs e)
+        {
+            //Press ENTER to trigger event
+            if (e.KeyValue == 13)
+            {
+                //Load member Information
+                LoadMemberInfo();
+
+                //Determine if you have borrowed a book
+                if (objBorrowBookServices.IsBorrowedBook(lblMemberId.Text))
+                {
+                    //I've already borrowed the book.
+                    borrowId = objBorrowBookServices.GetBorrowIdByMemberId(lblMemberId.Text);
+                    //Updating the database: Has the previously borrowed book expired
+                    if (objBorrowBookServices.GetBorrowedNumByMemberId(lblMemberId.Text) > 0)
+                    {
+                        UpdateBorrowInfo();
+                    }
+
+                    //Initialization of the total number of borrowed, remaining totals, total overdue
+                    BorrowBook objBorrowBook = objBorrowBookServices.GetBorrowBookByBorrowId(borrowId);
+                    if (objBorrowBook != null)
+                    {
+                        lblBorrowedNum.Text = objBorrowBook.BorrowedNum.ToString();
+                        lblCanBorrowNum.Text = (Convert.ToInt32(lblBorrowTotal.Text) - objBorrowBook.BorrowedNum).ToString();
+                        lblOverdueNum.Text = objBorrowBook.OverdueNum.ToString();
+                    }
+
+                    //Load Books to DataGridView 
+                    try
+                    {
+                        dtBorrowed = objBorrowBookDetailServices.GetBookByBorrowId(borrowId);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error in obtaining the details of the books borrowed by members! Specific reasons:" + ex.Message, "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    //Binding
+                    dgvBorrowedList.DataSource = null;
+                    dgvBorrowedList.DataSource = dtBorrowed;
+
+                }
+                else
+                {
+                    //I've never borrowed a book to initialize borrowId.
+                    borrowId = CreateAndGetBorrowId();
+                    //Initialization of the total number of borrowed, remaining totals, total overdue
+                    lblBorrowedNum.Text = "0";
+                    lblCanBorrowNum.Text = lblBorrowTotal.Text;
+                    lblOverdueNum.Text = "0";
+
+
+                }
+
+                //Let book ISBN text get Focus 
+                txtBookISBN.Focus();
+            }
+        }
     }
 }
