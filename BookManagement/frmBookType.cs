@@ -158,5 +158,66 @@ namespace BookManagement
             //Change ActionFlag to 1
             actionFlag = 2;
         }
+        private void btnCommit_Click(object sender, EventArgs e)
+        {
+            //Verify
+
+            //encapsulation
+            BookType objBookType = new BookType()
+            {
+                TypeId = Convert.ToInt32(txtTypeId.Text.Trim()),
+                TypeName = txtTypeName.Text,
+                ParentTypeId = Convert.ToInt32(txtParentTypeId.Text.Trim()),
+                DESC = rtbDESC.Text.Trim(),
+            };
+
+            switch (actionFlag)
+            {
+                case 1:
+                    try
+                    {
+                        if (objBookTypeServices.AddBookType(objBookType) == 1)
+                        {
+
+                            //Refresh Treeview 
+                            LoadBookType();
+                            //display
+                            tvBookType.ExpandAll();
+                            //Disable a form
+                            gboxNodeDetial.Enabled = false;
+                            //Tip Add Success!
+                            MessageBox.Show("Successful addition of categories!", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error writing to database when book category is added! Specific errors:" + ex.Message, "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    break;
+                case 2:
+                    try
+                    {
+                        if (objBookTypeServices.UpdateBookType(objBookType) == 1)
+                        {
+
+                            //Refersh Treeview 
+                            LoadBookType();
+                            //Display
+                            tvBookType.ExpandAll();
+                            //Disable From
+                            gboxNodeDetial.Enabled = false;
+                            //Successful!
+                            MessageBox.Show("Successful Category Modification!", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("There was an error writing to the database when the book category was revised! __________ Specific errors:" + ex.Message, "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    break;
+            }
+        }
     }
 }
