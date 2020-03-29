@@ -396,5 +396,41 @@ namespace BookManagement
             }
             return true;
         }
+        private bool CheckBook()
+        {
+            //Does it contain
+            if (!objBookServices.IsExistISBN(txtBookISBN.Text.Trim()))
+            {
+                MessageBox.Show("【ISBN：" + txtBookISBN.Text.Trim() + "】No, I can't borrow this book!", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
+            //If the inventory is 0 
+            if (objBookServices.GetInventoryNumByISBN(txtBookISBN.Text.Trim()) <= 0)
+            {
+                MessageBox.Show("【ISBN：" + txtBookISBN.Text.Trim() + "】Book inventory display is 0, abnormal, can not borrow!", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
+            //Verify that the previously borrowed book contains
+            for (int i = 0; i < dgvBorrowedList.Rows.Count; i++)
+            {
+                if (dgvBorrowedList.Rows[i].Cells[0].Value.ToString() == txtBookISBN.Text.Trim())
+                {
+                    MessageBox.Show("【ISBN：" + txtBookISBN.Text.Trim() + "】Books already exist in the list of borrowed books!", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return false;
+                }
+            }
+            //Verify that the previously borrowed book contains
+            for (int i = 0; i < dgvCurrentBorrowList.Rows.Count; i++)
+            {
+                if (dgvCurrentBorrowList.Rows[i].Cells[0].Value.ToString() == txtBookISBN.Text.Trim())
+                {
+                    MessageBox.Show("【ISBN：" + txtBookISBN.Text.Trim() + "】Books already exist in the list of borrowed books!", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return false;
+                }
+            }
+
+            return true;
+
+        }
     }
 }
