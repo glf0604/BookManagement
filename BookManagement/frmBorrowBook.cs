@@ -229,5 +229,47 @@ namespace BookManagement
 
 
         }
+        private void btnCommit_Click(object sender, EventArgs e)
+        {
+            //Determine if there are books in the current list
+            if (dgvCurrentBorrowList.Rows.Count == 0)
+            {
+                MessageBox.Show("There are no books borrowed in the current form!", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else
+            {
+                //Obtain the time and time of book borrowing
+                int levelMaxDays = objMemberLevelServices.GetMaxBorrowDays(objMember.MemberLevel);
+                DateTime borrowDate = DateTime.Now;
+                DateTime lastReturnDate = DateTime.Now.AddDays(levelMaxDays);
+                //Execution
+                try
+                {
+                    if (objBorrowBookServices.CommitBorrowBook(objListCurrentBorrow, borrowId, borrowDate, lastReturnDate))
+                    {
+                        //【1】Successful submission of library information！
+                        MessageBox.Show("Successful submission of borrowing information!", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //【2】Empty the current table
+                        objListCurrentBorrow.Clear();
+                        dgvCurrentBorrowList.DataSource = null;
+                        //【3】The current library is set to 0
+                        lblCurrentBorrowNum.Text = "0";
+                        //【4】Load books into categories of borrowed books
+                        dtBorrowed = objBorrowBookDetailServices.GetBookByBorrowId(borrowId);
+                        //Re-bind
+                        dgvBorrowedList.DataSource = null;
+                        dgvBorrowedList.DataSource = dtBorrowed;
+                        //【】
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("There is an abnormality in the information submitted for borrowing books. Specific reasons:" + ex.Message, "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+            }
+        }
     }
 }
