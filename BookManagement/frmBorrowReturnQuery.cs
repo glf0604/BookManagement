@@ -27,5 +27,20 @@ namespace BookManagement
             //Loading data
             LoadBookInfo();
         }
+        //=========================================Control events=============================================
+
+        private void btnQuery_Click(object sender, EventArgs e)
+        {
+            //
+            rbQueryNoBorrowed.Checked = false;
+            rbQueryWelcomeTop100.Checked = false;
+            rbQueryLostTop100.Checked = false;
+            rbQueryOverdueTop100.Checked = false;
+
+            //Preparation Date
+            DateTime[] dtArray = GetStartOrEndDate();
+
+            LoadBookInfo(dtArray);
+        }
     }
 }
