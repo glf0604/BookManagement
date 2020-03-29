@@ -231,5 +231,51 @@ namespace BookManagement
         {
             gboxNodeDetial.Enabled = false;
         }
+        //=================================Custom Methods=====================================
+        private void LoadBookType()
+        {
+            //Clear TreeView 
+            tvBookType.Nodes.Clear();
+
+            //Get the latest data 
+            dt = objBookTypeServices.GetBookType();
+
+            //Define a SortedList storage node information
+            SortedList objSL = new SortedList();
+
+            //Traverse the table to load all node information into a tree
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                if (dt.Rows[i]["TypeId"].ToString() == "1")
+                {
+                    TreeNode tn = new TreeNode();
+                    tn.Text = dt.Rows[i]["TypeName"].ToString();
+                    tn.Tag = dt.Rows[i]["TypeId"].ToString();
+                    //The root node is in an expanded state
+                    tn.Expand();
+                    //Load into SortedList
+                    objSL.Add(tn.Tag, tn);
+                    //Load into TreeView
+                    tvBookType.Nodes.Add(tn);
+
+                }
+                else
+                {
+                    //Load into TreeView ...:
+                    TreeNode parentNode = (TreeNode)objSL.GetByIndex(objSL.IndexOfKey(dt.Rows[i][2].ToString()));
+                    //Instantiation of child nodes
+                    TreeNode tnChild = new TreeNode();
+                    tnChild.Text = dt.Rows[i]["TypeName"].ToString();
+                    tnChild.Tag = dt.Rows[i]["TypeId"].ToString();
+                    //Pick up 
+                    tnChild.Collapse();
+                    //Load into Sortedlist
+                    objSL.Add(tnChild.Tag, tnChild);
+                    //Hang on parent node
+                    parentNode.Nodes.Add(tnChild);
+
+                }
+            }
+        }
     }
 }
