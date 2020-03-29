@@ -145,5 +145,52 @@ namespace BookManagement
             }
 
         }
+        private void txtBookISBN_KeyDown(object sender, KeyEventArgs e)
+        {
+            //Press ENTER to trigger event
+            if (e.KeyValue == 13)
+            {
+                //Verify that members can borrow books
+                if (!CheckMember())
+                {
+                    txtBookISBN.Text = string.Empty;
+                    return;
+                }
+                //Verify that the book can be borrowed
+                if (!CheckBook())
+                {
+                    txtBookISBN.Text = string.Empty;
+                    return;
+                }
+                //Add a book to DataGridView
+                try
+                {
+                    Book objBook = objBookServices.GetBookByISBN(txtBookISBN.Text.Trim());
+                    //Add to List
+                    objListCurrentBorrow.Add(objBook);
+                    //Bind to DataGridView 
+                    dgvCurrentBorrowList.DataSource = null;
+                    dgvCurrentBorrowList.DataSource = objListCurrentBorrow;
+                    //Add time to borrow and return time at the latest 
+                    int levelMaxDays = objMemberLevelServices.GetMaxBorrowDays(objMember.MemberLevel);
+                    for (int i = 0; i < dgvCurrentBorrowList.Rows.Count; i++)
+                    {
+                        dgvCurrentBorrowList.Rows[i].Cells[3].Value = DateTime.Now.ToString("yyyy/MM/dd");
+                        dgvCurrentBorrowList.Rows[i].Cells[4].Value = DateTime.Now.AddDays(levelMaxDays).ToString("yyyy/MM/dd");
+                    }
+
+                    //Actions after submission is complete
+                    txtBookISBN.Text = string.Empty;
+                    lblCurrentBorrowNum.Text = (Convert.ToInt32(lblCurrentBorrowNum.Text) + 1).ToString();
+                    lblBorrowedNum.Text = (Convert.ToInt32(lblBorrowedNum.Text) + 1).ToString();
+                    lblCanBorrowNum.Text = (Convert.ToInt32(lblBorrowTotal.Text) - Convert.ToInt32(lblBorrowedNum.Text)).ToString();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Getting the current book information is abnormal! Specific reasons:" + ex.Message, "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+            }
+        }
     }
 }
