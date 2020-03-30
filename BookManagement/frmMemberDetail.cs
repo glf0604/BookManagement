@@ -123,5 +123,11 @@ namespace BookManagement
         {
             objVideo.CloseVideo();
         }
+        //Start taking pictures.
+        private void btnStartPhoto_Click(object sender, EventArgs e)
+        {
+            pbCurrentImage.BackgroundImage = objVideo.CatchVideo();
+        }
+        #endregion
     }
 }
