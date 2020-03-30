@@ -245,5 +245,77 @@ namespace BookManagement
             cboPayMethod.Enabled = false;
 
         }
+        private void btnCommit_Click(object sender, EventArgs e)
+        {
+            //【1】Checksum input
+
+            //【2】Encapsulation objects
+            Member objMember = new Member()
+            {
+                MemberId = lblMemberId.Text,
+                MemberName = txtMemberName.Text.Trim(),
+                MemberCardId = txtMemberCardId.Text.Trim(),
+                MemberLevel = Convert.ToInt32(cboMemberLevel.SelectedValue),
+                IdType = cboIdType.Text,
+                IdNumber = txtIdCardNumber.Text.Trim(),
+                Gender = rbMale.Checked == true ? "Male" : "Female",
+                TelNo = txtTelNo.Text.Trim(),
+                HomeAddress = txtHomeAddress.Text.Trim(),
+                Birthday = Convert.ToDateTime(dtpBirthday.Text),
+                CardStatus = cboCardStatus.Text,
+                CardClosingDate = Convert.ToDateTime(dtpCardClosingDate.Text),
+                PayMethod = cboPayMethod.Text,
+                IsReturnDeposit = false,
+                LoginId = Program.currentUser.LoginId,
+                OperatingTime = DateTime.Now,
+                ReMarks = txtRemarks.Text,
+            };
+
+            //Picture
+            if (pbCurrentImage.BackgroundImage == null) objMember.MemberPhoto = null;
+            else objMember.MemberPhoto = new Common.SerializeObjectToString().SerializeObject(pbCurrentImage.BackgroundImage);
+
+            //【3】Submit
+            switch (actionFlag)
+            {
+                case 2://Add
+                    try
+                    {
+                        if (objMemberServices.AddMember(objMember) == 1)
+                        {
+                            //Notice Successful！
+                            MessageBox.Show("Successful addition of membership information!", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            //Close
+                            Close();
+                            //Back OK to main interface
+                            this.DialogResult = DialogResult.OK;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Failed to add member information! Specific reasons:" + ex.Message, "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    break;
+                case 3://Modify
+                    try
+                    {
+                        if (objMemberServices.UpdateMember(objMember) == 1)
+                        {
+                            //Notice Successful！
+                            MessageBox.Show("Modify Information Successful", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            //Close
+                            Close();
+                            //Back OK to main interface
+                            this.DialogResult = DialogResult.OK;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Failed to modify membership information! Specific reasons:" + ex.Message, "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    break;
+            }
+
+        }
     }
 }
