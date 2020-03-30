@@ -31,5 +31,23 @@ namespace BookManagement
         {
             InitializeComponent();
         }
+        public frmMemberDetail(int flag, Member objMember) : this()
+        {
+            //Initialize Local action identifier 
+            actionFlag = flag;
+            //More operators to choose different loading methods
+            switch (flag)
+            {
+                case 1://View
+                    LoadViewForm(objMember);
+                    break;
+                case 2://Add
+                    LoadAddForm();
+                    break;
+                case 3://Modify
+                    LoadUpdateForm(objMember);
+                    break;
+            }
+        }
     }
 }
