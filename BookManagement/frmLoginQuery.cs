@@ -87,5 +87,14 @@ namespace BookManagement
         {
             LoadLoginLogs();
         }
+        private void btnAll_Click(object sender, EventArgs e)
+        {
+            txtLoginId.Text = string.Empty;
+            txtUserName.Text = string.Empty;
+            rbAll.Checked = true;
+
+            LoadLoginLogs();
+
+        }
     }
 }
