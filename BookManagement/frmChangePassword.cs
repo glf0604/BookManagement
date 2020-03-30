@@ -30,5 +30,26 @@ namespace BookManagement
             lblLoginId.Text = objSysAdmin.LoginId.ToString();
             lblUserName.Text = objSysAdmin.UserName;
         }
+
+        private void btnCommit_Click(object sender, EventArgs e)
+        {
+            //Does not meet the requirements, does not comply with the stop operation！
+            if (!CheckPasswordInput()) return;
+
+            //Execution
+            try
+            {
+                if (objSysAdminsServices.ChangePassword(Convert.ToInt32(lblLoginId.Text), txtNewPasswordOneTime.Text) == 1)
+                {
+                    //notice successful！
+                    MessageBox.Show("Password modify successful！", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Password modification abnormal! Specific reasons:" + ex.Message, "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+        }
     }
 }
