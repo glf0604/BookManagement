@@ -85,5 +85,19 @@ namespace BookManagement
             }
 
         }
+        #region Member Photo processing
+        //Choice Picture
+        private void btnSelectPhoto_Click(object sender, EventArgs e)
+        {
+            //Instantiate select File class
+            OpenFileDialog objOpenFile = new OpenFileDialog();
+            //Display the type of file
+            objOpenFile.Filter = "picture file|*.jpg;*.png;*.bmp";
+            //Whether to select a file
+            if (objOpenFile.ShowDialog() == DialogResult.OK)
+            {
+                pbCurrentImage.BackgroundImage = Image.FromFile(objOpenFile.FileName);
+            }
+        }
     }
 }
