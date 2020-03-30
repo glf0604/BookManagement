@@ -27,5 +27,22 @@ namespace BookManagement
             //Load login Log
             LoadLoginLogs();
         }
+        private void LoadLoginLogs()
+        {
+            //Preparation time
+            DateTime[] dtArray = GetStartOrEndDate();
+            //Loading data
+            try
+            {
+                dt = objSysAdminsServices.GetLoginLogs(txtLoginId.Text.Trim(), txtUserName.Text.Trim(), dtArray[0], dtArray[1]);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("There was an exception loading logs! Specific reasons:" + ex.Message, "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            //Bindding date
+            dgvLoginLogs.DataSource = null;
+            dgvLoginLogs.DataSource = dt;
+        }
     }
 }
