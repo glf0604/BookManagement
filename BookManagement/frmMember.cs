@@ -116,5 +116,42 @@ namespace BookManagement
                 objFrmMemberDetail.WindowState = FormWindowState.Maximized;
             }
         }
+        //Modify member Information
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+
+            //【1】Gets the member details for the selected row 
+            Member objMember = null;
+            try
+            {
+                objMember = objMemberServices.GetMemberById(dgvMember.CurrentRow.Cells[0].Value.ToString());
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Abnormal access to selected member information! Specific reasons:" + ex.Message, "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            //【2】 Initialization of ActionFlag 
+            actionFlag = 3;
+
+            //【3】 Loading a form
+            if (objFrmMemberDetail == null)
+            {
+                objFrmMemberDetail = new frmMemberDetail(actionFlag, objMember);
+                DialogResult result = objFrmMemberDetail.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    //Refresh
+                    LoadMemberInfo();
+                }
+            }
+            else
+            {
+                objFrmMemberDetail.Activate();
+                objFrmMemberDetail.WindowState = FormWindowState.Maximized;
+            }
+
+        }
     }
 }
