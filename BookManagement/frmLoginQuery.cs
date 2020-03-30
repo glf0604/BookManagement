@@ -14,9 +14,18 @@ namespace BookManagement
 {
     public partial class frmLoginQuery : Form
     {
+        //Instantiation of an action method
+        private SysAdminsServices objSysAdminsServices = new SysAdminsServices();
+        //Define a DataTAble 
+        private DataTable dt = null;
+
         public frmLoginQuery()
         {
             InitializeComponent();
+            //Initialization of DataGridView
+            dgvLoginLogs.AutoGenerateColumns = false;
+            //Load login Log
+            LoadLoginLogs();
         }
     }
 }
