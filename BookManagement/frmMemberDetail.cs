@@ -99,5 +99,24 @@ namespace BookManagement
                 pbCurrentImage.BackgroundImage = Image.FromFile(objOpenFile.FileName);
             }
         }
+        //Clear Photos
+        private void btnClearPhoto_Click(object sender, EventArgs e)
+        {
+            pbCurrentImage.BackgroundImage = null;
+        }
+
+        //Start the camera.
+        private void btnStartCamera_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                objVideo = new Video(pbImage.Handle, pbImage.Left, pbImage.Top, pbImage.Width, (short)pbImage.Height);
+                objVideo.OpenVideo();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Camera enabled failed！Specific reasons：" + ex.Message, "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
     }
 }
