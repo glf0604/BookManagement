@@ -171,6 +171,7 @@
             this.btnCancel.TabIndex = 174;
             this.btnCancel.Text = "Cancel and Close";
             this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnCommit
             // 
@@ -188,6 +189,7 @@
             this.btnCommit.TabIndex = 173;
             this.btnCommit.Text = "Submit";
             this.btnCommit.UseVisualStyleBackColor = false;
+            this.btnCommit.Click += new System.EventHandler(this.btnCommit_Click);
             // 
             // label27
             // 
@@ -521,6 +523,7 @@
             this.cboMemberLevel.Size = new System.Drawing.Size(150, 27);
             this.cboMemberLevel.TabIndex = 159;
             this.cboMemberLevel.Text = "Please select the members you want to run.";
+            this.cboMemberLevel.SelectedValueChanged += new System.EventHandler(this.cboMemberLevel_SelectedValueChanged);
             // 
             // label5
             // 
@@ -576,6 +579,7 @@
             this.btnClearPhoto.TabIndex = 155;
             this.btnClearPhoto.Text = "Clear Choice";
             this.btnClearPhoto.UseVisualStyleBackColor = false;
+            this.btnClearPhoto.Click += new System.EventHandler(this.btnClearPhoto_Click);
             // 
             // btnSelectPhoto
             // 
@@ -593,6 +597,7 @@
             this.btnSelectPhoto.TabIndex = 154;
             this.btnSelectPhoto.Text = "Choice Photo";
             this.btnSelectPhoto.UseVisualStyleBackColor = false;
+            this.btnSelectPhoto.Click += new System.EventHandler(this.btnSelectPhoto_Click);
             // 
             // btnStartPhoto
             // 
@@ -610,6 +615,7 @@
             this.btnStartPhoto.TabIndex = 158;
             this.btnStartPhoto.Text = "Take Photo";
             this.btnStartPhoto.UseVisualStyleBackColor = false;
+            this.btnStartPhoto.Click += new System.EventHandler(this.btnStartPhoto_Click);
             // 
             // btnCloseCamera
             // 
@@ -627,6 +633,7 @@
             this.btnCloseCamera.TabIndex = 157;
             this.btnCloseCamera.Text = "Close Camera";
             this.btnCloseCamera.UseVisualStyleBackColor = false;
+            this.btnCloseCamera.Click += new System.EventHandler(this.btnCloseCamera_Click);
             // 
             // pbCurrentImage
             // 
@@ -655,6 +662,7 @@
             this.btnStartCamera.TabIndex = 156;
             this.btnStartCamera.Text = "Start Camera";
             this.btnStartCamera.UseVisualStyleBackColor = false;
+            this.btnStartCamera.Click += new System.EventHandler(this.btnStartCamera_Click);
             // 
             // pbImage
             // 
