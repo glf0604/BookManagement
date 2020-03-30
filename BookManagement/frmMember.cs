@@ -92,5 +92,29 @@ namespace BookManagement
             }
 
         }
+        //Add Member Information
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+
+            //【2】 Initialization of ActionFlag 
+            actionFlag = 2;
+
+            //【3】 Loading a form
+            if (objFrmMemberDetail == null)
+            {
+                objFrmMemberDetail = new frmMemberDetail(actionFlag, null);
+                DialogResult result = objFrmMemberDetail.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    //Refresh table Data
+                    LoadMemberInfo();
+                }
+            }
+            else
+            {
+                objFrmMemberDetail.Activate();
+                objFrmMemberDetail.WindowState = FormWindowState.Maximized;
+            }
+        }
     }
 }
