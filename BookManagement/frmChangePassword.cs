@@ -91,5 +91,9 @@ namespace BookManagement
         {
             Close();
         }
+        private void frmChangePassword_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            frmAdminMgmt.objFrmChangePassword = null;
+        }
     }
 }
