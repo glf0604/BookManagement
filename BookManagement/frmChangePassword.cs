@@ -87,5 +87,9 @@ namespace BookManagement
 
             return true;
         }
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
