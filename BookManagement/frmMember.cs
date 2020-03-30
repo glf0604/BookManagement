@@ -43,5 +43,16 @@ namespace BookManagement
         {
             LoadMemberInfo();
         }
+
+        private void btnAll_Click(object sender, EventArgs e)
+        {
+            //Set all query input boxes to null
+            txtQueryMemberCardId.Text = string.Empty;
+            txtQueryMemberId.Text = string.Empty;
+            txtQueryMemberName.Text = string.Empty;
+            txtQueryTelNo.Text = string.Empty;
+
+            LoadMemberInfo();
+        }
     }
 }
