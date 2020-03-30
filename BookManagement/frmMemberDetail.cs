@@ -147,6 +147,22 @@ namespace BookManagement
             btnCommit.Visible = false;
             btnCancel.Text = "Close";
 
+            //Disable all controls
+            cboMemberLevel.Enabled = false;
+            txtMemberCardId.Enabled = false;
+            txtMemberName.Enabled = false;
+            cboIdType.Enabled = false;
+            txtIdCardNumber.Enabled = false;
+            rbFemale.Enabled = false;
+            rbMale.Enabled = false;
+            txtTelNo.Enabled = false;
+            dtpBirthday.Enabled = false;
+            txtHomeAddress.Enabled = false;
+            cboCardStatus.Enabled = false;
+            dtpCardClosingDate.Enabled = false;
+            cboPayMethod.Enabled = false;
+            txtRemarks.Enabled = false;
+
             
 
         }
