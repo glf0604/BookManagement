@@ -32,5 +32,12 @@ namespace BookManagement
             //Load member Information
             LoadMemberInfo();
         }
+
+        //============================================Control events================================================
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
