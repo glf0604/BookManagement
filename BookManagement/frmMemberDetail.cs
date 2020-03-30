@@ -63,5 +63,27 @@ namespace BookManagement
             frmBorrowBook.objFrmMemberDetail = null;
             frmReturnBook.objFrmMemberDetail = null;
         }
+        //Automatically generate membership numbers when selecting a membership level
+        private void cboMemberLevel_SelectedValueChanged(object sender, EventArgs e)
+        {
+            //Determine if it is empty
+            if (cboMemberLevel.SelectedItem == null) return;
+            else if (!Common.ValidateInput.IsInteger(cboMemberLevel.SelectedValue.ToString())) return;
+            else
+            {
+                //Automatically generate membership numbers
+                lblMemberId.Text = objMemberServices.BuildMemberId(Convert.ToInt32(cboMemberLevel.SelectedValue));
+                //Fill Deposit Amount
+                lblDeposit.Text = objMemberLevelServices.GetDepositById(Convert.ToInt32(cboMemberLevel.SelectedValue)).ToString("0.00");
+                //Expiration date of automatic fill card
+                if (!string.IsNullOrWhiteSpace(lblOperatingTime.Text))
+                {
+                    int months = objMemberLevelServices.GetMonthsById(Convert.ToInt32(cboMemberLevel.SelectedValue));
+                    dtpCardClosingDate.Text = (Convert.ToDateTime(lblOperatingTime.Text).AddMonths(months)).ToString();
+                }
+
+            }
+
+        }
     }
 }
