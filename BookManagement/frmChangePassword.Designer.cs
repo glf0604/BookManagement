@@ -32,7 +32,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.btnCommit = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
             this.lblLoginId = new System.Windows.Forms.Label();
             this.lblUserName = new System.Windows.Forms.Label();
@@ -46,6 +45,7 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -85,6 +85,7 @@
             this.btnCommit.TabIndex = 34;
             this.btnCommit.Text = "OK";
             this.btnCommit.UseVisualStyleBackColor = false;
+            this.btnCommit.Click += new System.EventHandler(this.btnCommit_Click);
             // 
             // label7
             // 
@@ -94,16 +95,6 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(800, 3);
             this.label7.TabIndex = 46;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::BookManagement.Properties.Resources.login;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(96, 138);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(360, 262);
-            this.pictureBox1.TabIndex = 45;
-            this.pictureBox1.TabStop = false;
             // 
             // label9
             // 
@@ -220,6 +211,7 @@
             this.btnClose.TabIndex = 35;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // label2
             // 
@@ -241,6 +233,16 @@
             this.label1.Size = new System.Drawing.Size(384, 28);
             this.label1.TabIndex = 36;
             this.label1.Text = "Current location: Change password";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::BookManagement.Properties.Resources.login;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(96, 138);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(360, 262);
+            this.pictureBox1.TabIndex = 45;
+            this.pictureBox1.TabStop = false;
             // 
             // frmChangePassword
             // 
