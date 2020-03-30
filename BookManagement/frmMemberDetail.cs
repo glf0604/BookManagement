@@ -31,6 +31,7 @@ namespace BookManagement
         {
             InitializeComponent();
         }
+
         public frmMemberDetail(int flag, Member objMember) : this()
         {
             //Initialize Local action identifier 
@@ -49,6 +50,7 @@ namespace BookManagement
                     break;
             }
         }
+
         //=====================================Control events =======================================
 
         //Close the Detail form
@@ -56,6 +58,7 @@ namespace BookManagement
         {
             Close();
         }
+
         //Empty the form when you close the form
         private void frmMemberDetail_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -63,6 +66,7 @@ namespace BookManagement
             frmBorrowBook.objFrmMemberDetail = null;
             frmReturnBook.objFrmMemberDetail = null;
         }
+
         //Automatically generate membership numbers when selecting a membership level
         private void cboMemberLevel_SelectedValueChanged(object sender, EventArgs e)
         {
@@ -85,7 +89,9 @@ namespace BookManagement
             }
 
         }
+
         #region Member Photo processing
+
         //Choice Picture
         private void btnSelectPhoto_Click(object sender, EventArgs e)
         {
@@ -99,6 +105,7 @@ namespace BookManagement
                 pbCurrentImage.BackgroundImage = Image.FromFile(objOpenFile.FileName);
             }
         }
+
         //Clear Photos
         private void btnClearPhoto_Click(object sender, EventArgs e)
         {
@@ -118,18 +125,24 @@ namespace BookManagement
                 MessageBox.Show("Camera enabled failed！Specific reasons：" + ex.Message, "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
         //Turn off the camera
         private void btnCloseCamera_Click(object sender, EventArgs e)
         {
             objVideo.CloseVideo();
         }
+
         //Start taking pictures.
         private void btnStartPhoto_Click(object sender, EventArgs e)
         {
             pbCurrentImage.BackgroundImage = objVideo.CatchVideo();
         }
+
         #endregion
+
+
         //=====================================Custom events =======================================
+
         //Load a form as viewed
         private void LoadViewForm(Member objMember)
         {
@@ -187,6 +200,7 @@ namespace BookManagement
             else pbCurrentImage.BackgroundImage = (Image)new Common.SerializeObjectToString().DeserializeObject(objMember.MemberPhoto);
 
         }
+
         //Load a form in a way that you add
         private void LoadAddForm()
         {
@@ -211,6 +225,7 @@ namespace BookManagement
             actionFlag = 2;
 
         }
+
         //Load a form in a modified manner
         private void LoadUpdateForm(Member objMember)
         {
@@ -245,6 +260,7 @@ namespace BookManagement
             cboPayMethod.Enabled = false;
 
         }
+
         private void btnCommit_Click(object sender, EventArgs e)
         {
             //【1】Checksum input
