@@ -25,5 +25,10 @@ namespace BookManagement
             lblLoginId.Text = Program.currentUser.LoginId.ToString();
             lblUserName.Text = Program.currentUser.UserName;
         }
+        public frmChangePassword(SysAdmins objSysAdmin) : this()
+        {
+            lblLoginId.Text = objSysAdmin.LoginId.ToString();
+            lblUserName.Text = objSysAdmin.UserName;
+        }
     }
 }
