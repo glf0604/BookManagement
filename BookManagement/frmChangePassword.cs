@@ -51,5 +51,41 @@ namespace BookManagement
             }
 
         }
+        private bool CheckPasswordInput()
+        {
+            //Verify that the original password is correct
+            if (!objSysAdminsServices.Login(Convert.ToInt32(lblLoginId.Text), txtOldPassword.Text))
+            {
+                MessageBox.Show("The original password was entered incorrectly! Please re-enter!", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtOldPassword.SelectAll();
+                return false;
+            }
+
+
+            //Is the new password the same as the original password?
+            if (txtNewPasswordOneTime.Text.Length < 6)
+            {
+                MessageBox.Show("The new password should not be less than 6 bits!", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtNewPasswordOneTime.SelectAll();
+                return false;
+            }
+            //Is the new password the same as the original password?
+            if (txtOldPassword.Text == txtNewPasswordOneTime.Text)
+            {
+                MessageBox.Show("The new password can't be the same as the old one!", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtNewPasswordOneTime.SelectAll();
+                return false;
+            }
+
+            //Two times is the same new password?
+            if (txtNewPasswordOneTime.Text != txtNewPasswordTwoTime.Text)
+            {
+                MessageBox.Show("Two new password entries must be consistent!", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtNewPasswordTwoTime.SelectAll();
+                return false;
+            }
+
+            return true;
+        }
     }
 }
