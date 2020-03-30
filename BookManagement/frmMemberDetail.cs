@@ -129,5 +129,26 @@ namespace BookManagement
             pbCurrentImage.BackgroundImage = objVideo.CatchVideo();
         }
         #endregion
+        //=====================================Custom events =======================================
+        //Load a form as viewed
+        private void LoadViewForm(Member objMember)
+        {
+
+            //Change Title Display
+            lblTitle.Text = "【Query Member Information】";
+
+            //Hide Space
+            pbImage.Visible = false;
+            btnClearPhoto.Visible = false;
+            btnStartPhoto.Visible = false;
+            btnStartCamera.Visible = false;
+            btnCloseCamera.Visible = false;
+            btnSelectPhoto.Visible = false;
+            btnCommit.Visible = false;
+            btnCancel.Text = "Close";
+
+            
+
+        }
     }
 }
