@@ -39,5 +39,9 @@ namespace BookManagement
         {
             Close();
         }
+        private void btnQuery_Click(object sender, EventArgs e)
+        {
+            LoadMemberInfo();
+        }
     }
 }
