@@ -61,6 +61,7 @@ namespace BookManagement
                 LoadMemberInfo();
             }
         }
+
         //View member Information
         private void dgvMember_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -92,6 +93,7 @@ namespace BookManagement
             }
 
         }
+
         //Add Member Information
         private void btnAdd_Click(object sender, EventArgs e)
         {
@@ -116,6 +118,7 @@ namespace BookManagement
                 objFrmMemberDetail.WindowState = FormWindowState.Maximized;
             }
         }
+
         //Modify member Information
         private void btnUpdate_Click(object sender, EventArgs e)
         {
@@ -153,6 +156,7 @@ namespace BookManagement
             }
 
         }
+
         //Delete Member information
         private void btnDelete_Click(object sender, EventArgs e)
         {
@@ -195,6 +199,7 @@ namespace BookManagement
                 else return;
             }
         }
+
         //============================================Custom Methods================================================
 
         private void LoadMemberInfo()
