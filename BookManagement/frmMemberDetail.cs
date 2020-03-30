@@ -118,5 +118,10 @@ namespace BookManagement
                 MessageBox.Show("Camera enabled failed！Specific reasons：" + ex.Message, "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+        //Turn off the camera
+        private void btnCloseCamera_Click(object sender, EventArgs e)
+        {
+            objVideo.CloseVideo();
+        }
     }
 }
