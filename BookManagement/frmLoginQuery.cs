@@ -83,5 +83,9 @@ namespace BookManagement
 
             return dtArray;
         }
+        private void btnQuery_Click(object sender, EventArgs e)
+        {
+            LoadLoginLogs();
+        }
     }
 }
