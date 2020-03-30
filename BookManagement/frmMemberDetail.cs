@@ -49,5 +49,12 @@ namespace BookManagement
                     break;
             }
         }
+        //=====================================Control events =======================================
+
+        //Close the Detail form
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
