@@ -15,9 +15,15 @@ namespace BookManagement
 {
     public partial class frmChangePassword : Form
     {
+        //Instantiation Management class Operation method
+        private SysAdminsServices objSysAdminsServices = new SysAdminsServices();
+
         public frmChangePassword()
         {
             InitializeComponent();
+            //Display the current login account and name
+            lblLoginId.Text = Program.currentUser.LoginId.ToString();
+            lblUserName.Text = Program.currentUser.UserName;
         }
     }
 }
