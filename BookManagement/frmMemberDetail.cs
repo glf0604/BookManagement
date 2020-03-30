@@ -187,5 +187,29 @@ namespace BookManagement
             else pbCurrentImage.BackgroundImage = (Image)new Common.SerializeObjectToString().DeserializeObject(objMember.MemberPhoto);
 
         }
+        //Load a form in a way that you add
+        private void LoadAddForm()
+        {
+            //Modify Titel 
+            lblTitle.Text = "【Add Member Information】";
+            //Fill the drop-down box data
+            List<MemberLevel> objListLevel = objMemberLevelServices.GetLevelList();
+            cboMemberLevel.DataSource = objListLevel;
+            cboMemberLevel.DisplayMember = "LevelName";
+            cboMemberLevel.ValueMember = "LevelId";
+            cboMemberLevel.SelectedIndex = -1;
+            cboMemberLevel.Text = "Please select membership level";
+
+            //Clear MemberId
+            lblMemberId.Text = string.Empty;
+
+            //Initialization of the agent and time
+            lblUserName.Text = Program.currentUser.UserName;
+            lblOperatingTime.Text = objSysAdminsServices.GetServerTime().ToString("yyy-MM-dd HH:mm:ss");
+
+            //Modify the Operation Flag 
+            actionFlag = 2;
+
+        }
     }
 }
