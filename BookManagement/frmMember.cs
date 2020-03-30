@@ -153,5 +153,47 @@ namespace BookManagement
             }
 
         }
+        //Delete Member information
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            //Judgment
+            if (dgvMember.Rows.Count == 0)
+            {
+                MessageBox.Show("No member information can be deleted!", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else if (dgvMember.CurrentCell.Selected == false)
+            {
+
+                MessageBox.Show("You must select a member's information before deleting it! ", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else
+            {
+                string memberId = dgvMember.CurrentRow.Cells[0].Value.ToString();
+                string memberName = dgvMember.CurrentRow.Cells[2].Value.ToString();
+                string info = "You are sure you want to delete membership information【Member Id：" + memberId + " Members Name：" + memberName + "】？";
+                DialogResult result = MessageBox.Show(info, "System Information", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    try
+                    {
+                        if (objMemberServices.DeleteMember(memberId) == 1)
+                        {
+                            //Notice Successful！
+                            MessageBox.Show("Delete Member information successful！", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            //Refresh
+                            LoadMemberInfo();
+
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Abnormal deletion of membership information! Specific reasons:" + ex.Message, "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                else return;
+            }
+        }
     }
 }
