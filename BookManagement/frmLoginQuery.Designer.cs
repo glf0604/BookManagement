@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -73,8 +73,8 @@
             // 
             this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column3.DataPropertyName = "LoginComputer";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle4;
             this.Column3.HeaderText = "Login Computer";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
@@ -91,7 +91,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label7.Location = new System.Drawing.Point(640, 104);
+            this.label7.Location = new System.Drawing.Point(665, 105);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(27, 19);
             this.label7.TabIndex = 73;
@@ -101,7 +101,7 @@
             // 
             this.dtpEnd.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.dtpEnd.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpEnd.Location = new System.Drawing.Point(669, 101);
+            this.dtpEnd.Location = new System.Drawing.Point(698, 99);
             this.dtpEnd.Name = "dtpEnd";
             this.dtpEnd.Size = new System.Drawing.Size(117, 26);
             this.dtpEnd.TabIndex = 63;
@@ -110,7 +110,7 @@
             // 
             this.dtpStart.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.dtpStart.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpStart.Location = new System.Drawing.Point(517, 101);
+            this.dtpStart.Location = new System.Drawing.Point(523, 99);
             this.dtpStart.Name = "dtpStart";
             this.dtpStart.Size = new System.Drawing.Size(117, 26);
             this.dtpStart.TabIndex = 62;
@@ -119,7 +119,7 @@
             // 
             this.rbStartEnd.AutoSize = true;
             this.rbStartEnd.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.rbStartEnd.Location = new System.Drawing.Point(453, 100);
+            this.rbStartEnd.Location = new System.Drawing.Point(453, 101);
             this.rbStartEnd.Name = "rbStartEnd";
             this.rbStartEnd.Size = new System.Drawing.Size(64, 23);
             this.rbStartEnd.TabIndex = 61;
@@ -130,7 +130,7 @@
             // 
             this.rbYear.AutoSize = true;
             this.rbYear.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.rbYear.Location = new System.Drawing.Point(389, 103);
+            this.rbYear.Location = new System.Drawing.Point(366, 101);
             this.rbYear.Name = "rbYear";
             this.rbYear.Size = new System.Drawing.Size(58, 23);
             this.rbYear.TabIndex = 60;
@@ -141,7 +141,7 @@
             // 
             this.rbMonth.AutoSize = true;
             this.rbMonth.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.rbMonth.Location = new System.Drawing.Point(317, 103);
+            this.rbMonth.Location = new System.Drawing.Point(294, 101);
             this.rbMonth.Name = "rbMonth";
             this.rbMonth.Size = new System.Drawing.Size(74, 23);
             this.rbMonth.TabIndex = 59;
@@ -152,7 +152,7 @@
             // 
             this.rbWeek.AutoSize = true;
             this.rbWeek.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.rbWeek.Location = new System.Drawing.Point(244, 103);
+            this.rbWeek.Location = new System.Drawing.Point(221, 101);
             this.rbWeek.Name = "rbWeek";
             this.rbWeek.Size = new System.Drawing.Size(66, 23);
             this.rbWeek.TabIndex = 58;
@@ -163,7 +163,7 @@
             // 
             this.rbToday.AutoSize = true;
             this.rbToday.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.rbToday.Location = new System.Drawing.Point(173, 102);
+            this.rbToday.Location = new System.Drawing.Point(150, 100);
             this.rbToday.Name = "rbToday";
             this.rbToday.Size = new System.Drawing.Size(70, 23);
             this.rbToday.TabIndex = 57;
@@ -205,14 +205,14 @@
             this.dgvLoginLogs.AllowUserToResizeColumns = false;
             this.dgvLoginLogs.AllowUserToResizeRows = false;
             this.dgvLoginLogs.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.HotTrack;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Navy;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvLoginLogs.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.HotTrack;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Navy;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvLoginLogs.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvLoginLogs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLoginLogs.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column8,
@@ -226,13 +226,13 @@
             this.dgvLoginLogs.Name = "dgvLoginLogs";
             this.dgvLoginLogs.ReadOnly = true;
             this.dgvLoginLogs.RowHeadersVisible = false;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Navy;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Green;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvLoginLogs.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Navy;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Green;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvLoginLogs.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvLoginLogs.RowTemplate.Height = 23;
             this.dgvLoginLogs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvLoginLogs.Size = new System.Drawing.Size(1126, 511);
@@ -260,6 +260,7 @@
             this.btnAll.TabIndex = 65;
             this.btnAll.Text = "ALL";
             this.btnAll.UseVisualStyleBackColor = false;
+            this.btnAll.Click += new System.EventHandler(this.btnAll_Click);
             // 
             // btnQuery
             // 
@@ -275,6 +276,7 @@
             this.btnQuery.TabIndex = 64;
             this.btnQuery.Text = "Query";
             this.btnQuery.UseVisualStyleBackColor = false;
+            this.btnQuery.Click += new System.EventHandler(this.btnQuery_Click);
             // 
             // label6
             // 
