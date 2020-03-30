@@ -195,5 +195,23 @@ namespace BookManagement
                 else return;
             }
         }
+        //============================================Custom Methods================================================
+
+        private void LoadMemberInfo()
+        {
+            //Initialization of DataTable 
+            try
+            {
+                dt = objMemberServices.GetMember(txtQueryMemberCardId.Text.Trim(), txtQueryMemberId.Text.Trim(), txtQueryMemberName.Text.Trim(), txtQueryTelNo.Text.Trim());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Abnormal deletion of membership information! Specific reasons:" + ex.Message, "System Note", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            //Load to DataGridView
+            dgvMember.DataSource = null;
+            dgvMember.DataSource = dt;
+        }
     }
 }
