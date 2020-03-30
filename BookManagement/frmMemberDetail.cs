@@ -211,5 +211,39 @@ namespace BookManagement
             actionFlag = 2;
 
         }
+        //Load a form in a modified manner
+        private void LoadUpdateForm(Member objMember)
+        {
+            //Change Title Display
+            lblTitle.Text = "【Modify Member Information】";
+
+            //Initialize data
+            cboMemberLevel.Text = objMemberLevelServices.GetNameById(objMember.MemberLevel);
+            txtMemberCardId.Text = objMember.MemberCardId;
+            lblMemberId.Text = objMember.MemberId;
+            txtMemberName.Text = objMember.MemberName;
+            cboIdType.Text = objMember.IdType;
+            txtIdCardNumber.Text = objMember.IdNumber;
+            if (objMember.Gender == "Male") rbMale.Checked = true;
+            else rbFemale.Checked = true;
+            txtTelNo.Text = objMember.TelNo;
+            dtpBirthday.Text = objMember.Birthday.ToString();
+            txtHomeAddress.Text = objMember.HomeAddress;
+            cboCardStatus.Text = objMember.CardStatus;
+            dtpCardClosingDate.Text = objMember.CardClosingDate.ToString();
+            cboPayMethod.Text = objMember.PayMethod;
+            lblDeposit.Text = objMemberLevelServices.GetDepositById(objMember.MemberLevel).ToString("0.00");
+            lblUserName.Text = objSysAdminsServices.GetUserName(objMember.LoginId);
+            lblOperatingTime.Text = objMember.OperatingTime.ToString();
+            txtRemarks.Text = objMember.ReMarks;
+            //Turn the text into a diagram
+            if (string.IsNullOrWhiteSpace(objMember.MemberPhoto)) pbCurrentImage.BackgroundImage = null;
+            else pbCurrentImage.BackgroundImage = (Image)new Common.SerializeObjectToString().DeserializeObject(objMember.MemberPhoto);
+
+            //Disable two controls
+            cboMemberLevel.Enabled = false;
+            cboPayMethod.Enabled = false;
+
+        }
     }
 }
