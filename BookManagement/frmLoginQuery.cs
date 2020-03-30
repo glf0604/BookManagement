@@ -27,6 +27,7 @@ namespace BookManagement
             //Load login Log
             LoadLoginLogs();
         }
+
         private void LoadLoginLogs()
         {
             //Preparation time
@@ -44,6 +45,7 @@ namespace BookManagement
             dgvLoginLogs.DataSource = null;
             dgvLoginLogs.DataSource = dt;
         }
+
         private DateTime[] GetStartOrEndDate()
         {
             //Define a time 
@@ -54,27 +56,32 @@ namespace BookManagement
                 dtArray[0] = Convert.ToDateTime("1900-01-01 00:00:00");
                 dtArray[1] = DateTime.Now;
             }
+
             if (rbToday.Checked == true)
             {
                 dtArray[0] = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd 00:00:00"));
                 dtArray[1] = DateTime.Now;
             }
+
             if (rbWeek.Checked == true)  //First day of Monday
             {
                 int num01 = Convert.ToInt16(DateTime.Now.DayOfWeek);
                 dtArray[0] = Convert.ToDateTime(DateTime.Now.AddDays(0 - num01 + 1).ToString("yyyy-MM-dd 00:00:00"));
                 dtArray[1] = DateTime.Now;
             }
+
             if (rbMonth.Checked)
             {
                 dtArray[0] = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-01 00:00:00"));
                 dtArray[1] = DateTime.Now;
             }
+
             if (rbYear.Checked)
             {
                 dtArray[0] = Convert.ToDateTime(DateTime.Now.ToString("yyyy-01-01 00:00:00"));
                 dtArray[1] = DateTime.Now;
             }
+
             if (rbStartEnd.Checked)
             {
                 dtArray[0] = Convert.ToDateTime(dtpStart.Text);
@@ -83,10 +90,12 @@ namespace BookManagement
 
             return dtArray;
         }
+
         private void btnQuery_Click(object sender, EventArgs e)
         {
             LoadLoginLogs();
         }
+
         private void btnAll_Click(object sender, EventArgs e)
         {
             txtLoginId.Text = string.Empty;
