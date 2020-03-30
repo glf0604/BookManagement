@@ -56,5 +56,12 @@ namespace BookManagement
         {
             Close();
         }
+        //Empty the form when you close the form
+        private void frmMemberDetail_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            frmMember.objFrmMemberDetail = null;
+            frmBorrowBook.objFrmMemberDetail = null;
+            frmReturnBook.objFrmMemberDetail = null;
+        }
     }
 }
