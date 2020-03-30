@@ -61,5 +61,36 @@ namespace BookManagement
                 LoadMemberInfo();
             }
         }
+        //View member Information
+        private void dgvMember_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //【1】Gets the member details for the selected row 
+            Member objMember = null;
+            try
+            {
+                objMember = objMemberServices.GetMemberById(dgvMember.CurrentRow.Cells[0].Value.ToString());
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Abnormal access to selected member information! Specific reasons:" + ex.Message, "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            //【2】 Initialization of ActionFlag 
+            actionFlag = 1;
+
+            //【3】 Loading a form
+            if (objFrmMemberDetail == null)
+            {
+                objFrmMemberDetail = new frmMemberDetail(actionFlag, objMember);
+                objFrmMemberDetail.Show();
+            }
+            else
+            {
+                objFrmMemberDetail.Activate();
+                objFrmMemberDetail.WindowState = FormWindowState.Maximized;
+            }
+
+        }
     }
 }
