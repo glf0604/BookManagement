@@ -44,5 +44,37 @@ namespace BookManagement
             //Initialization of DataGridview 
             dgvReturn.AutoGenerateColumns = false;
         }
+        //Open detail form
+        private void btnMoneyDetail_Click(object sender, EventArgs e)
+        {
+            if (dgvReturn.Rows.Count == 0)
+            {
+                MessageBox.Show("No book information returned", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            //Get current book information
+            Book objBook = objBookServices.GetBookById(dgvReturn.CurrentRow.Cells[1].Value.ToString());
+
+            //Encapsulated BookDetail Information
+            BorrowBookDetail objDetai = new BorrowBookDetail
+            {
+                LastReturnDate = Convert.ToDateTime(dgvReturn.CurrentRow.Cells[3].Value),
+                IsOverdue = Convert.ToBoolean(dgvReturn.CurrentRow.Cells[4].Value),
+                IsLost = Convert.ToBoolean(dgvReturn.CurrentRow.Cells[5].Value),
+            };
+
+
+            if (objFrmReturnMoneyDetail == null)
+            {
+                objFrmReturnMoneyDetail = new frmReturnMoneyDetail(objBook, objDetai);
+                objFrmReturnMoneyDetail.Show();
+            }
+            else
+            {
+                objFrmReturnMoneyDetail.Activate();
+                objFrmReturnMoneyDetail.WindowState = FormWindowState.Normal;
+            }
+        }
     }
 }
