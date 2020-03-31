@@ -21,6 +21,13 @@ namespace BookManagement
         {
             InitializeComponent();
         }
+        public frmReturnMoneyDetail(Book objBook, BorrowBookDetail objDetail) : this()
+        {
+            //Load book information
+            LoadBookInfo(objBook);
 
+            //Load fee information
+            LoadMoneyDetail(objDetail);
+        }
     }
 }
