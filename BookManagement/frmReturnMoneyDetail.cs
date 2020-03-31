@@ -21,6 +21,7 @@ namespace BookManagement
         {
             InitializeComponent();
         }
+
         public frmReturnMoneyDetail(Book objBook, BorrowBookDetail objDetail) : this()
         {
             //Load book information
@@ -29,14 +30,17 @@ namespace BookManagement
             //Load fee information
             LoadMoneyDetail(objDetail);
         }
+
         private void btnClose_Click(object sender, EventArgs e)
         {
             Close();
         }
+
         private void frmReturnMoneyDetail_FormClosing(object sender, FormClosingEventArgs e)
         {
             frmReturnBook.objFrmReturnMoneyDetail = null;
         }
+
         //Load Book Information
         private void LoadBookInfo(Book objBook)
         {
@@ -57,6 +61,7 @@ namespace BookManagement
             //Price
             lblBookPrice.Text = objBook.BookPrice.ToString("0.00");
         }
+
         //Load fee detail
         private void LoadMoneyDetail(BorrowBookDetail objDetail)
         {
