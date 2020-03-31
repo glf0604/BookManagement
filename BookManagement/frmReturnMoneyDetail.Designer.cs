@@ -458,6 +458,7 @@
             this.btnClose.TabIndex = 128;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // pbCurrentBook
             // 
