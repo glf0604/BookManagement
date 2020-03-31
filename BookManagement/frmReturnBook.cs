@@ -454,5 +454,10 @@ namespace BookManagement
                 MessageBox.Show("Abnormal submission of books! Specific reasons:" + ex.Message, "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
