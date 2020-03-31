@@ -269,5 +269,29 @@ namespace BookManagement
                 MessageBox.Show("02 Update database abnormal! Specific reasons:" + ex.Message, "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+        //Load the book details of the current user
+        private void LoadBookToDataGridView()
+        {
+            if (lblBorrowedNum.Text.Trim() != "0")
+            {
+                try
+                {
+                    dt = objBorrowBookDetailServices.GetBookByBorrowId(borrowId);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Abnormal access to the details of the member's book borrowing! Specific reasons:" + ex.Message, "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                //Bind to datagGridview 
+                dgvReturn.DataSource = null;
+                dgvReturn.DataSource = dt;
+            }
+            else
+            {
+                //Clear
+                dgvReturn.DataSource = null;
+            }
+
+        }
     }
 }
