@@ -27,6 +27,8 @@ namespace BookManagement
             //Loading data
             LoadBookInfo();
         }
+
+
         //=========================================Control events=============================================
 
         private void btnQuery_Click(object sender, EventArgs e)
@@ -61,6 +63,7 @@ namespace BookManagement
             //Executing queries
             LoadBookInfo();
         }
+
         //A book I've never borrowed before.
         private void rbQueryNoBorrowed_CheckedChanged(object sender, EventArgs e)
         {
@@ -103,6 +106,7 @@ namespace BookManagement
             dgvBook.DataSource = null;
             dgvBook.DataSource = dt;
         }
+
         //Lost number Top 100
         private void rbQueryLostTop100_CheckedChanged(object sender, EventArgs e)
         {
@@ -123,6 +127,7 @@ namespace BookManagement
             dgvBook.DataSource = null;
             dgvBook.DataSource = dt;
         }
+
         //Overdue Top100
         private void rbQueryOverdueTop100_CheckedChanged(object sender, EventArgs e)
         {
@@ -143,6 +148,8 @@ namespace BookManagement
             dgvBook.DataSource = null;
             dgvBook.DataSource = dt;
         }
+
+
         //=========================================Custom Methods=============================================
         private void LoadBookInfo()
         {
@@ -161,6 +168,7 @@ namespace BookManagement
             dgvBook.DataSource = null;
             dgvBook.DataSource = dt;
         }
+
         private void LoadBookInfo(DateTime[] dtArray)
         {
             //get check result
@@ -178,6 +186,7 @@ namespace BookManagement
             dgvBook.DataSource = null;
             dgvBook.DataSource = dt;
         }
+
         //Get start and end times
         private DateTime[] GetStartOrEndDate()
         {
