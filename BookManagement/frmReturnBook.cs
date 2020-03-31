@@ -313,5 +313,48 @@ namespace BookManagement
                 }
             }
         }
+        //Add ReturnBook
+        private void AddReturnBook()
+        {
+            //Is it in the following list
+            for (int i = 0; i < dgvReturn.Rows.Count; i++)
+            {
+                if (dgvReturn.Rows[i].Cells[0].Value.ToString() == txtISBN.Text.Trim() && Convert.ToBoolean(dgvReturn.Rows[i].Cells[7].Value) == true)
+                {
+                    MessageBox.Show("This book has been processed.！", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    break;
+                }
+                else if (dgvReturn.Rows[i].Cells[0].Value.ToString() == txtISBN.Text.Trim())
+                {
+                    //Change the background color
+                    dgvReturn.Rows[0].Selected = false;
+                    dgvReturn.Rows[i].DefaultCellStyle.BackColor = Color.DarkRed;
+                    dgvReturn.Rows[i].DefaultCellStyle.ForeColor = Color.Yellow;
+                    //Hook up this submission book
+                    dgvReturn.Rows[i].Cells[7].Value = true;
+                    //If overdue, calculate late fees and handling fees
+                    if (Convert.ToBoolean(dgvReturn.Rows[i].Cells[4].Value) == true)
+                    {
+                        //Handling fee
+                        lblPoundage.Text = (Convert.ToDouble(lblPoundage.Text) + 5.00).ToString("0.00");
+                        //Late fees
+                        lblOverdueAmount.Text = (Convert.ToDouble(lblOverdueAmount.Text) + Convert.ToDouble(dgvReturn.Rows[i].Cells[6].Value) - 5.00).ToString("0.00");
+                        //Total Price
+                        lblTotalMoney.Text = (Convert.ToDouble(lblBookCompensation.Text) + Convert.ToDouble(lblPoundage.Text) + Convert.ToDouble(lblOverdueAmount.Text)).ToString();
+                    }
+                    //Return of books this time+1
+                    lblCurrentReturnBookNumber.Text = (Convert.ToInt32(lblCurrentReturnBookNumber.Text) + 1).ToString();
+                    //Jumping out of the loop
+                    break;
+                }
+                if (i == dgvReturn.Rows.Count - 1)
+                {
+                    MessageBox.Show("You have not borrowed this book.！", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            //Empty The scanned ISBN
+            txtISBN.Text = string.Empty;
+
+        }
     }
 }
