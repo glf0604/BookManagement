@@ -115,5 +115,42 @@ namespace BookManagement
 
 
         }
+        //Setting Lose
+        private void btnLost_Click(object sender, EventArgs e)
+        {
+            if (dgvReturn.Rows.Count == 0)
+            {
+                MessageBox.Show("No book information returned", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else if (dgvReturn.SelectedRows.Count == 0) return;
+            else
+            {
+                //Whether to lose the hook on the
+                dgvReturn.CurrentRow.Cells[5].Value = true;
+                //Reset Computer Amount
+                if (Convert.ToBoolean(dgvReturn.CurrentRow.Cells[4].Value) == true)
+                    dgvReturn.CurrentRow.Cells[6].Value = Convert.ToDouble(dgvReturn.CurrentRow.Cells[6].Value) + objBookServices.GetPriceById(dgvReturn.CurrentRow.Cells[1].Value.ToString());
+                else
+                    dgvReturn.CurrentRow.Cells[6].Value = objBookServices.GetPriceById(dgvReturn.CurrentRow.Cells[1].Value.ToString()) + 5.00;
+                //Set up this submission hook
+                dgvReturn.CurrentRow.Cells[7].Value = true;
+                //Set up book compensation amount, late fee, handling fee
+                lblBookCompensation.Text = (Convert.ToDouble(lblBookCompensation.Text) + objBookServices.GetPriceById(dgvReturn.CurrentRow.Cells[1].Value.ToString())).ToString("0.00");
+                lblPoundage.Text = (Convert.ToDouble(lblPoundage.Text) + 5.00).ToString("0.00");
+                if (Convert.ToBoolean(dgvReturn.CurrentRow.Cells[4].Value) == true)
+                {
+                    //Calculate the late fee first
+                    double OverdueAmount = Convert.ToDouble(dgvReturn.CurrentRow.Cells[6].Value) - objBookServices.GetPriceById(dgvReturn.CurrentRow.Cells[1].Value.ToString()) - 5.00;
+                    //Fill in again
+                    lblOverdueAmount.Text = (Convert.ToDouble(lblOverdueAmount.Text) + OverdueAmount).ToString("0.00");
+
+                }
+                //Calculate Total Amount
+                lblTotalMoney.Text = (Convert.ToDouble(lblBookCompensation.Text) + Convert.ToDouble(lblPoundage.Text) + Convert.ToDouble(lblOverdueAmount.Text)).ToString();
+                //Total Return of the book
+                lblCurrentReturnBookNumber.Text = (Convert.ToInt32(lblCurrentReturnBookNumber.Text) + 1).ToString();
+            }
+        }
     }
 }
