@@ -94,6 +94,7 @@ namespace BookManagement
                 txtParentTypeName.Text = objBookType.TypeName;
             }
         }
+
         //Add root node
         private void btnAddRootNode_Click(object sender, EventArgs e)
         {
@@ -115,6 +116,7 @@ namespace BookManagement
             //Change ActionFlag to 1
             actionFlag = 1;
         }
+
         //Adding child nodes
         private void btnAddSubNode_Click(object sender, EventArgs e)
         {
@@ -142,6 +144,7 @@ namespace BookManagement
             //Change ActionFlag to 1
             actionFlag = 1;
         }
+
         //Modify selected nodes
         private void btnUpdateNode_Click(object sender, EventArgs e)
         {
@@ -158,6 +161,7 @@ namespace BookManagement
             //Change ActionFlag to 1
             actionFlag = 2;
         }
+
         private void btnCommit_Click(object sender, EventArgs e)
         {
             //Verify
@@ -219,6 +223,7 @@ namespace BookManagement
                     break;
             }
         }
+
         private void txtTypeName_Leave(object sender, EventArgs e)
         {
             if (objBookTypeServices.IsExistTypeName(txtTypeName.Text.Trim()) && actionFlag == 1)
@@ -231,6 +236,8 @@ namespace BookManagement
         {
             gboxNodeDetial.Enabled = false;
         }
+
+
         //=================================Custom Methods=====================================
         private void LoadBookType()
         {
@@ -277,6 +284,7 @@ namespace BookManagement
                 }
             }
         }
+
         private void btnDeleteNode_Click(object sender, EventArgs e)
         {
 
