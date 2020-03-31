@@ -293,5 +293,25 @@ namespace BookManagement
             }
 
         }
+        //Fill the amount of each book
+        private void LoadBookMoney()
+        {
+            if (dgvReturn.Rows.Count == 0) return;
+            //Traversing a table
+            for (int i = 0; i < dgvReturn.Rows.Count; i++)
+            {
+                if (Convert.ToBoolean(dgvReturn.Rows[i].Cells[4].Value) == false)
+                {
+                    dgvReturn.Rows[i].Cells[6].Value = "0.00";
+                }
+                else
+                {
+                    DateTime today = DateTime.Now;
+                    DateTime lastReturnDate = Convert.ToDateTime(dgvReturn.Rows[i].Cells[3].Value);
+                    TimeSpan days = today.Subtract(lastReturnDate);
+                    dgvReturn.Rows[i].Cells[6].Value = days.Days * 0.2 + 5.00;
+                }
+            }
+        }
     }
 }
