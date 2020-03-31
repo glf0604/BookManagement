@@ -191,5 +191,21 @@ namespace BookManagement
 
 
         }
+        //Determine if membership card input is valid
+        private bool CheckMemberCardInput()
+        {
+            if (string.IsNullOrWhiteSpace(txtMemberCardId.Text))
+            {
+                MessageBox.Show("Membership card number cannot be empty！", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
+            if (!Common.ValidateInput.IsInteger(txtMemberCardId.Text.Trim()) || txtMemberCardId.Text.Trim().Length != 10)
+            {
+                MessageBox.Show("Membership card must be 10 digits", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtMemberCardId.SelectAll();
+                return false;
+            }
+            return true;
+        }
     }
 }
