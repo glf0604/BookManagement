@@ -161,5 +161,35 @@ namespace BookManagement
                 AddReturnBook();
             }
         }
+        //========================================Custom Methods==============================================
+        //Load member Information
+        private void LoadMemberInfo()
+        {
+
+            //Determine if the membership card number you entered is valid
+            if (!CheckMemberCardInput()) return;
+
+            //Instantiation of Member 
+            try
+            {
+                objMember = objMemberServices.GetMemberByCardId(txtMemberCardId.Text.Trim());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Abnormal access to membership information! Specific reasons:" + ex.Message, "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            //Assign value to control display
+            lblMemberId.Text = objMember.MemberId;
+            lblMemberName.Text = objMember.MemberName;
+            lblMemberStatus.Text = objMember.CardStatus;
+            if (string.IsNullOrWhiteSpace(objMember.MemberPhoto)) pbCurrentImage.BackgroundImage = null;
+            else pbCurrentImage.BackgroundImage = (Image)new Common.SerializeObjectToString().DeserializeObject(objMember.MemberPhoto);
+
+            //Fill in the total number of debits available
+            lblBorrowTotal.Text = objMemberLevelServices.GetMaxBorrowNumById(objMember.MemberLevel).ToString();
+
+
+        }
     }
 }
