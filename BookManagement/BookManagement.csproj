@@ -173,6 +173,12 @@
     <Compile Include="frmReturnBook.Designer.cs">
       <DependentUpon>frmReturnBook.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmReturnMoneyDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReturnMoneyDetail.Designer.cs">
+      <DependentUpon>frmReturnMoneyDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmAdminDetail.resx">
@@ -225,6 +231,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmReturnBook.resx">
       <DependentUpon>frmReturnBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReturnMoneyDetail.resx">
+      <DependentUpon>frmReturnMoneyDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
