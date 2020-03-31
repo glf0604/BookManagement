@@ -125,6 +125,7 @@
             this.btnCancel.TabIndex = 6;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // gboxMemberLevel
             // 
@@ -168,6 +169,7 @@
             this.btnCommit.TabIndex = 5;
             this.btnCommit.Text = "Submit";
             this.btnCommit.UseVisualStyleBackColor = false;
+            this.btnCommit.Click += new System.EventHandler(this.btnCommit_Click);
             // 
             // txtDeposit
             // 
@@ -284,6 +286,7 @@
             this.btnDelete.TabIndex = 15;
             this.btnDelete.Text = "Delete Level";
             this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnClose
             // 
@@ -314,6 +317,7 @@
             this.btnAdd.TabIndex = 13;
             this.btnAdd.Text = "Add Level";
             this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // lvMemeberLevel
             // 
@@ -324,6 +328,7 @@
             this.lvMemeberLevel.Size = new System.Drawing.Size(530, 590);
             this.lvMemeberLevel.TabIndex = 12;
             this.lvMemeberLevel.UseCompatibleStateImageBehavior = false;
+            this.lvMemeberLevel.Click += new System.EventHandler(this.lvMemeberLevel_Click);
             // 
             // label2
             // 
@@ -360,6 +365,7 @@
             this.btnUpdate.TabIndex = 14;
             this.btnUpdate.Text = "Modify Level";
             this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // frmMemberLevel
             // 
