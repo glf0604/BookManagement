@@ -76,5 +76,23 @@ namespace BookManagement
                 objFrmReturnMoneyDetail.WindowState = FormWindowState.Normal;
             }
         }
+        //Scan member Information
+        private void txtMemberCardId_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == 13)
+            {
+                //Load user information
+                LoadMemberInfo();
+                //Determine the situation of changing users
+                LoadNumInfo();
+                //Display details in DataGridview
+                LoadBookToDataGridView();
+                //Fill the amount of each line of records, if not overdue and lost is 0.00 yuan, if there is overdue, two cents a day + 5 yuan handling fee, if both overdue also lost, overdue fee + book price + 5 Yuan
+                LoadBookMoney();
+                //Let Isbnh get the focus
+                txtISBN.Focus();
+            }
+
+        }
     }
 }
