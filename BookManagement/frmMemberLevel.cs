@@ -260,5 +260,43 @@ namespace BookManagement
 
             return true;
         }
+        private void LoadMemberLevelInfo()
+        {
+            //Initialization of ObjListlevel 
+            try
+            {
+                objListLevel = objMemberLevelServices.GetMemberLevel();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("There is an exception in loading membership rank information! ___________ Specific reasons:" + ex.Message, "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            //Show the data to ListView 
+            //【1】Clear
+            lvMemeberLevel.Items.Clear();
+            //【2】Determine if it is empty
+            if (objListLevel == null) return;
+            //【3】If it is not empty, load the
+            lvMemeberLevel.View = View.LargeIcon;
+            lvMemeberLevel.LargeImageList = imageList1;
+            lvMemeberLevel.BeginUpdate();
+            //Traverse
+            for (int i = 0; i < objListLevel.Count; i++)
+            {
+                ListViewItem lvi = new ListViewItem();
+                if (i > 5)
+                {
+                    lvi.ImageIndex = 5;
+                }
+                else
+                {
+                    lvi.ImageIndex = i;
+                }
+                lvi.Text = objListLevel[i].LevelName;
+                lvMemeberLevel.Items.Add(lvi);
+            }
+            lvMemeberLevel.EndUpdate();
+        }
     }
 }
