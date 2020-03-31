@@ -152,5 +152,14 @@ namespace BookManagement
                 lblCurrentReturnBookNumber.Text = (Convert.ToInt32(lblCurrentReturnBookNumber.Text) + 1).ToString();
             }
         }
+        //Scan Books
+        private void txtISBN_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == 13)
+            {
+                //Load to the following categories
+                AddReturnBook();
+            }
+        }
     }
 }
