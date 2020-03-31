@@ -46,6 +46,8 @@ namespace BookManagement
             dgvBorrowedList.AutoGenerateColumns = false;
             dgvCurrentBorrowList.AutoGenerateColumns = false;
         }
+
+
         //=========================================Control events==============================================
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -128,6 +130,7 @@ namespace BookManagement
                 txtBookISBN.Focus();
             }
         }
+
         private void dgvBorrowedList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             //Get a breakdown of the current book
@@ -145,6 +148,7 @@ namespace BookManagement
             }
 
         }
+
         private void txtBookISBN_KeyDown(object sender, KeyEventArgs e)
         {
             //Press ENTER to trigger event
@@ -192,6 +196,7 @@ namespace BookManagement
 
             }
         }
+
         private void btnDelete_Click(object sender, EventArgs e)
         {
             //Determine if there is data
@@ -229,6 +234,7 @@ namespace BookManagement
 
 
         }
+
         private void btnCommit_Click(object sender, EventArgs e)
         {
             //Determine if there are books in the current list
@@ -271,6 +277,8 @@ namespace BookManagement
 
             }
         }
+
+
         //========================================Custom Methods==============================================
         //Load member Information
         private void LoadMemberInfo()
@@ -301,6 +309,7 @@ namespace BookManagement
 
 
         }
+
         //Determine if membership card input is valid
         private bool CheckMemberCardInput()
         {
@@ -317,6 +326,7 @@ namespace BookManagement
             }
             return true;
         }
+
         //For members who have not borrowed, create a BorrowId
         private string CreateAndGetBorrowId()
         {
@@ -345,6 +355,7 @@ namespace BookManagement
             //Return 
             return objBorrowBook.BorrowId;
         }
+
         //Updating the database: Has the previously borrowed book expired
         private void UpdateBorrowInfo()
         {
@@ -374,6 +385,7 @@ namespace BookManagement
                 MessageBox.Show("02 Update database abnormal! Specific reasons:" + ex.Message, "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
         private bool CheckMember()
         {
             //Check if there is a overdue or
@@ -396,6 +408,7 @@ namespace BookManagement
             }
             return true;
         }
+
         private bool CheckBook()
         {
             //Does it contain
