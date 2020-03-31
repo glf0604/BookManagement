@@ -356,5 +356,23 @@ namespace BookManagement
             txtISBN.Text = string.Empty;
 
         }
+        private void dgvReturn_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //Get information about a book
+            Book objBook = objBookServices.GetBookById(dgvReturn.CurrentRow.Cells[1].Value.ToString());
+
+            //Load form
+            if (objFrmBookDetail == null)
+            {
+                objFrmBookDetail = new frmBookDetail(1, objBook);
+                objFrmBookDetail.Show();
+
+            }
+            else
+            {
+                objFrmBookDetail.Activate();
+                objFrmBookDetail.WindowState = FormWindowState.Normal;
+            }
+        }
     }
 }
