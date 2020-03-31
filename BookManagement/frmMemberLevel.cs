@@ -29,5 +29,46 @@ namespace BookManagement
             //Load member level data to Listview display
             LoadMemberLevelInfo();
         }
+
+        //====================================Control events==========================================
+
+
+        private void lvMemeberLevel_Click(object sender, EventArgs e)
+        {
+            //Instantiate an object of a membership level
+            MemberLevel objMemberLevel = new MemberLevel();
+            //Get name
+            objMemberLevel.LevelName = lvMemeberLevel.SelectedItems[0].Text;
+            //"Method 1": Find by name to database
+            //try
+            //{
+            //    objMemberLevel = objMemberLevelServices.GetMemberLevelByName(objMemberLevel.LevelName);
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Get membership level information through the rank name exception occurs! Specific reasons:" + ex.Message, "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //}
+
+            //"Method 2": Find in the local List
+            for (int i = 0; i < objListLevel.Count; i++)
+            {
+                if (objListLevel[i].LevelName == objMemberLevel.LevelName)
+                {
+                    objMemberLevel.LevelId = objListLevel[i].LevelId;
+                    objMemberLevel.LevelMonths = objListLevel[i].LevelMonths;
+                    objMemberLevel.MaxBorrowNum = objListLevel[i].MaxBorrowNum;
+                    objMemberLevel.MaxBorrowDays = objListLevel[i].MaxBorrowDays;
+                    objMemberLevel.Deposit = objListLevel[i].Deposit;
+                    break;
+                }
+            }
+            //Display Date
+            lblLevelId.Text = objMemberLevel.LevelId.ToString();
+            txtLevelName.Text = objMemberLevel.LevelName;
+            txtLevelMonths.Text = objMemberLevel.LevelMonths.ToString();
+            txtMaxBorrowNum.Text = objMemberLevel.MaxBorrowNum.ToString();
+            txtMaxBorrowDays.Text = objMemberLevel.MaxBorrowDays.ToString();
+            txtDeposit.Text = objMemberLevel.Deposit.ToString("0.00");
+        }
     }
 }
