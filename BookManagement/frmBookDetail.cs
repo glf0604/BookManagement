@@ -185,6 +185,7 @@ namespace BookManagement
                     break;
             }
         }
+
         private void txtStorageInNum_TextChanged(object sender, EventArgs e)
         {
             lblInventoryNum.Text = txtStorageInNum.Text;
@@ -305,6 +306,7 @@ namespace BookManagement
             btnClose.Text = "Close";
 
         }
+
         private void LoadAddForm()
         {
             //Modify Form Title Name
@@ -314,6 +316,7 @@ namespace BookManagement
             btnClose.Text = "Cancel and close";
 
         }
+
         private void LoadUpdateForm(Book objBook)
         {
             //Modify Form Title Name
@@ -359,6 +362,7 @@ namespace BookManagement
 
 
         }
+
         private void LoadDropListInfo()
         {
             //Get the following box information (Press)
