@@ -374,5 +374,66 @@ namespace BookManagement
                 objFrmBookDetail.WindowState = FormWindowState.Normal;
             }
         }
+        private void btnCommit_Click(object sender, EventArgs e)
+        {
+            //Preparing data
+            List<BorrowBookDetail> objListDetail = new List<BorrowBookDetail>();
+
+            //Traversing DataGridView 
+            for (int i = 0; i < dgvReturn.Rows.Count; i++)
+            {
+                if (Convert.ToBoolean(dgvReturn.Rows[i].Cells[7].Value) == true)
+                {
+                    //Instantiate an Object
+                    BorrowBookDetail objDetail = new BorrowBookDetail();
+                    objDetail.DetailId = objBorrowBookDetailServices.GetDetailId(borrowId, dgvReturn.Rows[i].Cells[1].Value.ToString());
+                    objDetail.BorrowId = borrowId;
+                    objDetail.BookId = dgvReturn.Rows[i].Cells[1].Value.ToString();
+                    objDetail.LastReturnDate = Convert.ToDateTime(dgvReturn.Rows[i].Cells[3].Value);
+                    objDetail.IsOverdue = Convert.ToBoolean(dgvReturn.Rows[i].Cells[4].Value);
+                    objDetail.IsLost = Convert.ToBoolean(dgvReturn.Rows[i].Cells[5].Value);
+                    //Add to List
+                    objListDetail.Add(objDetail);
+                }
+            }
+
+            if (objListDetail == null)
+            {
+                MessageBox.Show("There are no books to submit！", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            //Submit 
+            try
+            {
+                if (objBorrowBookDetailServices.CommitReturnBook(objListDetail, Program.currentUser.LoginId, objMember))
+                {
+                    //Updating user information
+                    LoadNumInfo();
+                    //This return of the book=0
+                    lblCurrentReturnBookNumber.Text = "0";
+                    //In turn, delete the submitted
+                    for (int i = 0; i < dgvReturn.Rows.Count; i++)
+                    {
+                        if (Convert.ToBoolean(dgvReturn.Rows[i].Cells[7].Value) == true)
+                        {
+                            dgvReturn.Rows.RemoveAt(i);
+                        }
+                    }
+                    //Replacement fee
+                    lblBookCompensation.Text = "0.00";
+                    lblPoundage.Text = "0.00";
+                    lblOverdueAmount.Text = "0.00";
+                    lblTotalMoney.Text = "0.00";
+                    //Notice Successful！
+                    MessageBox.Show("Successful submission of return information！", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Abnormal submission of books! Specific reasons:" + ex.Message, "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
     }
 }
