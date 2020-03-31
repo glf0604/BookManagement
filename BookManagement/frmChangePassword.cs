@@ -25,6 +25,7 @@ namespace BookManagement
             lblLoginId.Text = Program.currentUser.LoginId.ToString();
             lblUserName.Text = Program.currentUser.UserName;
         }
+
         public frmChangePassword(SysAdmins objSysAdmin) : this()
         {
             lblLoginId.Text = objSysAdmin.LoginId.ToString();
@@ -51,6 +52,7 @@ namespace BookManagement
             }
 
         }
+
         private bool CheckPasswordInput()
         {
             //Verify that the original password is correct
@@ -87,10 +89,12 @@ namespace BookManagement
 
             return true;
         }
+
         private void btnClose_Click(object sender, EventArgs e)
         {
             Close();
         }
+
         private void frmChangePassword_FormClosing(object sender, FormClosingEventArgs e)
         {
             frmAdminMgmt.objFrmChangePassword = null;
