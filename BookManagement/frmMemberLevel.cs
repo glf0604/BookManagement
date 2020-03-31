@@ -87,5 +87,65 @@ namespace BookManagement
             //【5】 Modify ActionFlag
             actionFlag = 1;
         }
+        private void btnCommit_Click(object sender, EventArgs e)
+        {
+            //【1】 Checksum input
+            if (!CheckMemberLevelInput()) return;
+            //【2】 Encapsulating data to Objects
+            MemberLevel objMemberLevel = new MemberLevel()
+            {
+                LevelId = Convert.ToInt32(lblLevelId.Text),
+                LevelName = txtLevelName.Text.Trim(),
+                LevelMonths = Convert.ToInt32(txtLevelMonths.Text.Trim()),
+                MaxBorrowNum = Convert.ToInt32(txtMaxBorrowNum.Text.Trim()),
+                MaxBorrowDays = Convert.ToInt32(txtMaxBorrowDays.Text.Trim()),
+                Deposit = Convert.ToDouble(txtDeposit.Text.Trim()),
+            };
+
+            //【3】 Submit
+            switch (actionFlag)
+            {
+                case 1://Add 
+                    try
+                    {
+                        if (objMemberLevelServices.AddMemberLevel(objMemberLevel) == 1)
+                        {
+                            //Notice successful
+                            MessageBox.Show("Added Membership Level Added Successfully!", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            //Refresh
+                            LoadMemberLevelInfo();
+
+                            //Disable Detail 
+                            gboxMemberLevel.Enabled = false;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("There is an exception to adding membership level! Specific reasons:" + ex.Message, "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    break;
+                case 2: //Modify
+                    try
+                    {
+                        if (objMemberLevelServices.UpdateMemberLevel(objMemberLevel) == 1)
+                        {
+                            //Notice Successful
+                            MessageBox.Show("Modify membership level to add success!", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            //Refresh
+                            LoadMemberLevelInfo();
+
+                            //Disable Detail 
+                            gboxMemberLevel.Enabled = false;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("There is an exception in modifying the membership level! __________ Specific reasons:" + ex.Message, "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    break;
+            }
+        }
     }
 }
