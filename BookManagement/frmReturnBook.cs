@@ -94,5 +94,26 @@ namespace BookManagement
             }
 
         }
+        //Load all member Information
+        private void btnViewAll_Click(object sender, EventArgs e)
+        {
+            if (objMember == null)
+            {
+                MessageBox.Show("No information on membership change was found.！", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else if (objFrmMemberDetail == null)
+            {
+                objFrmMemberDetail = new frmMemberDetail(1, objMember);
+                objFrmMemberDetail.Show();
+            }
+            else
+            {
+                objFrmMemberDetail.Activate();
+                objFrmMemberDetail.WindowState = FormWindowState.Normal;
+            }
+
+
+        }
     }
 }
