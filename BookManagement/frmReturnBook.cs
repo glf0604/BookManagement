@@ -207,5 +207,38 @@ namespace BookManagement
             }
             return true;
         }
+        private void LoadNumInfo()
+        {
+            //Gets the user's BorrowId
+            try
+            {
+                borrowId = objBorrowBookServices.GetBorrowIdByMemberId(lblMemberId.Text);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("This membership card has never been used! There is no information about borrowing books!", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //Fill Quantity
+                lblBorrowedNum.Text = "0";
+                lblCanBorrowNum.Text = lblBorrowTotal.Text;
+                lblOverdueNum.Text = "0";
+                //Clear
+                dgvReturn.DataSource = null;
+                //Ending
+                return;
+            }
+
+            //Update Basedate
+            if (objBorrowBookServices.GetBorrowedNumByMemberId(lblMemberId.Text) > 0)
+            {
+                UpdateBorrowInfo();
+            }
+
+            //Full in number
+            BorrowBook objBorrowBook = objBorrowBookServices.GetBorrowBookByBorrowId(borrowId);
+            //Fill in quantity
+            lblBorrowedNum.Text = objBorrowBook.BorrowedNum.ToString();
+            lblCanBorrowNum.Text = (Convert.ToInt32(lblBorrowTotal.Text) - objBorrowBook.BorrowedNum).ToString();
+            lblOverdueNum.Text = objBorrowBook.OverdueNum.ToString();
+        }
     }
 }
