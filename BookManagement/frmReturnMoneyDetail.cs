@@ -57,5 +57,36 @@ namespace BookManagement
             //Price
             lblBookPrice.Text = objBook.BookPrice.ToString("0.00");
         }
+        //Load fee detail
+        private void LoadMoneyDetail(BorrowBookDetail objDetail)
+        {
+            lblLastReturnDate.Text = objDetail.LastReturnDate.ToShortDateString();
+            lblCurrentDate.Text = DateTime.Now.ToShortDateString();
+            if (objDetail.IsOverdue == false)
+            {
+                lblOverdueDays.Text = "0";
+            }
+            else
+            {
+                DateTime today = DateTime.Now;
+                DateTime lastReturnDate = objDetail.LastReturnDate;
+                TimeSpan days = today.Subtract(lastReturnDate);
+                lblOverdueDays.Text = days.Days.ToString();
+                lblTotalAmount.Text = (Convert.ToDouble(lblOverdueDays.Text) * Convert.ToDouble(lblAmountPerDay.Text)).ToString("0.00");
+            }
+
+            //Handling fee
+            if (objDetail.IsOverdue || objDetail.IsLost)
+            {
+                lblPoundage.Text = "5.00";
+            }
+            //Loss of compensation
+            if (objDetail.IsLost) lblLostBookCompensation.Text = lblBookPrice.Text;
+
+            //Total Price:
+            lblTotalMoney.Text = (Convert.ToDouble(lblTotalAmount.Text) + Convert.ToDouble(lblPoundage.Text) + Convert.ToDouble(lblLostBookCompensation.Text)).ToString("0.00");
+
+
+        }
     }
 }
