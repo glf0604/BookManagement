@@ -37,5 +37,25 @@ namespace BookManagement
         {
             frmReturnBook.objFrmReturnMoneyDetail = null;
         }
+        //Load Book Information
+        private void LoadBookInfo(Book objBook)
+        {
+            //Picture
+            //Text change to picture
+            if (string.IsNullOrWhiteSpace(objBook.BookImage)) pbCurrentBook.BackgroundImage = null;
+            else pbCurrentBook.BackgroundImage = (Image)new Common.SerializeObjectToString().DeserializeObject(objBook.BookImage);
+
+            //ISBN
+            lblBookISBN.Text = objBook.ISBN;
+            //name
+            lblBookName.Text = objBook.BookName;
+            //author
+            lblBookAuthor.Text = objBook.BookAuthor;
+            //Press
+            lblBookPress.Text = objBookPressServices.GetPressNameById(objBook.BookPress);
+
+            //Price
+            lblBookPrice.Text = objBook.BookPrice.ToString("0.00");
+        }
     }
 }
