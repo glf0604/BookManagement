@@ -29,5 +29,9 @@ namespace BookManagement
             //Load fee information
             LoadMoneyDetail(objDetail);
         }
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
