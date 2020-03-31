@@ -213,5 +213,52 @@ namespace BookManagement
             txtMaxBorrowNum.Text = string.Empty;
             txtDeposit.Text = string.Empty;
         }
+        //===================================Custom Methods===========================================
+
+        private bool CheckMemberLevelInput()
+        {
+            //Member name: Not allowed to be empty, cannot be repeated
+            if (string.IsNullOrWhiteSpace(txtLevelName.Text))
+            {
+                MessageBox.Show("Level name cannot be empty！", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
+            if (objMemberLevelServices.IsExistLevelName(txtLevelName.Text.Trim()) && actionFlag == 1)
+            {
+                MessageBox.Show("The level name already exists！", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtLevelName.Focus();
+                txtLevelName.SelectAll();
+                return false;
+            }
+
+            //Cannot be empty, must be an integer
+            if (!Common.ValidateInput.IsInteger(txtLevelMonths.Text.Trim()) || string.IsNullOrWhiteSpace(txtLevelMonths.Text))
+            {
+                MessageBox.Show("Membership cycle must be integer and not empty！", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtLevelMonths.Focus();
+                return false;
+            }
+            if (!Common.ValidateInput.IsInteger(txtMaxBorrowNum.Text.Trim()) || string.IsNullOrWhiteSpace(txtMaxBorrowNum.Text))
+            {
+                MessageBox.Show("The maximum borrowing period must be an integer and not empty.！", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtMaxBorrowNum.Focus();
+                return false;
+            }
+            if (!Common.ValidateInput.IsInteger(txtMaxBorrowDays.Text.Trim()) || string.IsNullOrWhiteSpace(txtMaxBorrowDays.Text))
+            {
+                MessageBox.Show("Maximum borrowing time must be integer and not empty！", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtMaxBorrowDays.Focus();
+                return false;
+            }
+            if (!Common.ValidateInput.IsInteger(txtDeposit.Text.Trim().Replace(".", "")) || string.IsNullOrWhiteSpace(txtDeposit.Text))
+            {
+                MessageBox.Show("The amount of deposit must be numeric and not empty.！", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtDeposit.Focus();
+                return false;
+            }
+
+
+            return true;
+        }
     }
 }
