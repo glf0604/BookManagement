@@ -147,5 +147,25 @@ namespace BookManagement
                     break;
             }
         }
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            //Determine if a level is selected 
+            if (string.IsNullOrWhiteSpace(lblLevelId.Text))
+            {
+                MessageBox.Show("A level must be selected before modification", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            //Enable the right detail 
+            gboxMemberLevel.Enabled = true;
+
+            //Disable member name
+            txtLevelName.Enabled = false;
+
+            //Let the library cycle get the focus
+            txtLevelMonths.Focus();
+
+            //Modify Flag
+            actionFlag = 2;
+        }
     }
 }
