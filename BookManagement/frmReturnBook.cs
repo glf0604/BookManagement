@@ -44,6 +44,7 @@ namespace BookManagement
             //Initialization of DataGridview 
             dgvReturn.AutoGenerateColumns = false;
         }
+
         //Open detail form
         private void btnMoneyDetail_Click(object sender, EventArgs e)
         {
@@ -76,6 +77,7 @@ namespace BookManagement
                 objFrmReturnMoneyDetail.WindowState = FormWindowState.Normal;
             }
         }
+
         //Scan member Information
         private void txtMemberCardId_KeyDown(object sender, KeyEventArgs e)
         {
@@ -94,6 +96,7 @@ namespace BookManagement
             }
 
         }
+
         //Load all member Information
         private void btnViewAll_Click(object sender, EventArgs e)
         {
@@ -115,6 +118,7 @@ namespace BookManagement
 
 
         }
+
         //Setting Lose
         private void btnLost_Click(object sender, EventArgs e)
         {
@@ -124,6 +128,7 @@ namespace BookManagement
                 return;
             }
             else if (dgvReturn.SelectedRows.Count == 0) return;
+
             else
             {
                 //Whether to lose the hook on the
@@ -138,6 +143,7 @@ namespace BookManagement
                 //Set up book compensation amount, late fee, handling fee
                 lblBookCompensation.Text = (Convert.ToDouble(lblBookCompensation.Text) + objBookServices.GetPriceById(dgvReturn.CurrentRow.Cells[1].Value.ToString())).ToString("0.00");
                 lblPoundage.Text = (Convert.ToDouble(lblPoundage.Text) + 5.00).ToString("0.00");
+
                 if (Convert.ToBoolean(dgvReturn.CurrentRow.Cells[4].Value) == true)
                 {
                     //Calculate the late fee first
@@ -146,12 +152,14 @@ namespace BookManagement
                     lblOverdueAmount.Text = (Convert.ToDouble(lblOverdueAmount.Text) + OverdueAmount).ToString("0.00");
 
                 }
+
                 //Calculate Total Amount
                 lblTotalMoney.Text = (Convert.ToDouble(lblBookCompensation.Text) + Convert.ToDouble(lblPoundage.Text) + Convert.ToDouble(lblOverdueAmount.Text)).ToString();
                 //Total Return of the book
                 lblCurrentReturnBookNumber.Text = (Convert.ToInt32(lblCurrentReturnBookNumber.Text) + 1).ToString();
             }
         }
+
         //Scan Books
         private void txtISBN_KeyDown(object sender, KeyEventArgs e)
         {
@@ -161,6 +169,8 @@ namespace BookManagement
                 AddReturnBook();
             }
         }
+
+
         //========================================Custom Methods==============================================
         //Load member Information
         private void LoadMemberInfo()
@@ -191,6 +201,7 @@ namespace BookManagement
 
 
         }
+
         //Determine if membership card input is valid
         private bool CheckMemberCardInput()
         {
@@ -207,6 +218,7 @@ namespace BookManagement
             }
             return true;
         }
+
         private void LoadNumInfo()
         {
             //Gets the user's BorrowId
@@ -240,6 +252,8 @@ namespace BookManagement
             lblCanBorrowNum.Text = (Convert.ToInt32(lblBorrowTotal.Text) - objBorrowBook.BorrowedNum).ToString();
             lblOverdueNum.Text = objBorrowBook.OverdueNum.ToString();
         }
+
+
         //Update expired information
         private void UpdateBorrowInfo()
         {
@@ -269,6 +283,7 @@ namespace BookManagement
                 MessageBox.Show("02 Update database abnormal! Specific reasons:" + ex.Message, "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
         //Load the book details of the current user
         private void LoadBookToDataGridView()
         {
@@ -293,6 +308,7 @@ namespace BookManagement
             }
 
         }
+
         //Fill the amount of each book
         private void LoadBookMoney()
         {
@@ -313,6 +329,7 @@ namespace BookManagement
                 }
             }
         }
+
         //Add ReturnBook
         private void AddReturnBook()
         {
@@ -356,6 +373,7 @@ namespace BookManagement
             txtISBN.Text = string.Empty;
 
         }
+
         private void dgvReturn_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             //Get information about a book
@@ -374,6 +392,7 @@ namespace BookManagement
                 objFrmBookDetail.WindowState = FormWindowState.Normal;
             }
         }
+
         private void btnCommit_Click(object sender, EventArgs e)
         {
             //Preparing data
