@@ -167,5 +167,40 @@ namespace BookManagement
             //Modify Flag
             actionFlag = 2;
         }
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            //Determine if a level is selected 
+            if (string.IsNullOrWhiteSpace(lblLevelId.Text))
+            {
+                MessageBox.Show("A level must be selected before modification", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            //Perform deletion 
+            string levelName = txtLevelName.Text.Trim();
+            string info = "You are sure you want to delete the membership level【Level name：" + levelName + "】？";
+            DialogResult result = MessageBox.Show(info, "System Information", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                try
+                {
+                    if (objMemberLevelServices.DeleteMemberLevel(levelName) == 1)
+                    {
+                        //Notice！
+                        MessageBox.Show("Successful deletion of membership level information!", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //Refresh
+                        LoadMemberLevelInfo();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Abnormal deletion of membership level information! Specific reasons:" + ex.Message, "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else return;
+
+
+
+        }
     }
 }
