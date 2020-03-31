@@ -202,5 +202,16 @@ namespace BookManagement
 
 
         }
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            gboxMemberLevel.Enabled = false;
+
+            lblLevelId.Text = string.Empty;
+            txtLevelName.Text = string.Empty;
+            txtLevelMonths.Text = string.Empty;
+            txtMaxBorrowDays.Text = string.Empty;
+            txtMaxBorrowNum.Text = string.Empty;
+            txtDeposit.Text = string.Empty;
+        }
     }
 }
