@@ -70,5 +70,22 @@ namespace BookManagement
             txtMaxBorrowDays.Text = objMemberLevel.MaxBorrowDays.ToString();
             txtDeposit.Text = objMemberLevel.Deposit.ToString("0.00");
         }
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            //【1】Enable Detail Area
+            gboxMemberLevel.Enabled = true;
+            //【2】Automatically generates a level number and displays it in the numbered area
+            lblLevelId.Text = objMemberLevelServices.BuildNewLevelId();
+            //【3】Make all text boxes empty
+            txtLevelMonths.Text = string.Empty;
+            txtLevelName.Text = string.Empty;
+            txtMaxBorrowDays.Text = string.Empty;
+            txtMaxBorrowNum.Text = string.Empty;
+            txtDeposit.Text = string.Empty;
+            //【4】 Let the level name get focus
+            txtLevelName.Focus();
+            //【5】 Modify ActionFlag
+            actionFlag = 1;
+        }
     }
 }
