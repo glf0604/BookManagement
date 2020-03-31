@@ -54,6 +54,7 @@ namespace BookManagement
 
             LoadMemberInfo();
         }
+
         private void txtQueryMemberCardId_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyValue == 13)
