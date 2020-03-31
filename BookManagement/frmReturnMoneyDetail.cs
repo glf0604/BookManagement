@@ -33,5 +33,9 @@ namespace BookManagement
         {
             Close();
         }
+        private void frmReturnMoneyDetail_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            frmReturnBook.objFrmReturnMoneyDetail = null;
+        }
     }
 }
