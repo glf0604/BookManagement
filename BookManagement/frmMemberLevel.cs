@@ -62,6 +62,7 @@ namespace BookManagement
                     break;
                 }
             }
+
             //Display Date
             lblLevelId.Text = objMemberLevel.LevelId.ToString();
             txtLevelName.Text = objMemberLevel.LevelName;
@@ -70,27 +71,35 @@ namespace BookManagement
             txtMaxBorrowDays.Text = objMemberLevel.MaxBorrowDays.ToString();
             txtDeposit.Text = objMemberLevel.Deposit.ToString("0.00");
         }
+
+
         private void btnAdd_Click(object sender, EventArgs e)
         {
             //【1】Enable Detail Area
             gboxMemberLevel.Enabled = true;
+
             //【2】Automatically generates a level number and displays it in the numbered area
             lblLevelId.Text = objMemberLevelServices.BuildNewLevelId();
+
             //【3】Make all text boxes empty
             txtLevelMonths.Text = string.Empty;
             txtLevelName.Text = string.Empty;
             txtMaxBorrowDays.Text = string.Empty;
             txtMaxBorrowNum.Text = string.Empty;
             txtDeposit.Text = string.Empty;
+
             //【4】 Let the level name get focus
             txtLevelName.Focus();
+
             //【5】 Modify ActionFlag
             actionFlag = 1;
         }
+
         private void btnCommit_Click(object sender, EventArgs e)
         {
             //【1】 Checksum input
             if (!CheckMemberLevelInput()) return;
+
             //【2】 Encapsulating data to Objects
             MemberLevel objMemberLevel = new MemberLevel()
             {
@@ -147,6 +156,7 @@ namespace BookManagement
                     break;
             }
         }
+
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             //Determine if a level is selected 
@@ -155,6 +165,7 @@ namespace BookManagement
                 MessageBox.Show("A level must be selected before modification", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
+
             //Enable the right detail 
             gboxMemberLevel.Enabled = true;
 
@@ -167,6 +178,7 @@ namespace BookManagement
             //Modify Flag
             actionFlag = 2;
         }
+
         private void btnDelete_Click(object sender, EventArgs e)
         {
             //Determine if a level is selected 
@@ -213,6 +225,8 @@ namespace BookManagement
             txtMaxBorrowNum.Text = string.Empty;
             txtDeposit.Text = string.Empty;
         }
+
+
         //===================================Custom Methods===========================================
 
         private bool CheckMemberLevelInput()
@@ -260,6 +274,7 @@ namespace BookManagement
 
             return true;
         }
+
         private void LoadMemberLevelInfo()
         {
             //Initialization of ObjListlevel 
@@ -275,12 +290,15 @@ namespace BookManagement
             //Show the data to ListView 
             //【1】Clear
             lvMemeberLevel.Items.Clear();
+
             //【2】Determine if it is empty
             if (objListLevel == null) return;
+
             //【3】If it is not empty, load the
             lvMemeberLevel.View = View.LargeIcon;
             lvMemeberLevel.LargeImageList = imageList1;
             lvMemeberLevel.BeginUpdate();
+
             //Traverse
             for (int i = 0; i < objListLevel.Count; i++)
             {
