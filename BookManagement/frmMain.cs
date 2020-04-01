@@ -58,14 +58,17 @@ namespace BookManagement
         {
 
         }
+
         private void btnFormMin_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }
+
         private void btnFormClose_Click(object sender, EventArgs e)
         {
             Close();
         }
+
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
             //Write Exit Time
@@ -82,7 +85,9 @@ namespace BookManagement
                 MessageBox.Show("Write exit time failed! Specific reasons:" + ex.Message, "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+        
         #region Open the appropriate feature form
+
         private void btnBookType_Click(object sender, EventArgs e)
         {
             //Turn off all open forms in the panel2
@@ -92,6 +97,7 @@ namespace BookManagement
             //Open
             OpenForm(objFrmBookType);
         }
+
         private void btnBookPress_Click(object sender, EventArgs e)
         {
             //Turn off all open forms in the panel2
@@ -101,6 +107,7 @@ namespace BookManagement
             //Open
             OpenForm(objFrmBookPress);
         }
+        
         //Open book page
         private void btnBook_Click(object sender, EventArgs e)
         {
@@ -112,6 +119,7 @@ namespace BookManagement
             OpenForm(objFrmBook);
 
         }
+       
         //Open member level page
         private void btnMemberLevel_Click(object sender, EventArgs e)
         {
@@ -121,6 +129,7 @@ namespace BookManagement
             objFrmMemberLevel = new frmMemberLevel();
             OpenForm(objFrmMemberLevel);
         }
+        
         //Open memebr management page
         private void btnMember_Click(object sender, EventArgs e)
         {
@@ -131,6 +140,7 @@ namespace BookManagement
             OpenForm(objFrmMember);
 
         }
+        
         //Open borrow book page 
         private void btnBorrowBook_Click(object sender, EventArgs e)
         {
@@ -141,6 +151,7 @@ namespace BookManagement
             objFrmBorrowBook = new frmBorrowBook();
             OpenForm(objFrmBorrowBook);
         }
+        
         //Open return book page
         private void btnReturnBook_Click(object sender, EventArgs e)
         {
@@ -150,6 +161,7 @@ namespace BookManagement
             objFrmReturnBook = new frmReturnBook();
             OpenForm(objFrmReturnBook);
         }
+        
         //Open borrow and return book page
         private void btnBorrowOrReturnQuery_Click(object sender, EventArgs e)
         {
@@ -159,6 +171,7 @@ namespace BookManagement
             objFrmBorrowReturnQuery = new frmBorrowReturnQuery();
             OpenForm(objFrmBorrowReturnQuery);
         }
+        
         //Open modify password page 
         private void btnChangePassword_Click(object sender, EventArgs e)
         {
@@ -168,6 +181,7 @@ namespace BookManagement
             objFrmChangePassword = new frmChangePassword();
             OpenForm(objFrmChangePassword);
         }
+        
         //Open login log page
         private void btnLoginQuery_Click(object sender, EventArgs e)
         {
@@ -177,6 +191,7 @@ namespace BookManagement
             objFrmLoginQuery = new frmLoginQuery();
             OpenForm(objFrmLoginQuery);
         }
+        
         //Open admin page
         private void btnLoginAdmin_Click(object sender, EventArgs e)
         {
@@ -186,6 +201,7 @@ namespace BookManagement
             objFrmAdminMgmt = new frmAdminMgmt();
             OpenForm(objFrmAdminMgmt);
         }
+
         private void OpenForm(Form objSubForm)
         {
             objSubForm.TopLevel = false;
@@ -194,12 +210,6 @@ namespace BookManagement
             objSubForm.Parent = splitContainer1.Panel2;
             objSubForm.Show();
         }
-
-
-
-
-
-
 
         #endregion
     }
