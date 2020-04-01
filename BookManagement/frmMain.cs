@@ -66,5 +66,21 @@ namespace BookManagement
         {
             Close();
         }
+        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //Write Exit Time
+
+            try
+            {
+                if (objSysAdminsServices.WriteExitTime(Program.currentLogId) == 1)
+                {
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Write exit time failed! Specific reasons:" + ex.Message, "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
     }
 }
