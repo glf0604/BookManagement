@@ -168,5 +168,14 @@ namespace BookManagement
             objFrmChangePassword = new frmChangePassword();
             OpenForm(objFrmChangePassword);
         }
+        //Open login log page
+        private void btnLoginQuery_Click(object sender, EventArgs e)
+        {
+            // Turn off all open forms in the panel2
+            splitContainer1.Panel2.Controls.Clear();
+            //Instantiated book categories
+            objFrmLoginQuery = new frmLoginQuery();
+            OpenForm(objFrmLoginQuery);
+        }
     }
 }
