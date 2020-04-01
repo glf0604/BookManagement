@@ -186,5 +186,21 @@ namespace BookManagement
             objFrmAdminMgmt = new frmAdminMgmt();
             OpenForm(objFrmAdminMgmt);
         }
+        private void OpenForm(Form objSubForm)
+        {
+            objSubForm.TopLevel = false;
+            objSubForm.WindowState = FormWindowState.Maximized;
+            objSubForm.FormBorderStyle = FormBorderStyle.None;
+            objSubForm.Parent = splitContainer1.Panel2;
+            objSubForm.Show();
+        }
+
+
+
+
+
+
+
+        #endregion
     }
 }
