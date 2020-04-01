@@ -85,6 +85,7 @@
             this.btnLoginAdmin.TabIndex = 10;
             this.btnLoginAdmin.Text = "Administrator";
             this.btnLoginAdmin.UseVisualStyleBackColor = false;
+            this.btnLoginAdmin.Click += new System.EventHandler(this.btnLoginAdmin_Click);
             // 
             // btnBorrowOrReturnQuery
             // 
@@ -100,6 +101,7 @@
             this.btnBorrowOrReturnQuery.TabIndex = 10;
             this.btnBorrowOrReturnQuery.Text = "Query";
             this.btnBorrowOrReturnQuery.UseVisualStyleBackColor = false;
+            this.btnBorrowOrReturnQuery.Click += new System.EventHandler(this.btnBorrowOrReturnQuery_Click);
             // 
             // btnBook
             // 
@@ -115,6 +117,7 @@
             this.btnBook.TabIndex = 3;
             this.btnBook.Text = "BookManage";
             this.btnBook.UseVisualStyleBackColor = false;
+            this.btnBook.Click += new System.EventHandler(this.btnBook_Click);
             // 
             // btnBookPress
             // 
@@ -130,6 +133,7 @@
             this.btnBookPress.TabIndex = 3;
             this.btnBookPress.Text = "PressManage";
             this.btnBookPress.UseVisualStyleBackColor = false;
+            this.btnBookPress.Click += new System.EventHandler(this.btnBookPress_Click);
             // 
             // btnBookType
             // 
@@ -145,6 +149,7 @@
             this.btnBookType.TabIndex = 3;
             this.btnBookType.Text = "Type Manage";
             this.btnBookType.UseVisualStyleBackColor = false;
+            this.btnBookType.Click += new System.EventHandler(this.btnBookType_Click);
             // 
             // label6
             // 
@@ -178,6 +183,7 @@
             this.btnLoginQuery.TabIndex = 7;
             this.btnLoginQuery.Text = "Loginquery";
             this.btnLoginQuery.UseVisualStyleBackColor = false;
+            this.btnLoginQuery.Click += new System.EventHandler(this.btnLoginQuery_Click);
             // 
             // label4
             // 
@@ -201,6 +207,7 @@
             this.btnChangePassword.TabIndex = 9;
             this.btnChangePassword.Text = "ModiyPass";
             this.btnChangePassword.UseVisualStyleBackColor = false;
+            this.btnChangePassword.Click += new System.EventHandler(this.btnChangePassword_Click);
             // 
             // btnReturnBook
             // 
@@ -216,6 +223,7 @@
             this.btnReturnBook.TabIndex = 7;
             this.btnReturnBook.Text = "Returned";
             this.btnReturnBook.UseVisualStyleBackColor = false;
+            this.btnReturnBook.Click += new System.EventHandler(this.btnReturnBook_Click);
             // 
             // btnBorrowBook
             // 
@@ -231,6 +239,7 @@
             this.btnBorrowBook.TabIndex = 9;
             this.btnBorrowBook.Text = "Borrowed";
             this.btnBorrowBook.UseVisualStyleBackColor = false;
+            this.btnBorrowBook.Click += new System.EventHandler(this.btnBorrowBook_Click);
             // 
             // label18
             // 
@@ -302,6 +311,7 @@
             this.btnMember.TabIndex = 7;
             this.btnMember.Text = "MemberManage";
             this.btnMember.UseVisualStyleBackColor = false;
+            this.btnMember.Click += new System.EventHandler(this.btnMember_Click);
             // 
             // label9
             // 
@@ -335,6 +345,7 @@
             this.btnMemberLevel.TabIndex = 9;
             this.btnMemberLevel.Text = "MemberLevel";
             this.btnMemberLevel.UseVisualStyleBackColor = false;
+            this.btnMemberLevel.Click += new System.EventHandler(this.btnMemberLevel_Click);
             // 
             // label8
             // 
@@ -481,6 +492,7 @@
             this.btnFormClose.TabIndex = 11;
             this.btnFormClose.Text = "×";
             this.btnFormClose.UseVisualStyleBackColor = false;
+            this.btnFormClose.Click += new System.EventHandler(this.btnFormClose_Click);
             // 
             // lblLastLoginTime
             // 
@@ -504,6 +516,7 @@
             this.btnFormMin.TabIndex = 10;
             this.btnFormMin.Text = "▂";
             this.btnFormMin.UseVisualStyleBackColor = false;
+            this.btnFormMin.Click += new System.EventHandler(this.btnFormMin_Click);
             // 
             // pictureBox2
             // 
