@@ -121,5 +121,15 @@ namespace BookManagement
             objFrmMemberLevel = new frmMemberLevel();
             OpenForm(objFrmMemberLevel);
         }
+        //Open memebr management page
+        private void btnMember_Click(object sender, EventArgs e)
+        {
+            // Turn off all open forms in the panel2
+            splitContainer1.Panel2.Controls.Clear();
+            //Instantiated book categories
+            objFrmMember = new frmMember();
+            OpenForm(objFrmMember);
+
+        }
     }
 }
