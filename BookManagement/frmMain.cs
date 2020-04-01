@@ -150,5 +150,14 @@ namespace BookManagement
             objFrmReturnBook = new frmReturnBook();
             OpenForm(objFrmReturnBook);
         }
+        //Open borrow and return book page
+        private void btnBorrowOrReturnQuery_Click(object sender, EventArgs e)
+        {
+            // Turn off all open forms in the panel2
+            splitContainer1.Panel2.Controls.Clear();
+            //Instantiated book categories
+            objFrmBorrowReturnQuery = new frmBorrowReturnQuery();
+            OpenForm(objFrmBorrowReturnQuery);
+        }
     }
 }
