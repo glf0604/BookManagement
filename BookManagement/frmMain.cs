@@ -131,5 +131,15 @@ namespace BookManagement
             OpenForm(objFrmMember);
 
         }
+        //Open borrow book page 
+        private void btnBorrowBook_Click(object sender, EventArgs e)
+        {
+
+            // Turn off all open forms in the panel2
+            splitContainer1.Panel2.Controls.Clear();
+            //Instantiated book categories
+            objFrmBorrowBook = new frmBorrowBook();
+            OpenForm(objFrmBorrowBook);
+        }
     }
 }
