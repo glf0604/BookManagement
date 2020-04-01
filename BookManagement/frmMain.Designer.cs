@@ -79,9 +79,9 @@
             this.btnLoginAdmin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnLoginAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLoginAdmin.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnLoginAdmin.Location = new System.Drawing.Point(38, 611);
+            this.btnLoginAdmin.Location = new System.Drawing.Point(10, 600);
             this.btnLoginAdmin.Name = "btnLoginAdmin";
-            this.btnLoginAdmin.Size = new System.Drawing.Size(124, 31);
+            this.btnLoginAdmin.Size = new System.Drawing.Size(157, 32);
             this.btnLoginAdmin.TabIndex = 10;
             this.btnLoginAdmin.Text = "Administrator";
             this.btnLoginAdmin.UseVisualStyleBackColor = false;
@@ -95,9 +95,9 @@
             this.btnBorrowOrReturnQuery.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnBorrowOrReturnQuery.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBorrowOrReturnQuery.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnBorrowOrReturnQuery.Location = new System.Drawing.Point(38, 423);
+            this.btnBorrowOrReturnQuery.Location = new System.Drawing.Point(10, 423);
             this.btnBorrowOrReturnQuery.Name = "btnBorrowOrReturnQuery";
-            this.btnBorrowOrReturnQuery.Size = new System.Drawing.Size(114, 31);
+            this.btnBorrowOrReturnQuery.Size = new System.Drawing.Size(142, 31);
             this.btnBorrowOrReturnQuery.TabIndex = 10;
             this.btnBorrowOrReturnQuery.Text = "Query";
             this.btnBorrowOrReturnQuery.UseVisualStyleBackColor = false;
@@ -111,11 +111,11 @@
             this.btnBook.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnBook.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBook.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnBook.Location = new System.Drawing.Point(38, 115);
+            this.btnBook.Location = new System.Drawing.Point(10, 115);
             this.btnBook.Name = "btnBook";
-            this.btnBook.Size = new System.Drawing.Size(114, 31);
+            this.btnBook.Size = new System.Drawing.Size(142, 31);
             this.btnBook.TabIndex = 3;
-            this.btnBook.Text = "BookManage";
+            this.btnBook.Text = "Book Mgmt";
             this.btnBook.UseVisualStyleBackColor = false;
             this.btnBook.Click += new System.EventHandler(this.btnBook_Click);
             // 
@@ -127,11 +127,11 @@
             this.btnBookPress.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnBookPress.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBookPress.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnBookPress.Location = new System.Drawing.Point(38, 78);
+            this.btnBookPress.Location = new System.Drawing.Point(10, 78);
             this.btnBookPress.Name = "btnBookPress";
-            this.btnBookPress.Size = new System.Drawing.Size(114, 31);
+            this.btnBookPress.Size = new System.Drawing.Size(142, 31);
             this.btnBookPress.TabIndex = 3;
-            this.btnBookPress.Text = "PressManage";
+            this.btnBookPress.Text = "Press Mgmt";
             this.btnBookPress.UseVisualStyleBackColor = false;
             this.btnBookPress.Click += new System.EventHandler(this.btnBookPress_Click);
             // 
@@ -143,23 +143,23 @@
             this.btnBookType.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnBookType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBookType.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnBookType.Location = new System.Drawing.Point(38, 41);
+            this.btnBookType.Location = new System.Drawing.Point(10, 41);
             this.btnBookType.Name = "btnBookType";
-            this.btnBookType.Size = new System.Drawing.Size(114, 31);
+            this.btnBookType.Size = new System.Drawing.Size(142, 31);
             this.btnBookType.TabIndex = 3;
-            this.btnBookType.Text = "Type Manage";
+            this.btnBookType.Text = "Type Mgmt";
             this.btnBookType.UseVisualStyleBackColor = false;
             this.btnBookType.Click += new System.EventHandler(this.btnBookType_Click);
             // 
             // label6
             // 
             this.label6.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.label6.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label6.Location = new System.Drawing.Point(10, 8);
+            this.label6.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label6.Location = new System.Drawing.Point(5, 13);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(169, 30);
+            this.label6.Size = new System.Drawing.Size(190, 25);
             this.label6.TabIndex = 2;
-            this.label6.Text = "Book mgt";
+            this.label6.Text = "Book Mgmt";
             // 
             // label5
             // 
@@ -177,11 +177,11 @@
             this.btnLoginQuery.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnLoginQuery.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLoginQuery.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnLoginQuery.Location = new System.Drawing.Point(38, 574);
+            this.btnLoginQuery.Location = new System.Drawing.Point(10, 563);
             this.btnLoginQuery.Name = "btnLoginQuery";
-            this.btnLoginQuery.Size = new System.Drawing.Size(124, 31);
+            this.btnLoginQuery.Size = new System.Drawing.Size(157, 31);
             this.btnLoginQuery.TabIndex = 7;
-            this.btnLoginQuery.Text = "Loginquery";
+            this.btnLoginQuery.Text = "Login query";
             this.btnLoginQuery.UseVisualStyleBackColor = false;
             this.btnLoginQuery.Click += new System.EventHandler(this.btnLoginQuery_Click);
             // 
@@ -201,11 +201,11 @@
             this.btnChangePassword.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnChangePassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnChangePassword.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnChangePassword.Location = new System.Drawing.Point(38, 537);
+            this.btnChangePassword.Location = new System.Drawing.Point(10, 526);
             this.btnChangePassword.Name = "btnChangePassword";
-            this.btnChangePassword.Size = new System.Drawing.Size(124, 31);
+            this.btnChangePassword.Size = new System.Drawing.Size(157, 31);
             this.btnChangePassword.TabIndex = 9;
-            this.btnChangePassword.Text = "ModiyPass";
+            this.btnChangePassword.Text = "Modiy Password";
             this.btnChangePassword.UseVisualStyleBackColor = false;
             this.btnChangePassword.Click += new System.EventHandler(this.btnChangePassword_Click);
             // 
@@ -217,9 +217,9 @@
             this.btnReturnBook.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnReturnBook.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReturnBook.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnReturnBook.Location = new System.Drawing.Point(38, 386);
+            this.btnReturnBook.Location = new System.Drawing.Point(10, 386);
             this.btnReturnBook.Name = "btnReturnBook";
-            this.btnReturnBook.Size = new System.Drawing.Size(114, 31);
+            this.btnReturnBook.Size = new System.Drawing.Size(142, 31);
             this.btnReturnBook.TabIndex = 7;
             this.btnReturnBook.Text = "Returned";
             this.btnReturnBook.UseVisualStyleBackColor = false;
@@ -233,9 +233,9 @@
             this.btnBorrowBook.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnBorrowBook.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBorrowBook.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnBorrowBook.Location = new System.Drawing.Point(38, 349);
+            this.btnBorrowBook.Location = new System.Drawing.Point(10, 349);
             this.btnBorrowBook.Name = "btnBorrowBook";
-            this.btnBorrowBook.Size = new System.Drawing.Size(114, 31);
+            this.btnBorrowBook.Size = new System.Drawing.Size(142, 31);
             this.btnBorrowBook.TabIndex = 9;
             this.btnBorrowBook.Text = "Borrowed";
             this.btnBorrowBook.UseVisualStyleBackColor = false;
@@ -244,12 +244,12 @@
             // label18
             // 
             this.label18.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.label18.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label18.Location = new System.Drawing.Point(33, 496);
+            this.label18.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label18.Location = new System.Drawing.Point(5, 492);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(146, 29);
+            this.label18.Size = new System.Drawing.Size(190, 25);
             this.label18.TabIndex = 6;
-            this.label18.Text = "System mgt";
+            this.label18.Text = "System Mgmt";
             // 
             // splitContainer1
             // 
@@ -305,9 +305,9 @@
             this.btnMember.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnMember.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMember.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnMember.Location = new System.Drawing.Point(38, 247);
+            this.btnMember.Location = new System.Drawing.Point(10, 247);
             this.btnMember.Name = "btnMember";
-            this.btnMember.Size = new System.Drawing.Size(124, 31);
+            this.btnMember.Size = new System.Drawing.Size(142, 31);
             this.btnMember.TabIndex = 7;
             this.btnMember.Text = "MemberManage";
             this.btnMember.UseVisualStyleBackColor = false;
@@ -316,12 +316,12 @@
             // label9
             // 
             this.label9.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.label9.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label9.Location = new System.Drawing.Point(5, 321);
+            this.label9.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label9.Location = new System.Drawing.Point(3, 321);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(179, 25);
+            this.label9.Size = new System.Drawing.Size(204, 25);
             this.label9.TabIndex = 6;
-            this.label9.Text = "Borrow Return";
+            this.label9.Text = "Borrow and Return";
             // 
             // label17
             // 
@@ -339,9 +339,9 @@
             this.btnMemberLevel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnMemberLevel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMemberLevel.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnMemberLevel.Location = new System.Drawing.Point(38, 210);
+            this.btnMemberLevel.Location = new System.Drawing.Point(10, 210);
             this.btnMemberLevel.Name = "btnMemberLevel";
-            this.btnMemberLevel.Size = new System.Drawing.Size(124, 31);
+            this.btnMemberLevel.Size = new System.Drawing.Size(142, 31);
             this.btnMemberLevel.TabIndex = 9;
             this.btnMemberLevel.Text = "MemberLevel";
             this.btnMemberLevel.UseVisualStyleBackColor = false;
@@ -366,12 +366,12 @@
             // label10
             // 
             this.label10.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.label10.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label10.Location = new System.Drawing.Point(10, 183);
+            this.label10.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label10.Location = new System.Drawing.Point(5, 182);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(169, 24);
+            this.label10.Size = new System.Drawing.Size(190, 25);
             this.label10.TabIndex = 6;
-            this.label10.Text = "Member mgt";
+            this.label10.Text = "Member Mgmt";
             // 
             // label7
             // 
