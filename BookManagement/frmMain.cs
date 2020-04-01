@@ -82,5 +82,15 @@ namespace BookManagement
                 MessageBox.Show("Write exit time failed! Specific reasons:" + ex.Message, "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+        #region Open the appropriate feature form
+        private void btnBookType_Click(object sender, EventArgs e)
+        {
+            //Turn off all open forms in the panel2
+            splitContainer1.Panel2.Controls.Clear();
+            //Instantiated book categories
+            objFrmBookType = new frmBookType();
+            //Open
+            OpenForm(objFrmBookType);
+        }
     }
 }
