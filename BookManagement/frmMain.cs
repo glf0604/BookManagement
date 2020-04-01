@@ -58,5 +58,9 @@ namespace BookManagement
         {
 
         }
+        private void btnFormMin_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
     }
 }
