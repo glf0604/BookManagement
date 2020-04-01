@@ -139,11 +139,11 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Location = new System.Drawing.Point(819, 579);
+            this.btnClose.Location = new System.Drawing.Point(761, 578);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(106, 33);
+            this.btnClose.Size = new System.Drawing.Size(171, 33);
             this.btnClose.TabIndex = 152;
-            this.btnClose.Text = "CLose";
+            this.btnClose.Text = "Cancel and close";
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
@@ -157,7 +157,7 @@
             this.btnCommit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCommit.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnCommit.ForeColor = System.Drawing.Color.White;
-            this.btnCommit.Location = new System.Drawing.Point(676, 579);
+            this.btnCommit.Location = new System.Drawing.Point(623, 578);
             this.btnCommit.Name = "btnCommit";
             this.btnCommit.Size = new System.Drawing.Size(106, 33);
             this.btnCommit.TabIndex = 151;
