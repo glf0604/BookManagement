@@ -62,5 +62,9 @@ namespace BookManagement
         {
             this.WindowState = FormWindowState.Minimized;
         }
+        private void btnFormClose_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
