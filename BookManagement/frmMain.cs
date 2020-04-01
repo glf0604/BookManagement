@@ -101,5 +101,16 @@ namespace BookManagement
             //Open
             OpenForm(objFrmBookPress);
         }
+        //Open book page
+        private void btnBook_Click(object sender, EventArgs e)
+        {
+            // Turn off all open forms in the panel2
+            splitContainer1.Panel2.Controls.Clear();
+            //Instantiated book categories
+            objFrmBook = new frmBook();
+            //Open
+            OpenForm(objFrmBook);
+
+        }
     }
 }
