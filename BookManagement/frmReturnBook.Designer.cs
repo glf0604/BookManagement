@@ -113,7 +113,6 @@
             this.lblOperatingTime.Name = "lblOperatingTime";
             this.lblOperatingTime.Size = new System.Drawing.Size(199, 30);
             this.lblOperatingTime.TabIndex = 211;
-            this.lblOperatingTime.Text = "2019/12/20 11:01:01";
             this.lblOperatingTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label24
@@ -139,7 +138,6 @@
             this.lblUserName.Name = "lblUserName";
             this.lblUserName.Size = new System.Drawing.Size(111, 30);
             this.lblUserName.TabIndex = 209;
-            this.lblUserName.Text = "Wang";
             this.lblUserName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label22

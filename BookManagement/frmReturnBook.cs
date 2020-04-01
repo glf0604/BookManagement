@@ -15,6 +15,8 @@ namespace BookManagement
 {
     public partial class frmReturnBook : Form
     {
+        //Instantiated Login Operation method 
+        private SysAdminsServices objSysAdminsServices = new SysAdminsServices();
         //Instantiate Expense detail form 
         public static frmReturnMoneyDetail objFrmReturnMoneyDetail = null;
         //Define a form for a member detail
@@ -43,6 +45,8 @@ namespace BookManagement
             InitializeComponent();
             //Initialization of DataGridview 
             dgvReturn.AutoGenerateColumns = false;
+            lblUserName.Text = Program.currentUser.UserName;
+            lblOperatingTime.Text = Program.currentUser.LastLoginTime.ToString();
         }
 
         //Open detail form
