@@ -42,6 +42,16 @@ namespace BookManagement
         public frmMain()
         {
             InitializeComponent();
+            //Initializes the current user and the user's last logon time 
+            lblLoginUseName.Text += Program.currentUser.UserName;
+            lblLastLoginTime.Text += Program.currentUser.LastLoginTime;
+
+            //Determine if the user is operating
+            if (!Program.currentUser.IsSuperUser)
+            {
+                btnLoginAdmin.Visible = false;
+                btnLoginQuery.Visible = false;
+            }
         }
 
         private void label18_Click(object sender, EventArgs e)
