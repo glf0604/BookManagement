@@ -177,5 +177,14 @@ namespace BookManagement
             objFrmLoginQuery = new frmLoginQuery();
             OpenForm(objFrmLoginQuery);
         }
+        //Open admin page
+        private void btnLoginAdmin_Click(object sender, EventArgs e)
+        {
+            // Turn off all open forms in the panel2
+            splitContainer1.Panel2.Controls.Clear();
+            //Instantiated book categories
+            objFrmAdminMgmt = new frmAdminMgmt();
+            OpenForm(objFrmAdminMgmt);
+        }
     }
 }
