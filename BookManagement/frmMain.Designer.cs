@@ -241,7 +241,6 @@
             this.label18.Size = new System.Drawing.Size(146, 29);
             this.label18.TabIndex = 6;
             this.label18.Text = "System mgt";
-            this.label18.Click += new System.EventHandler(this.label18_Click);
             // 
             // splitContainer1
             // 

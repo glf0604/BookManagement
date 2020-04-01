@@ -54,11 +54,6 @@ namespace BookManagement
             }
         }
 
-        private void label18_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnFormMin_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
