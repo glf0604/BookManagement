@@ -111,6 +111,7 @@ namespace BookManagement
             //【3】Loading a form
             frmBookDetail objFrmBookDetail = new frmBookDetail(actionFlag, objBook);
             DialogResult result = objFrmBookDetail.ShowDialog();
+
             if (result == DialogResult.OK)
             {
                 LoadBookInfo();
