@@ -316,9 +316,9 @@
             this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.lblTitle.Location = new System.Drawing.Point(33, 21);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(237, 22);
+            this.lblTitle.Size = new System.Drawing.Size(138, 22);
             this.lblTitle.TabIndex = 47;
-            this.lblTitle.Text = "[Revision Publishing House]";
+            this.lblTitle.Text = "[Revision Press]";
             // 
             // frmAdminDetail
             // 
