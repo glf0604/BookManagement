@@ -86,7 +86,7 @@ namespace BookManagement
                         if (objBookPressServices.AddBookPress(objBookPress) == 1)
                         {
                             //Notice Successful！
-                            MessageBox.Show("Success in Adding Publishing House Information!", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Success in Adding press Information!", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             //Close current from
                             Close();
                             //Return OK 
@@ -104,7 +104,7 @@ namespace BookManagement
                         if (objBookPressServices.UpdateBookPress(objBookPress) == 1)
                         {
                             //Notice Successful！
-                            MessageBox.Show("Success in Adding Publishing House Information!", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Success in Adding press Information!", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             //Close current form
                             Close();
                             //Return OK 
@@ -142,7 +142,6 @@ namespace BookManagement
 
             //【4】Hide Submit button 
             btnCommit.Visible = false;
-
 
         }
 
