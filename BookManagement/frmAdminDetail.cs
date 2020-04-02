@@ -168,8 +168,7 @@ namespace BookManagement
             txtUserName.Text = string.Empty;
             txtPasswordOneTime.Text = string.Empty;
             txtPasswordTwoTime.Text = string.Empty;
-
-
+            
             //Admin Radio Box gets focus
             rbUser.Checked = true;
 
@@ -180,6 +179,7 @@ namespace BookManagement
         {
             //Modify Title name Display
             lblTitle.Text = "Modify Administrator";
+
             //Assign a value
             if (objSysAdmins.IsSuperUser) rbSuperUser.Checked = true;
             else rbUser.Checked = true;
@@ -200,12 +200,12 @@ namespace BookManagement
         {
             if (string.IsNullOrWhiteSpace(txtUserName.Text))
             {
-                MessageBox.Show("User name cannot be empty！", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Username cannot be empty！", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
             if (txtPasswordOneTime.Text.Length < 6)
             {
-                MessageBox.Show("Password must not be less than 6 bits！", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Password cannot be less than 6 bits！", "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return false;
             }
             if (txtPasswordOneTime.Text != txtPasswordTwoTime.Text)
