@@ -263,9 +263,9 @@
             this.label1.Location = new System.Drawing.Point(30, 10);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(531, 28);
+            this.label1.Size = new System.Drawing.Size(466, 28);
             this.label1.TabIndex = 14;
-            this.label1.Text = "Current Position: Publishing House Management";
+            this.label1.Text = "Current Location: Book Press Management";
             // 
             // btnClose
             // 
@@ -279,7 +279,7 @@
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(76, 30);
             this.btnClose.TabIndex = 16;
-            this.btnClose.Text = "CLose";
+            this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
