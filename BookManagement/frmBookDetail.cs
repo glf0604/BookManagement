@@ -68,6 +68,7 @@ namespace BookManagement
                     break;
             }
         }
+
         //=================================Control events=====================================
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -96,6 +97,7 @@ namespace BookManagement
                     cboBookTypeTwo.Enabled = false;
                     cboBookTypeTwo.Text = "No secondary class";
                 }
+
                 //Generate numbers
                 lblBookId.Text = objBookServices.BuildNewBookId(Convert.ToInt32(cboBookTypeOne.SelectedValue.ToString()));
             }
@@ -121,7 +123,6 @@ namespace BookManagement
         {
 
             //【1】 Input for validation 
-
             //【2】 encapsulation 
             Book objBook = new Book()
             {
@@ -138,7 +139,8 @@ namespace BookManagement
                 BorrowedNum = Convert.ToInt32(lblBorrowedNum.Text.Trim()),
                 StorageInDate = Convert.ToDateTime(lblStorageInDate.Text),
             };
-            ///Picture--> text
+
+            //Picture--> text
             if (pbCurrentImage.BackgroundImage == null) objBook.BookImage = null;
             else objBook.BookImage = new Common.SerializeObjectToString().SerializeObject(pbCurrentImage.BackgroundImage);
 
@@ -260,8 +262,8 @@ namespace BookManagement
             btnCloseCamera.Visible = false;
             btnStartPhoto.Visible = false;
             btnCommit.Visible = false;
+           
             //Assign a value
-
             //=======Book Type
             string[] typeName = objBookTypeServices.GetTypeNameById(objBook.BookType);
             if (typeName[0].Contains("All"))
@@ -286,6 +288,7 @@ namespace BookManagement
             lblInventoryNum.Text = objBook.InventoryNum.ToString();
             lblBorrowedNum.Text = objBook.BorrowedNum.ToString();
             lblStorageInDate.Text = objBook.StorageInDate.ToString();
+            
             //Turn the text into a diagram
             if (string.IsNullOrWhiteSpace(objBook.BookImage)) pbCurrentImage.BackgroundImage = null;
             else pbCurrentImage.BackgroundImage = (Image)new Common.SerializeObjectToString().DeserializeObject(objBook.BookImage);
@@ -300,8 +303,7 @@ namespace BookManagement
             cboBookPress.Enabled = false;
             dtpPublishDate.Enabled = false;
             txtStorageInNum.Enabled = false;
-
-
+            
             //Modify the text of a button
             btnClose.Text = "Close";
 
@@ -348,6 +350,7 @@ namespace BookManagement
             lblInventoryNum.Text = objBook.InventoryNum.ToString();
             lblBorrowedNum.Text = objBook.BorrowedNum.ToString();
             lblStorageInDate.Text = objBook.StorageInDate.ToString();
+           
             //Turn the text into a diagram
             if (string.IsNullOrWhiteSpace(objBook.BookImage)) pbCurrentImage.BackgroundImage = null;
             else pbCurrentImage.BackgroundImage = (Image)new Common.SerializeObjectToString().DeserializeObject(objBook.BookImage);
@@ -377,7 +380,6 @@ namespace BookManagement
             }
 
             //Binding Publishing House
-
             cboBookPress.DataSource = objListPress;
             cboBookPress.DisplayMember = "PressName";
             cboBookPress.ValueMember = "PressId";
