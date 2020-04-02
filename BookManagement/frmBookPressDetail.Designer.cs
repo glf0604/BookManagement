@@ -54,7 +54,7 @@
             this.lblPressId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.lblPressId.Location = new System.Drawing.Point(232, 67);
             this.lblPressId.Name = "lblPressId";
-            this.lblPressId.Size = new System.Drawing.Size(100, 31);
+            this.lblPressId.Size = new System.Drawing.Size(189, 31);
             this.lblPressId.TabIndex = 25;
             this.lblPressId.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -125,7 +125,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label7.Location = new System.Drawing.Point(136, 267);
+            this.label7.Location = new System.Drawing.Point(133, 267);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(80, 19);
             this.label7.TabIndex = 14;
@@ -143,7 +143,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label6.Location = new System.Drawing.Point(148, 219);
+            this.label6.Location = new System.Drawing.Point(136, 216);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(77, 19);
             this.label6.TabIndex = 16;
@@ -152,7 +152,7 @@
             // txtPressTel
             // 
             this.txtPressTel.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtPressTel.Location = new System.Drawing.Point(231, 168);
+            this.txtPressTel.Location = new System.Drawing.Point(231, 171);
             this.txtPressTel.Name = "txtPressTel";
             this.txtPressTel.Size = new System.Drawing.Size(190, 26);
             this.txtPressTel.TabIndex = 12;
@@ -161,7 +161,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label5.Location = new System.Drawing.Point(136, 171);
+            this.label5.Location = new System.Drawing.Point(118, 171);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(96, 19);
             this.label5.TabIndex = 17;
@@ -170,7 +170,7 @@
             // txtPressName
             // 
             this.txtPressName.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtPressName.Location = new System.Drawing.Point(232, 120);
+            this.txtPressName.Location = new System.Drawing.Point(232, 122);
             this.txtPressName.Name = "txtPressName";
             this.txtPressName.Size = new System.Drawing.Size(189, 26);
             this.txtPressName.TabIndex = 10;
@@ -179,7 +179,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label4.Location = new System.Drawing.Point(126, 123);
+            this.label4.Location = new System.Drawing.Point(108, 123);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(106, 19);
             this.label4.TabIndex = 18;
