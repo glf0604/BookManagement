@@ -57,9 +57,9 @@
             // 
             // rtbDESC
             // 
-            this.rtbDESC.Location = new System.Drawing.Point(115, 150);
+            this.rtbDESC.Location = new System.Drawing.Point(180, 273);
             this.rtbDESC.Name = "rtbDESC";
-            this.rtbDESC.Size = new System.Drawing.Size(374, 89);
+            this.rtbDESC.Size = new System.Drawing.Size(324, 89);
             this.rtbDESC.TabIndex = 4;
             this.rtbDESC.Text = "";
             // 
@@ -69,7 +69,7 @@
             this.btnCancel.FlatAppearance.BorderSize = 0;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(401, 267);
+            this.btnCancel.Location = new System.Drawing.Point(394, 378);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(88, 35);
             this.btnCancel.TabIndex = 6;
@@ -83,7 +83,7 @@
             this.btnCommit.FlatAppearance.BorderSize = 0;
             this.btnCommit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCommit.ForeColor = System.Drawing.Color.White;
-            this.btnCommit.Location = new System.Drawing.Point(289, 267);
+            this.btnCommit.Location = new System.Drawing.Point(282, 378);
             this.btnCommit.Name = "btnCommit";
             this.btnCommit.Size = new System.Drawing.Size(88, 35);
             this.btnCommit.TabIndex = 5;
@@ -94,7 +94,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(17, 150);
+            this.label7.Location = new System.Drawing.Point(54, 273);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(92, 19);
             this.label7.TabIndex = 2;
@@ -102,16 +102,16 @@
             // 
             // txtTypeName
             // 
-            this.txtTypeName.Location = new System.Drawing.Point(322, 89);
+            this.txtTypeName.Location = new System.Drawing.Point(198, 206);
             this.txtTypeName.Name = "txtTypeName";
-            this.txtTypeName.Size = new System.Drawing.Size(167, 26);
+            this.txtTypeName.Size = new System.Drawing.Size(179, 26);
             this.txtTypeName.TabIndex = 3;
             this.txtTypeName.Leave += new System.EventHandler(this.txtTypeName_Leave);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(225, 94);
+            this.label6.Location = new System.Drawing.Point(42, 209);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(104, 19);
             this.label6.TabIndex = 0;
@@ -119,22 +119,22 @@
             // 
             // txtParentTypeName
             // 
-            this.txtParentTypeName.Location = new System.Drawing.Point(368, 33);
+            this.txtParentTypeName.Location = new System.Drawing.Point(198, 92);
             this.txtParentTypeName.Name = "txtParentTypeName";
-            this.txtParentTypeName.Size = new System.Drawing.Size(121, 26);
+            this.txtParentTypeName.Size = new System.Drawing.Size(179, 26);
             this.txtParentTypeName.TabIndex = 1;
             // 
             // txtTypeId
             // 
-            this.txtTypeId.Location = new System.Drawing.Point(115, 90);
+            this.txtTypeId.Location = new System.Drawing.Point(198, 151);
             this.txtTypeId.Name = "txtTypeId";
-            this.txtTypeId.Size = new System.Drawing.Size(91, 26);
+            this.txtTypeId.Size = new System.Drawing.Size(179, 26);
             this.txtTypeId.TabIndex = 2;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(225, 36);
+            this.label4.Location = new System.Drawing.Point(9, 95);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(137, 19);
             this.label4.TabIndex = 0;
@@ -143,7 +143,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(39, 94);
+            this.label5.Location = new System.Drawing.Point(70, 154);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(76, 19);
             this.label5.TabIndex = 0;
@@ -151,15 +151,15 @@
             // 
             // txtParentTypeId
             // 
-            this.txtParentTypeId.Location = new System.Drawing.Point(128, 33);
+            this.txtParentTypeId.Location = new System.Drawing.Point(198, 33);
             this.txtParentTypeId.Name = "txtParentTypeId";
-            this.txtParentTypeId.Size = new System.Drawing.Size(91, 26);
+            this.txtParentTypeId.Size = new System.Drawing.Size(179, 26);
             this.txtParentTypeId.TabIndex = 0;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 36);
+            this.label3.Location = new System.Drawing.Point(30, 36);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(116, 19);
             this.label3.TabIndex = 0;
@@ -244,7 +244,7 @@
             this.gboxNodeDetial.Controls.Add(this.label3);
             this.gboxNodeDetial.Location = new System.Drawing.Point(628, 56);
             this.gboxNodeDetial.Name = "gboxNodeDetial";
-            this.gboxNodeDetial.Size = new System.Drawing.Size(510, 325);
+            this.gboxNodeDetial.Size = new System.Drawing.Size(510, 440);
             this.gboxNodeDetial.TabIndex = 14;
             this.gboxNodeDetial.TabStop = false;
             this.gboxNodeDetial.Text = "Node Information";
@@ -291,9 +291,9 @@
             this.label1.Location = new System.Drawing.Point(30, 10);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(507, 28);
+            this.label1.Size = new System.Drawing.Size(462, 28);
             this.label1.TabIndex = 8;
-            this.label1.Text = "Current Location: Book Category Management";
+            this.label1.Text = "Current Location: Book Type Management";
             // 
             // frmBookType
             // 
