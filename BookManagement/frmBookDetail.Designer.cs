@@ -99,7 +99,7 @@
             this.lblBorrowedNum.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblBorrowedNum.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lblBorrowedNum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.lblBorrowedNum.Location = new System.Drawing.Point(709, 523);
+            this.lblBorrowedNum.Location = new System.Drawing.Point(742, 529);
             this.lblBorrowedNum.Name = "lblBorrowedNum";
             this.lblBorrowedNum.Size = new System.Drawing.Size(158, 31);
             this.lblBorrowedNum.TabIndex = 155;
@@ -111,7 +111,7 @@
             this.lblInventoryNum.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblInventoryNum.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lblInventoryNum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.lblInventoryNum.Location = new System.Drawing.Point(504, 487);
+            this.lblInventoryNum.Location = new System.Drawing.Point(639, 487);
             this.lblInventoryNum.Name = "lblInventoryNum";
             this.lblInventoryNum.Size = new System.Drawing.Size(101, 31);
             this.lblInventoryNum.TabIndex = 154;
@@ -123,7 +123,7 @@
             this.lblBookId.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblBookId.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lblBookId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.lblBookId.Location = new System.Drawing.Point(684, 308);
+            this.lblBookId.Location = new System.Drawing.Point(709, 308);
             this.lblBookId.Name = "lblBookId";
             this.lblBookId.Size = new System.Drawing.Size(158, 31);
             this.lblBookId.TabIndex = 153;
@@ -213,7 +213,7 @@
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label20.ForeColor = System.Drawing.Color.Blue;
-            this.label20.Location = new System.Drawing.Point(13, 474);
+            this.label20.Location = new System.Drawing.Point(16, 474);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(147, 19);
             this.label20.TabIndex = 146;
@@ -232,7 +232,7 @@
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label18.ForeColor = System.Drawing.Color.Blue;
-            this.label18.Location = new System.Drawing.Point(13, 386);
+            this.label18.Location = new System.Drawing.Point(16, 386);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(148, 19);
             this.label18.TabIndex = 144;
@@ -299,7 +299,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label14.Location = new System.Drawing.Point(635, 492);
+            this.label14.Location = new System.Drawing.Point(504, 535);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(232, 19);
             this.label14.TabIndex = 138;
@@ -309,7 +309,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label12.Location = new System.Drawing.Point(361, 492);
+            this.label12.Location = new System.Drawing.Point(496, 493);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(137, 19);
             this.label12.TabIndex = 137;
@@ -337,7 +337,7 @@
             // txtBookAuthor
             // 
             this.txtBookAuthor.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtBookAuthor.Location = new System.Drawing.Point(214, 400);
+            this.txtBookAuthor.Location = new System.Drawing.Point(205, 400);
             this.txtBookAuthor.Name = "txtBookAuthor";
             this.txtBookAuthor.Size = new System.Drawing.Size(354, 26);
             this.txtBookAuthor.TabIndex = 131;
@@ -346,7 +346,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label7.Location = new System.Drawing.Point(150, 405);
+            this.label7.Location = new System.Drawing.Point(122, 405);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(73, 19);
             this.label7.TabIndex = 139;
@@ -420,7 +420,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label4.Location = new System.Drawing.Point(635, 314);
+            this.label4.Location = new System.Drawing.Point(666, 313);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(37, 19);
             this.label4.TabIndex = 126;
@@ -430,11 +430,11 @@
             // 
             this.cboBookTypeTwo.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.cboBookTypeTwo.FormattingEnabled = true;
-            this.cboBookTypeTwo.Location = new System.Drawing.Point(373, 312);
+            this.cboBookTypeTwo.Location = new System.Drawing.Point(417, 311);
             this.cboBookTypeTwo.Name = "cboBookTypeTwo";
             this.cboBookTypeTwo.Size = new System.Drawing.Size(224, 27);
             this.cboBookTypeTwo.TabIndex = 121;
-            this.cboBookTypeTwo.Text = "Please select subcategories";
+            this.cboBookTypeTwo.Text = "Please select subnode";
             this.cboBookTypeTwo.SelectedValueChanged += new System.EventHandler(this.cboBookTypeTwo_SelectedValueChanged);
             // 
             // cboBookTypeOne
@@ -443,20 +443,20 @@
             this.cboBookTypeOne.FormattingEnabled = true;
             this.cboBookTypeOne.Location = new System.Drawing.Point(205, 312);
             this.cboBookTypeOne.Name = "cboBookTypeOne";
-            this.cboBookTypeOne.Size = new System.Drawing.Size(162, 27);
+            this.cboBookTypeOne.Size = new System.Drawing.Size(206, 27);
             this.cboBookTypeOne.TabIndex = 120;
-            this.cboBookTypeOne.Text = "Please select the book category.";
+            this.cboBookTypeOne.Text = "Please select the book type";
             this.cboBookTypeOne.SelectedValueChanged += new System.EventHandler(this.cboBookTypeOne_SelectedValueChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(122, 317);
+            this.label1.Location = new System.Drawing.Point(86, 320);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 19);
+            this.label1.Size = new System.Drawing.Size(94, 19);
             this.label1.TabIndex = 124;
-            this.label1.Text = "Btype：";
+            this.label1.Text = "Book type：";
             // 
             // btnClearPhoto
             // 
@@ -508,7 +508,7 @@
             this.btnStartPhoto.Name = "btnStartPhoto";
             this.btnStartPhoto.Size = new System.Drawing.Size(148, 33);
             this.btnStartPhoto.TabIndex = 114;
-            this.btnStartPhoto.Text = "Photograph";
+            this.btnStartPhoto.Text = "Take photo";
             this.btnStartPhoto.UseVisualStyleBackColor = false;
             this.btnStartPhoto.Click += new System.EventHandler(this.btnStartPhoto_Click);
             // 
@@ -555,7 +555,7 @@
             this.btnStartCamera.Name = "btnStartCamera";
             this.btnStartCamera.Size = new System.Drawing.Size(148, 33);
             this.btnStartCamera.TabIndex = 112;
-            this.btnStartCamera.Text = "Start the camera";
+            this.btnStartCamera.Text = "Open the camera";
             this.btnStartCamera.UseVisualStyleBackColor = false;
             this.btnStartCamera.Click += new System.EventHandler(this.btnStartCamera_Click);
             // 
