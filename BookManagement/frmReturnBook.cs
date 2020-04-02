@@ -46,7 +46,7 @@ namespace BookManagement
             //Initialization of DataGridview 
             dgvReturn.AutoGenerateColumns = false;
             lblUserName.Text = Program.currentUser.UserName;
-            lblOperatingTime.Text = Program.currentUser.LastLoginTime.ToString();
+            lblOperatingTime.Text = DateTime.Now.ToString();
         }
 
         //Open detail form
