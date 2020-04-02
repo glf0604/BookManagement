@@ -46,6 +46,7 @@ namespace BookManagement
             {
                 MessageBox.Show("Access administrator failed! Specific reasons:" + ex.Message, "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+
             //Load into a table 
             dgvSysAdmins.DataSource = null;
             dgvSysAdmins.Rows.Clear();
@@ -109,6 +110,7 @@ namespace BookManagement
             }
 
         }
+
         private void btnAdd_Click(object sender, EventArgs e)
         {
             //Assign Value actionFlag 
