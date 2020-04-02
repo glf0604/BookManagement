@@ -16,6 +16,7 @@ namespace BookManagement
     {
         //Define the local action flag
         private int actionFlag = 0; //1---View 2---add 3--modifications
+
         //Instantiation of the Operation method
         private SysAdminsServices objSysAdminsServices = new SysAdminsServices();
 
@@ -28,6 +29,7 @@ namespace BookManagement
         {
             //Initialize the local Flag 
             actionFlag = flag;
+
             //Initialize the form by loading different methods according to the different Flag,j provided
             switch (flag)
             {
@@ -82,6 +84,7 @@ namespace BookManagement
                 LoginPwd = txtPasswordOneTime.Text,
                 LastLoginTime = DateTime.Now,
             };
+
             //Submit
             switch (actionFlag)
             {
@@ -123,6 +126,8 @@ namespace BookManagement
                     break;
             }
         }
+
+
         //====================================User-defined methods==================================
 
         //View
@@ -130,6 +135,7 @@ namespace BookManagement
         {
             //Modify Title name Display
             lblTitle.Text = "View Administrator";
+
             //Assign a value
             if (objSysAdmins.IsSuperUser) rbSuperUser.Checked = true;
             else rbUser.Checked = true;
@@ -137,6 +143,7 @@ namespace BookManagement
             txtUserName.Text = objSysAdmins.UserName;
             if (objSysAdmins.IsDisable) rbDisable.Checked = true;
             else rbEnable.Checked = true;
+
             //Disable controls
             rbUser.Enabled = false;
             rbSuperUser.Enabled = false;
@@ -145,6 +152,7 @@ namespace BookManagement
             txtUserName.Enabled = false;
             txtPasswordOneTime.Enabled = false;
             txtPasswordTwoTime.Enabled = false;
+
             //Submit Control Hide
             btnCommit.Visible = false;
 
