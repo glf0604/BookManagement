@@ -56,7 +56,7 @@ namespace BookManagement
         private void dgvPress_DoubleClick(object sender, EventArgs e)
         {
 
-            //===============View publisher Information====
+            //===============View publisher Information==========
 
             //Get click on this line of data
             BookPress objBookPress = new BookPress()
@@ -152,7 +152,7 @@ namespace BookManagement
             if (dgvPress.Rows.Count == 0) return;
             else
             {
-                string info = "You are sure to delete the publishing house information [No." + pressId + " Name：" + pressName + "]？";
+                string info = "You are sure to delete the book press information [No." + pressId + " Name：" + pressName + "]？";
                 DialogResult result = MessageBox.Show(info, "System Information", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
