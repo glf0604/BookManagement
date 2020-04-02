@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -69,8 +69,8 @@
             // 
             this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column3.DataPropertyName = "BookName";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle7;
             this.Column3.HeaderText = "Book Name";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
@@ -90,7 +90,7 @@
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Location = new System.Drawing.Point(1037, 105);
+            this.btnDelete.Location = new System.Drawing.Point(893, 105);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(76, 30);
@@ -106,7 +106,7 @@
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate.Location = new System.Drawing.Point(942, 105);
+            this.btnUpdate.Location = new System.Drawing.Point(809, 105);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(76, 30);
@@ -122,7 +122,7 @@
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(847, 105);
+            this.btnAdd.Location = new System.Drawing.Point(725, 105);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(76, 30);
@@ -138,7 +138,7 @@
             this.btnAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAll.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnAll.ForeColor = System.Drawing.Color.White;
-            this.btnAll.Location = new System.Drawing.Point(1061, 60);
+            this.btnAll.Location = new System.Drawing.Point(1061, 105);
             this.btnAll.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAll.Name = "btnAll";
             this.btnAll.Size = new System.Drawing.Size(76, 30);
@@ -154,7 +154,7 @@
             this.btnQuery.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnQuery.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnQuery.ForeColor = System.Drawing.Color.White;
-            this.btnQuery.Location = new System.Drawing.Point(977, 60);
+            this.btnQuery.Location = new System.Drawing.Point(977, 105);
             this.btnQuery.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnQuery.Name = "btnQuery";
             this.btnQuery.Size = new System.Drawing.Size(76, 30);
@@ -196,14 +196,14 @@
             this.dgvBook.AllowUserToResizeColumns = false;
             this.dgvBook.AllowUserToResizeRows = false;
             this.dgvBook.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.HotTrack;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Navy;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvBook.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.HotTrack;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.Navy;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBook.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvBook.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBook.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -216,13 +216,13 @@
             this.dgvBook.Name = "dgvBook";
             this.dgvBook.ReadOnly = true;
             this.dgvBook.RowHeadersVisible = false;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Navy;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Green;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvBook.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Navy;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.Green;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvBook.RowsDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvBook.RowTemplate.Height = 23;
             this.dgvBook.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvBook.Size = new System.Drawing.Size(1126, 511);
@@ -323,9 +323,9 @@
             this.label1.Location = new System.Drawing.Point(30, 10);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(401, 28);
+            this.label1.Size = new System.Drawing.Size(405, 28);
             this.label1.TabIndex = 25;
-            this.label1.Text = "Current Position: Book Management";
+            this.label1.Text = "Current Location: Book Management";
             // 
             // frmBook
             // 
