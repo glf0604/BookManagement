@@ -9,6 +9,7 @@ namespace Models
     /// <summary>
     /// Entity classes that describe the details of borrowing books
     /// </summary>
+
     public class BorrowBookDetail
     {
         public int DetailId { get; set; }  //Detail Id
