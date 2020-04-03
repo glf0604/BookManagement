@@ -9,6 +9,7 @@ namespace Models
     /// <summary>
     /// Entity classes For information overview of borrowed books
     /// </summary>
+
     public class BorrowBook
     {
         public string BorrowId { get; set; }   //BorrowId---Primary Key
