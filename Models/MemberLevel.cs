@@ -9,6 +9,7 @@ namespace Models
     /// <summary>
     /// Entity classes that represent membership levels
     /// </summary>
+
     public class MemberLevel
     {
         public int LevelId { get; set; }  //LevelId
