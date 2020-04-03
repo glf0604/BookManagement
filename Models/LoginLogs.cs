@@ -9,6 +9,7 @@ namespace Models
     /// <summary>
     /// The class that records the login log
     /// </summary>
+
     public class LoginLogs
     {
         public int LogId { get; set; }   //LogId
