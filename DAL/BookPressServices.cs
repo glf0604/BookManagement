@@ -15,7 +15,6 @@ namespace DAL
     /// </summary>
     public class BookPressServices
     {
-
         //Get information about the publisher
         public DataTable GetBookPress(string pressId = "", string pressName = "")
         {
@@ -47,9 +46,6 @@ namespace DAL
 
                 throw ex;
             }
-
-
-
         }
 
         //Generate a press number and return
