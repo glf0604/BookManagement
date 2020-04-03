@@ -9,6 +9,7 @@ namespace Models
     /// <summary>
     /// The entity class used to represent the logged-on user
     /// </summary>
+
     public class SysAdmins
     {
         public int LoginId { get; set; }   //LoginId
