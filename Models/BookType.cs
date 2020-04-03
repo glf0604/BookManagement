@@ -9,6 +9,7 @@ namespace Models
     /// <summary>
     /// Entity classes that represent the book category
     /// </summary>
+
     public class BookType
     {
         public int TypeId { get; set; }  //Type Id 
