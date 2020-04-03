@@ -9,6 +9,7 @@ namespace Models
     /// <summary>
     /// The entity class used to describe member information
     /// </summary>
+
     public class Member
     {
         public string MemberId { get; set; }  //MemberId
