@@ -12,6 +12,7 @@ namespace DBUtility
     /// <summary>
     /// Generic access classes that manipulate SQL Server databases
     /// </summary>
+
     public static class SQLHelper
     {
         //Connection string 
