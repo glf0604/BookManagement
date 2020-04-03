@@ -132,7 +132,6 @@ namespace BookManagement
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show("Abnormal access to selected member information! Specific reasons:" + ex.Message, "System Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
