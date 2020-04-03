@@ -9,6 +9,7 @@ namespace Models
     /// <summary>
     /// Entity classes that identify book information
     /// </summary>
+
     public class Book
     {
         public string BookId { get; set; } //Book Id -primary key
