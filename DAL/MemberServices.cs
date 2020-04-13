@@ -14,6 +14,7 @@ namespace DAL
     /// <summary>
     /// Method classes for member operations
     /// </summary>
+
     public class MemberServices
     {
         //Get member Information
