@@ -13,6 +13,7 @@ namespace DAL
     /// <summary>
     /// Method classes for logged-on user actions
     /// </summary>
+
     public class SysAdminsServices
     {
         /// <summary>
