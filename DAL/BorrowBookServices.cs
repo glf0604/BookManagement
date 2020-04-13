@@ -51,7 +51,6 @@ namespace DAL
             borrowId += objRandom.Next(0, 100).ToString("00");
             //Return memberId 
             return 'B' + borrowId;
-
         }
 
         //Add a BorrowBoo to see the record
