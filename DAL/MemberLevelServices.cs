@@ -30,6 +30,7 @@ namespace DAL
                 if (!objReader.HasRows) return null;
                 //If it is not empty, it is stored <MemberLeveL>in</MemberLeveL> the list
                 List<MemberLevel> objList = new List<MemberLevel>();
+                
                 //read
                 while (objReader.Read())
                 {
