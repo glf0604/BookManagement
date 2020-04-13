@@ -104,6 +104,7 @@ namespace DAL
                 }
                 //Close
                 objReader.Close();
+
                 //Return
                 return objBook;
             }
