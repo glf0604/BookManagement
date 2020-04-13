@@ -37,14 +37,19 @@ namespace DAL
             {
                 //Receive results through SQLDataReader
                 SqlDataReader objReader = SQLHelper.GetReader(sql, para);
+               
                 //Determine if it is empty
                 if (!objReader.HasRows) return null;
+                
                 //Define a DataTable 
                 DataTable dt = new DataTable();
+               
                 //Load the results into the DataTable
                 dt.Load(objReader);
+               
                 //Closed
                 objReader.Close();
+               
                 //Return
                 return dt;
 
