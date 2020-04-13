@@ -13,6 +13,7 @@ namespace DAL
     /// <summary>
     /// Methods of operation for book categories
     /// </summary>
+
     public class BookTypeServices
     {
         //Get all category information
