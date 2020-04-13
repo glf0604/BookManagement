@@ -14,6 +14,7 @@ namespace DAL
     /// <summary>
     /// The Operation class of book detail
     /// </summary>
+
     public class BorrowBookDetailServices
     {
         //Get a library detail by borrowId
