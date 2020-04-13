@@ -90,6 +90,7 @@ namespace DAL
             {
                 new SqlParameter("@MemberId",memberId),
             };
+            
             //Execute and return
             try
             {
