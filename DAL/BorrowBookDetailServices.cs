@@ -119,8 +119,6 @@ namespace DAL
 
                 throw ex;
             }
-
-
         }
 
         //Count the total number of books borrowed
