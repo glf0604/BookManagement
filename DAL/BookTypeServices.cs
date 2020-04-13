@@ -117,6 +117,7 @@ namespace DAL
             {
                 new SqlParameter("@TypeId",typeId),
             };
+
             //Execute and return
             try
             {
