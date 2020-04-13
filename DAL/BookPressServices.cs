@@ -84,6 +84,7 @@ namespace DAL
             {
                 new SqlParameter("@PressName",pressName),
             };
+
             //Execute and return results
             try
             {
@@ -147,8 +148,10 @@ namespace DAL
                         }
                         );
                 }
+
                 //Close Read
                 objReader.Close();
+
                 //Return
                 return objList;
             }
