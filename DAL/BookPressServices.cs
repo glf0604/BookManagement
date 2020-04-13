@@ -13,7 +13,7 @@ namespace DAL
     /// <summary>
     /// Operation Class of press information
     /// </summary>
-    /// 
+ 
     public class BookPressServices
     {
         //Get information about the publisher
