@@ -74,6 +74,7 @@ namespace DAL
                 new SqlParameter("@LoginId",loginId),
                 new SqlParameter("@LoginPwd",loginPwd),
             };
+
             //Execute and return
             try
             {
