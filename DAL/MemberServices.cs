@@ -107,7 +107,6 @@ namespace DAL
                 objReader.Close();
                 //Return
                 return objMember;
-
             }
             catch (Exception ex)
             {
