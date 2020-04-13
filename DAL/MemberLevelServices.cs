@@ -164,7 +164,6 @@ namespace DAL
             SqlParameter[] para = new SqlParameter[]
             {
                 new SqlParameter("@LevelId",levelId),
-
             };
 
             //execution
