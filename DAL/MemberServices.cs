@@ -63,7 +63,6 @@ namespace DAL
             string sql = "Select MemberId, MemberName, MemberCardId, MemberLevel, IdType, IdNumber, Gender, TelNo, Birthday, HomeAddress, MemberPhoto, CardStatus,";
             sql += " CardClosingDate, IsReturnDeposit, PayMethod, LoginId, OperatingTime, ReMarks from Member  Where MemberId=@MemberId ";
 
-
             //Preparing parameters in SQL statements
             SqlParameter[] para = new SqlParameter[]
             {
