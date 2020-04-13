@@ -158,6 +158,7 @@ namespace DAL
                 }
                 //Close 
                 objReader.Close();
+
                 //Return
                 return objBook;
             }
@@ -180,6 +181,7 @@ namespace DAL
                 {
                     new SqlParameter("@TypeId",typeId),
                 };
+
                 //Execute and return results
                 try
                 {
