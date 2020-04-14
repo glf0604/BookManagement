@@ -14,7 +14,7 @@ namespace Models
     {
         public int PressId { get; set; }   //Press Id
         public string PressName { get; set; }   //Press Name
-        public string PressTel { get; set; }   //Press Telephone
+        public string PressTel { get; set; }   //Press Telephone number
         public string PressContact { get; set; }   //Press Contact
         public string PressAddress { get; set; }   //Press Address
     }
