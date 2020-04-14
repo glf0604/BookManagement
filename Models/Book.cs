@@ -25,6 +25,5 @@ namespace Models
         public DateTime StorageInDate { get; set; } //store in date
         public int InventoryNum { get; set; } //inventory number
         public int BorrowedNum { get; set; } //borrowed number
-
     }
 }
