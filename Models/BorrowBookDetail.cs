@@ -21,7 +21,7 @@ namespace Models
         public bool IsOverdue { get; set; }  //Is Overdue 
         public bool IsLost { get; set; }  //IsLost
         public bool IsHandleOverdueorLost { get; set; } //Is Handle Overdue or Lost
-        public DateTime ReturnDate { get; set; }  //Return Date
+        public DateTime ReturnDate { get; set; } //Return Date
     }
 }
 
