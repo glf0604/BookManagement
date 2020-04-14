@@ -12,7 +12,7 @@ namespace Models
 
     public class BookPress
     {
-        public int PressId { get; set; }   //press Id
+        public int PressId { get; set; }   //Press Id
         public string PressName { get; set; }   //Press Name
         public string PressTel { get; set; }   //Press Telephone
         public string PressContact { get; set; }   //Press Contact
