@@ -18,7 +18,7 @@ namespace Models
         public string ISBN { get; set; } //ISBN
         public string BookAuthor { get; set; } //Book author 
         public double BookPrice { get; set; } //Book price
-        public int BookPress { get; set; } //book press
+        public int BookPress { get; set; } //Book press
         public string BookImage { get; set; } //book picture
         public DateTime BookPublishDate { get; set; } //book publish date 
         public int StorageInNum { get; set; } //store number
