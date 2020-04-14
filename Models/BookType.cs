@@ -15,6 +15,6 @@ namespace Models
         public int TypeId { get; set; }   //Type Id 
         public string TypeName { get; set; }  //Type Name
         public int ParentTypeId { get; set; } //Parent Type Id
-        public string DESC { get; set; }  //Type description
+        public string DESC { get; set; } //Type description
     }
 }
