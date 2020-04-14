@@ -19,11 +19,11 @@ namespace Models
         public string BookAuthor { get; set; } //Book author 
         public double BookPrice { get; set; } //Book price
         public int BookPress { get; set; } //Book press
-        public string BookImage { get; set; } //book picture
-        public DateTime BookPublishDate { get; set; } //book publish date 
-        public int StorageInNum { get; set; } //store number
-        public DateTime StorageInDate { get; set; } //store in date
-        public int InventoryNum { get; set; } //inventory number
-        public int BorrowedNum { get; set; } //borrowed number
+        public string BookImage { get; set; } //Book picture
+        public DateTime BookPublishDate { get; set; } //Book publish date 
+        public int StorageInNum { get; set; } //Store number
+        public DateTime StorageInDate { get; set; } //Store in date
+        public int InventoryNum { get; set; } //Inventory number
+        public int BorrowedNum { get; set; } //Borrowed number
     }
 }
