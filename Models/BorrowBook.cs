@@ -13,7 +13,7 @@ namespace Models
     public class BorrowBook
     {
         public string BorrowId { get; set; }  //BorrowId---Primary Key
-        public string MemberId { get; set; }   //Member Id
+        public string MemberId { get; set; }  //Member Id
         public int BorrowedNum { get; set; }  //Borrowed Number
         public int OverdueNum { get; set; }   //Overdue Number
     }
