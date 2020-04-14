@@ -14,7 +14,7 @@ namespace Models
     {
         public int DetailId { get; set; }  //Detail Id
         public string BorrowId { get; set; }  //Borrow Id
-        public string BookId { get; set; }  //Book Id
+        public string BookId { get; set; }   //Book Id
         public DateTime BorrowDate { get; set; }  //Borrow Date
         public DateTime LastReturnDate { get; set; } //Last Return Date
         public bool IsReturn { get; set; }  //Is Return 
